@@ -2,18 +2,225 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>문제 풀이 웹</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python 퀴즈</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 24px;
+      padding: 40px;
+      width: 100%;
+      max-width: 620px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .question-number {
+      font-size: 14px;
+      color: #999;
+      font-weight: 600;
+    }
+
+    .score-badge {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* Progress */
+    .progress-container {
+      background: #f0f0f0;
+      border-radius: 10px;
+      height: 8px;
+      margin-bottom: 32px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      height: 100%;
+      border-radius: 10px;
+      transition: width 0.5s ease;
+    }
+
+    /* Question */
+    .question {
+      font-size: 20px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    /* Options */
+    .options {
+      display: grid;
+      gap: 12px;
+    }
+
+    .option-btn {
+      padding: 16px 20px;
+      border: 2px solid #e8e8e8;
+      border-radius: 14px;
+      background: #fafafa;
+      font-size: 16px;
+      color: #333;
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: #764ba2;
+      background: #f5f0ff;
+      transform: translateY(-2px);
+    }
+
+    .option-btn.correct {
+      border-color: #43a047;
+      background: #e8f5e9;
+      color: #2e7d32;
+      font-weight: 700;
+    }
+
+    .option-btn.wrong {
+      border-color: #e53935;
+      background: #ffebee;
+      color: #c62828;
+      font-weight: 700;
+    }
+
+    .option-btn:disabled { cursor: default; transform: none; }
+
+    /* Feedback */
+    .feedback {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 700;
+      min-height: 28px;
+      transition: opacity 0.3s;
+    }
+
+    .feedback.correct { color: #43a047; }
+    .feedback.wrong   { color: #e53935; }
+
+    /* Next button */
+    .next-btn {
+      display: block;
+      width: 100%;
+      margin-top: 24px;
+      padding: 16px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+
+    .next-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+    .next-btn[hidden] { display: none; }
+
+    /* Result screen */
+    .result-screen {
+      display: none;
+      text-align: center;
+    }
+
+    .result-screen.active { display: block; }
+    .quiz-screen.hidden   { display: none; }
+
+    .result-emoji { font-size: 72px; margin-bottom: 16px; }
+
+    .result-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    .result-score {
+      font-size: 52px;
+      font-weight: 900;
+      color: #764ba2;
+      margin: 16px 0 8px;
+    }
+
+    .result-sub {
+      color: #777;
+      font-size: 16px;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .restart-btn {
+      padding: 16px 44px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+
+    .restart-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+  </style>
 </head>
 <body>
-  <h1>퀴즈</h1>
+  <div class="container">
 
-  <p>1. Python에서 리스트의 길이를 구하는 함수는?</p>
-  <button onclick="check('len')">len()</button>
-  <button onclick="check('size')">size()</button>
-  <button onclick="check('count')">count()</button>
+    <!-- 퀴즈 화면 -->
+    <div class="quiz-screen" id="quizScreen">
+      <div class="header">
+        <span class="question-number" id="questionNumber">문제 1 / 5</span>
+        <span class="score-badge" id="scoreDisplay">점수: 0</span>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar" style="width:0%"></div>
+      </div>
+      <div class="question" id="question"></div>
+      <div class="options" id="options"></div>
+      <div class="feedback" id="feedback"></div>
+      <button class="next-btn" id="nextBtn" hidden onclick="nextQuestion()">다음 문제 →</button>
+    </div>
 
-  <p id="result"></p>
+    <!-- 결과 화면 -->
+    <div class="result-screen" id="resultScreen">
+      <div class="result-emoji" id="resultEmoji"></div>
+      <div class="result-title">퀴즈 완료!</div>
+      <div class="result-score" id="finalScore"></div>
+      <div class="result-sub" id="resultSub"></div>
+      <button class="restart-btn" onclick="startQuiz()">다시 풀기 🔄</button>
+    </div>
 
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
