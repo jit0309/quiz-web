@@ -1,0 +1,192 @@
+[
+  {
+    "id": "2024_1_m_1",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Choose the most appropriate answer for the output of the following code",
+    "options": [
+      { "text": "[1, '2', (3,), {4, 1}]", "isCorrect": false },
+      { "text": "[1, '2', (3,), {4}]", "isCorrect": false },
+      { "text": "[1, '2', (3,), [1]]", "isCorrect": true },
+      { "text": "[[1], '2', (3,), {4}]", "isCorrect": false },
+      { "text": "Error", "isCorrect": false },
+      { "text": "[1, '2', (3,), {4, 1}]", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "data[-1] = [1]은 리스트의 마지막 요소인 {4}를 새로운 리스트 [1]로 대체합니다.",
+    "explanation_eng": "data[-1] = [1] replaces the last element {4} with a new list [1]."
+  },
+  {
+    "id": "2024_1_m_2",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["for", "if"],
+    "question": "Choose the most appropriate answer for the output of the following code",
+    "options": [
+      { "text": "3", "isCorrect": false },
+      { "text": "6", "isCorrect": true },
+      { "text": "1", "isCorrect": false },
+      { "text": "10", "isCorrect": false },
+      { "text": "2", "isCorrect": false },
+      { "text": "0", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "total은 0→0→1→3→6 순서로 증가하며, total이 3을 초과하는 시점(6)에서 break가 실행됩니다.",
+    "explanation_eng": "total increases: 0→0→1→3→6, and break executes when total exceeds 3 (at 6)."
+  },
+  {
+    "id": "2024_1_m_3",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Choose the most appropriate answer for the output of the following code",
+    "options": [
+      { "text": "5", "isCorrect": false },
+      { "text": "6", "isCorrect": false },
+      { "text": "Error", "isCorrect": false },
+      { "text": "3", "isCorrect": false },
+      { "text": "4", "isCorrect": false },
+      { "text": "2", "isCorrect": true }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "집합 s에는 2개의 튜플 (1, 2, 3)과 (3, 4, 5)가 요소로 들어있으므로 len(s)는 2입니다.",
+    "explanation_eng": "Set s contains 2 tuples (1, 2, 3) and (3, 4, 5) as elements, so len(s) is 2."
+  },
+  {
+    "id": "2024_1_m_4",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Choose the most appropriate answer for the output of the following code",
+    "options": [
+      { "text": "[1, 2, 4, {1, 2, 3, 4}]", "isCorrect": false },
+      { "text": "[1, 2, 3, {1, 2, 3}]", "isCorrect": false },
+      { "text": "[1, 2, 3, 4, {1, 2, 3, 4}]", "isCorrect": false },
+      { "text": "[1, 2, 3, {1, 2, 3, 4}]", "isCorrect": true },
+      { "text": "[1, 2, 4, {1, 2, 3}]", "isCorrect": false },
+      { "text": "[1, 2, 3, 4, {1, 2, 3}]", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "얕은 복사 특성상 집합 객체는 a 와 b가 공유하므로 a의 집합도 {1, 2, 3, 4}로 변경, 정수는 불변 객체 이므로 b[-2]=4는 b에만 영향을 줍니다.",
+    "explanation_eng": "Due to shallow copy characteristics, set object is shared between a and b, so a's set also changes to {1,2,3,4}. Since integers are immutable objects, b[-2]=4 only affects b."
+  },
+  {
+    "id": "2024_1_m_5",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["for", "function"],
+    "question": "Choose the most appropriate answer for the output of the following code",
+    "options": [
+      { "text": "40", "isCorrect": false },
+      { "text": "10", "isCorrect": true },
+      { "text": "20", "isCorrect": false },
+      { "text": "30", "isCorrect": false },
+      { "text": "0", "isCorrect": false },
+      { "text": "50", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "func(L) 호출 시 L 전체가 *args의 하나의 원소로 전달되어 args=([1,2,3,4,5],)가 되므로 루프는 한 번만 실행됩니다.",
+    "explanation_eng": "When calling func(L), the entire L is passed as one element of *args, so args=([1,2,3,4,5],) and the loop runs only once."
+  },
+  {
+    "id": "2024_1_m_6",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["function"],
+    "question": "Choose the most appropriate answer for the output of the following code",
+    "options": [
+      { "text": "1 1 2", "isCorrect": false },
+      { "text": "2 3 2", "isCorrect": false },
+      { "text": "None 3 2", "isCorrect": false },
+      { "text": "1 1 0", "isCorrect": false },
+      { "text": "None 1 2", "isCorrect": true },
+      { "text": "0 1 2", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "func(1, 1)은 global c를 2로 설정하지만 반환값이 없어 a는 None이 되고, b는 1을 유지하며, c는 2입니다.",
+    "explanation_eng": "func(1, 1) sets global c to 2 but returns None, making a=None, b maintains 1, and c becomes 2."
+  },
+  {
+    "id": "2024_1_m_7",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["if", "function"],
+    "question": "Choose the most appropriate answer for the output of the following code",
+    "options": [
+      { "text": "False", "isCorrect": false },
+      { "text": "0", "isCorrect": false },
+      { "text": "1", "isCorrect": false },
+      { "text": "True", "isCorrect": true },
+      { "text": "None", "isCorrect": false },
+      { "text": "['True', 'False']", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "\"True\"와 \"False\" 모두 비어있지 않은 문자열이므로 True로 평가되어 첫 번째 조건문이 실행되어 \"True\"를 반환합니다.",
+    "explanation_eng": "Both \"True\" and \"False\" are non-empty strings so evaluate to True, executing the first condition and returning \"True\"."
+  },
+  {
+    "id": "2024_1_m_8",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["function"],
+    "question": "Write the most appropriate answer for the output of the following code",
+    "options": [
+        { "text": "Error", "isCorrect": false },
+        { "text": "2", "isCorrect": true },
+        { "text": "None", "isCorrect": false },
+        { "text": "3", "isCorrect": false },
+        { "text": "1", "isCorrect": false },
+        { "text": "[2, 3]", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "a = len([1,2,3]) = 3이고, b = (lambda x: x-1)(3) = 2가 반환됩니다.",
+    "explanation_eng": "a = len([1,2,3]) = 3, and b = (lambda x: x-1)(3) = 2 is returned."
+  },
+  {
+    "id": "2024_1_m_9",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["function"],
+    "question": "Choose the most appropriate answer for the output of the following code",
+    "options": [
+      { "text": "(1, (), 10, {'b': 2})", "isCorrect": true },
+      { "text": "1, (2), 10, {}", "isCorrect": false },
+      { "text": "()", "isCorrect": false },
+      { "text": "Error", "isCorrect": false },
+      { "text": "(1, (2), 10, {})", "isCorrect": false },
+      { "text": "1, (), 10, {'b': 2}", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "func(1, b=2) 호출 시 a=1, *b=빈튜플, c=10(기본값), **d={'b':2}로 전달됩니다.",
+    "explanation_eng": "When calling func(1, b=2), a=1, *b=empty tuple, c=10 (default), **d={'b':2} are passed."
+  },
+  {
+    "id": "2024_1_m_10",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["function"],
+    "question": "Choose the most appropriate code to call the plus function",
+    "options": [
+      { "text": "plus(d=3, c=4)", "isCorrect": false },
+      { "text": "plus(1, 2, 3, 4)", "isCorrect": false },
+      { "text": "plus(1, 2, d=3, c=4)", "isCorrect": true },
+      { "text": "plus(a=1, b=2, c=3, d=4)", "isCorrect": false },
+      { "text": "plus(1, 2)", "isCorrect": false },
+      { "text": "plus(1, b=2, c=3, d=4)", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "a, b는 /로 인해 위치 인자로만 전달해야 하고, c, d는 *로 인해 키워드 인자로만 전달해야 합니다.",
+    "explanation_eng": "a, b must be positional-only (before /), and c, d must be keyword-only (after *)."
+  }
+]

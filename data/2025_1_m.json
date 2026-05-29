@@ -1,0 +1,194 @@
+[
+{
+  "id": "2025_1_m_1",
+  "type": "mcq",
+  "language": "python",
+  "tags": [],
+  "question": "Which of the following is the most appropriate output of the code?\n\na = [(1, 2), 3, (2, 1)]\nb = set(a)\nc = {(1, 2), 3}\nprint(b, b == c)",
+  "options": [
+    { "text": "{3, (1, 2), (2, 1)} False", "isCorrect": true },
+    { "text": "{3, (2, 1)} True", "isCorrect": false },
+    { "text": "{3, (1, 2), (2, 1)} True", "isCorrect": false },
+    { "text": "{3, (1, 2)} False", "isCorrect": false },
+    { "text": "{1, 2, 3} True", "isCorrect": false },
+    { "text": "{3, (1, 2)} True", "isCorrect": false },
+    { "text": "{3, (2, 1)} False", "isCorrect": false }
+  ],
+  "answers": "{3, (1, 2), (2, 1)} False",
+  "correctAnswerRate": null,
+  "explanation_kor": "리스트 a의 요소는 튜플 2개와 정수 1개다. set(a)는 중복 없는 집합을 만들며, 튜플은 해시 가능하므로 집합 원소가 될 수 있다. 따라서 b = {(1, 2), 3, (2, 1)}가 된다. c는 {(1, 2), 3}으로 원소가 다르고, 또한 b는 set, c도 set이지만 원소 구성부터 다르므로 b == c는 False다. 출력은 {3, (1, 2), (2, 1)} False.",
+  "explanation_eng": "a has two tuples and one int. Converting to a set yields b = {(1, 2), 3, (2, 1)} because tuples are hashable. c is {(1, 2), 3} which differs from b. Hence b == c is False. Output: {3, (1, 2), (2, 1)} False."
+},
+
+{
+  "id": "2025_1_m_2",
+  "type": "mcq",
+  "language": "python",
+  "tags": ["list"],
+  "question": "Which of the following is the most appropriate output of the code?\n\nnumbers = [1, 2, 3, 4, 5]\nnumbers[1:-1] = [2, 3, 4]\nprint(numbers)",
+  "options": [
+    { "text": "[1, [2, 3, 4]]", "isCorrect": false },
+    { "text": "[1[ 2, 3, 4], 2, 3, 4, 5]", "isCorrect": false },
+    { "text": "[1, [2, 3, 4], 5]", "isCorrect": false },
+    { "text": "[1, 2, 3, 4]", "isCorrect": false },
+    { "text": "[1, 2, 3, 4, 5]", "isCorrect": true },
+    { "text": "[1, 2, 3, 4,[2, 3, 4], 5]", "isCorrect": false }
+  ],
+  "answers": "[1, 2, 3, 4, 5]",
+  "correctAnswerRate": null,
+  "explanation_kor": "슬라이스 numbers[1:-1]는 [2, 3, 4] 부분을 가리킨다. 동일한 리스트로 대체했기 때문에 전체 리스트는 변함없이 [1, 2, 3, 4, 5]가 출력된다.",
+  "explanation_eng": "The slice [1:-1] refers to [2, 3, 4]. Replacing it with the same list leaves numbers unchanged, so it prints [1, 2, 3, 4, 5]."
+},
+{
+  "id": "2025_1_m_3",
+  "type": "mcq",
+  "language": "python",
+  "tags": ["function"],
+  "question": "Which of the following is the most appropriate output of the code?\n\nL1 = L = [1, (1,), {1}, [1]]\nL2 = L1.copy()\nL2[2].add(1)\nL2[3].append(1)\nprint(L1)",
+  "options": [
+    { "text": "[1, (1,), {1, 1}, [1, 1]]", "isCorrect": false },
+    { "text": "[1, (1,), {1}, [1, 1]]", "isCorrect": true },
+    { "text": "[1, (1,), {1, 1}, [1]]", "isCorrect": false },
+    { "text": "[1, (1,), {2}, [2]]", "isCorrect": false },
+    { "text": "[1, (1,), {2}, [1, 1]]", "isCorrect": false },
+    { "text": "[1, (1,), {1}, [1]]", "isCorrect": false }
+  ],
+  "answers": "[1, (1,), {1}, [1, 1]]",
+  "correctAnswerRate": null,
+  "explanation_kor": ".copy()는 얕은 복사로 내부 객체 참조는 공유된다. L2[2]는 {1}이며 add(1)은 변화가 없다. L2[3]은 [1]이고 append(1)로 [1, 1]이 되는데, 이 리스트는 L1과도 공유되므로 L1의 마지막 요소도 [1, 1]로 바뀐다. 최종 출력은 [1, (1,), {1}, [1, 1]]이다.",
+  "explanation_eng": "Shallow copy keeps inner references shared. Adding 1 to {1} does nothing; appending to the shared list changes it to [1, 1] in both L1 and L2. Output: [1, (1,), {1}, [1, 1]]."
+},
+{
+  "id": "2025_1_m_4",
+  "type": "mcq",
+  "language": "python",
+  "tags": ["while"],
+  "question": "Which of the following is the most appropriate output of the code?\n\nn = 4\nwhile n >= 0:\n    n = n - 2\nprint(n)",
+  "options": [
+    { "text": "Infinite loop", "isCorrect": false },
+    { "text": "4", "isCorrect": false },
+    { "text": "0", "isCorrect": false },
+    { "text": "-2", "isCorrect": true },
+    { "text": "2", "isCorrect": false },
+    { "text": "None", "isCorrect": false }
+  ],
+  "answers": "-2",
+  "correctAnswerRate": null,
+  "explanation_kor": "n은 4→2→0→-2 순으로 감소하고 -2에서 루프가 끝난다. 출력은 -2.",
+  "explanation_eng": "The loop subtracts 2 until n becomes -2, then stops. It prints -2."
+},
+{
+  "id": "2025_1_m_5",
+  "type": "mcq",
+  "language": "python",
+  "tags": ["for", "if"],
+  "question": "Which of the following is the most appropriate output of the code?\n\ntotal = 0\nfor n in range(0, 5):\n    if n == 3:\n        continue\n    total += 1\nprint(total)",
+  "options": [
+    { "text": "0", "isCorrect": false },
+    { "text": "4", "isCorrect": true },
+    { "text": "5", "isCorrect": false },
+    { "text": "3", "isCorrect": false },
+    { "text": "Infinite loop", "isCorrect": false }
+  ],
+  "answers": "4",
+  "correctAnswerRate": null,
+  "explanation_kor": "n이 0,1,2,4일 때만 total += 1이 실행된다(3은 건너뜀). 총 4번 증가하여 4.",
+  "explanation_eng": "The increment happens for n = 0,1,2,4 (skipping 3), so the final total is 4."
+},
+{
+  "id": "2025_1_m_6",
+  "type": "mcq",
+  "language": "python",
+  "tags": ["if", "function"],
+  "question": "Which of the following is the most appropriate output of the code?\n\ndef func(a, b):\n    if a and b:\n        return 1\n    elif a > b:\n        return 2\n    elif b:\n        return 3\n    else:\n        a += b\nprint(func(-1, 0))",
+  "options": [
+    { "text": "1", "isCorrect": false },
+    { "text": "-1", "isCorrect": false },
+    { "text": "3", "isCorrect": false },
+    { "text": "0", "isCorrect": false },
+    { "text": "None", "isCorrect": true },
+    { "text": "2", "isCorrect": false }
+  ],
+  "answers": "None",
+  "correctAnswerRate": null,
+  "explanation_kor": "a and b는 -1 and 0 → False, a > b는 -1 > 0 → False, b는 0이므로 False. 따라서 else로 가서 a += b만 하고 return이 없으므로 None을 반환한다.",
+  "explanation_eng": "All conditions fail (a and b is False, a > b is False, b is False), so the else executes without a return. The function returns None."
+},
+{
+  "id": "2025_1_m_7",
+  "type": "mcq",
+  "language": "python",
+  "tags": ["function", "for"],
+  "question": "Which of the following is the most appropriate output of the code?\n\ndef func(*args):\n    for arg in args:\n        return arg\nvalue = {1, 2, 3}\nprint(func(value))",
+  "options": [
+    { "text": "(1, 2, 3)", "isCorrect": false },
+    { "text": "1", "isCorrect": false },
+    { "text": "None", "isCorrect": false },
+    { "text": "(1,)", "isCorrect": false },
+    { "text": "({1, 2, 3})", "isCorrect": false },
+    { "text": "{1, 2, 3}", "isCorrect": true },
+    { "text": "({1, 2, 3},)", "isCorrect": false }
+  ],
+  "answers": "{1, 2, 3}",
+  "correctAnswerRate": null,
+  "explanation_kor": "func(value) 호출 시 args는 ({1, 2, 3},)가 되고, 첫 반복에서 곧바로 첫 원소 {1, 2, 3}을 반환한다. 출력은 집합 {1, 2, 3}.",
+  "explanation_eng": "args becomes ({1, 2, 3},) and the loop immediately returns the first element, the set {1, 2, 3}. Printed output is {1, 2, 3}."
+},
+{
+  "id": "2025_1_m_8",
+  "type": "mcq",
+  "language": "python",
+  "tags": ["function"],
+  "question": "Which of the following is the most appropriate output of the code?\n\ndef func(a, *b, c=5, **d):\n    return a, b, c\nprint(func(1, 2, c=3))",
+  "options": [
+    { "text": "(1, (2,), 3)", "isCorrect": true },
+    { "text": "1, 2, 3", "isCorrect": false },
+    { "text": "(1, (2,), 5)", "isCorrect": false },
+    { "text": "1, (2,), 3", "isCorrect": false },
+    { "text": "1, (2,), 5", "isCorrect": false },
+    { "text": "(1, 2, 3)", "isCorrect": false }
+  ],
+  "answers": "(1, (2,), 3)",
+  "correctAnswerRate": null,
+  "explanation_kor": "a=1, b=(2,), c=3, d={}가 되고 return (1, (2,), 3)을 반환한다. 튜플 형태로 반환되므로 괄호가 포함된 (1, (2,), 3)이 정답이다.",
+  "explanation_eng": "With the call, a=1, b=(2,), c=3, d={}. The function returns the tuple (1, (2,), 3)."
+},
+{
+  "id": "2025_1_m_9",
+  "type": "mcq",
+  "language": "python",
+  "tags": ["function"],
+  "question": "Which of the following is the most appropriate output of the code?\n\ndef func(a, *b, c=5, **d):\n    return d\nprint(func(1, 2, c=3, d=99))",
+  "options": [
+    { "text": "{'d': 99}", "isCorrect": true },
+    { "text": "'d'", "isCorrect": false },
+    { "text": "{}", "isCorrect": false },
+    { "text": "{'c': 3, 'd': 99}", "isCorrect": false },
+    { "text": "d['d']=99", "isCorrect": false },
+    { "text": "99", "isCorrect": false }
+  ],
+  "answers": "{'d': 99}",
+  "correctAnswerRate": null,
+  "explanation_kor": "키워드 인자 d=99가 **d에 수집되어 {'d': 99}가 된다. 함수는 d만 반환하므로 출력은 {'d': 99}.",
+  "explanation_eng": "The keyword d=99 is captured into **d as {'d': 99}. Returning d yields {'d': 99}."
+},
+{
+  "id": "2025_1_m_10",
+  "type": "mcq",
+  "language": "python",
+  "tags": ["function"],
+  "question": "Which of the following will fail to successfully call the function func?\n\ndef func(a, *, b=0):\n    return a + b",
+  "options": [
+    { "text": "func(b=1, a=1)", "isCorrect": false },
+    { "text": "func(a=1)", "isCorrect": false },
+    { "text": "func(a=1, b=1)", "isCorrect": false },
+    { "text": "func(1, 1)", "isCorrect": true },
+    { "text": "func(1)", "isCorrect": false },
+    { "text": "func(1, b=1)", "isCorrect": false }
+  ],
+  "answers": "func(1, 1)",
+  "correctAnswerRate": null,
+  "explanation_kor": "* 이후의 b는 키워드 전용이므로 반드시 b=... 형태로 전달해야 한다. func(1, 1)은 b를 위치 인자로 넘기려 하므로 실패. 나머지 호출은 모두 유효하다(기본값 사용 또는 키워드로 전달).",
+  "explanation_eng": "Since b is keyword-only, it must be passed as b=.... func(1, 1) attempts to pass b positionally → fails. All other calls are valid (use keyword or default)."
+}
+]

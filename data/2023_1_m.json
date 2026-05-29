@@ -1,0 +1,194 @@
+[
+  {
+    "id": "2023_1_m_1",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Please choose a possible assignment",
+    "options": [
+      { "text": "_KHU = \"University\"", "isCorrect": true },
+      { "text": "web/python = \"Select me\"", "isCorrect": false },
+      { "text": "python programming = (0, 1)", "isCorrect": false },
+      { "text": "2023_python = {\"score\": 4.3}", "isCorrect": false },
+      { "text": "@email_address = \"sk.park@khu.ac.kr\"", "isCorrect": false },
+      { "text": "kyunghee-university = \"This is a correct answer\"", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "언더바로 시작하는 변수명은 파이썬에서 유효합니다. 나머지는 특수문자, 공백, 숫자로 시작 등의 이유로 잘못된 변수명입니다.",
+    "explanation_eng": "Variable names starting with underscore are valid in Python. Others are invalid due to special characters, spaces, or starting with numbers."
+  },
+  {
+    "id": "2023_1_m_2",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Please choose the most appropriate output for the code",
+    "options": [
+      { "text": "6", "isCorrect": false },
+      { "text": "2.0", "isCorrect": true },
+      { "text": "ZeroDivisionError: division by zero", "isCorrect": false },
+      { "text": "6.0", "isCorrect": false },
+      { "text": "2", "isCorrect": false },
+      { "text": "ValueError: too many values to unpack", "isCorrect": false },
+      { "text": "0", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "c가 1로 재할당되어 (1*2*1)/(1*1) = 2/1 = 2.0입니다. 파이썬에서 /는 부동소수점(float) 나눗셈을 수행합니다.",
+    "explanation_eng": "c is reassigned to 1, so (1*2*1)/(1*1) = 2/1 = 2.0. Python's / operator performs float division."
+  },
+  {
+    "id": "2023_1_m_3",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Please choose the most appropriate output for the code",
+    "options": [
+      { "text": "0", "isCorrect": true },
+      { "text": "10", "isCorrect": false },
+      { "text": "None", "isCorrect": false },
+      { "text": "5", "isCorrect": false },
+      { "text": "11", "isCorrect": false },
+      { "text": "Error", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "s[-5:0]은 인덱스 5부터 0까지인데 역방향이므로 빈 문자열이 되어 len()의 결과는 0입니다.",
+    "explanation_eng": "s[-5:0] goes from index 5 to 0 which is backward, resulting in an empty string with length 0."
+  },
+  {
+    "id": "2023_1_m_4",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Please choose the most appropriate output for the code",
+    "options": [
+      { "text": "[1, (3, 4), 12, {7}]", "isCorrect": false },
+      { "text": "[1, (3, 4), 10, {7}]", "isCorrect": false },
+      { "text": "[1, (3, 4), [5, 6], {7}]", "isCorrect": false },
+      { "text": "TypeError: 'tuple' object does not support item assignment", "isCorrect": false },
+      { "text": "[1, (3, 4), [5, 12], {7}]", "isCorrect": false },
+      { "text": "[1, (3, 4), [5, 10], {7}]", "isCorrect": true }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "얕은 복사로 L1[2]와 L2[2]가 같은 리스트 객체를 가리킵니다. L2[2][-1]에 4를 더하면 6+4=10으로 변경됩니다.",
+    "explanation_eng": "Due to shallow copy, L1[2] and L2[2] reference the same list object. Adding 4 to L2[2][-1] changes 6+4=10."
+  },
+  {
+    "id": "2023_1_m_5",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["for", "if", "function"],
+    "question": "Please choose the most appropriate output for the code",
+    "options": [
+      { "text": "[1, 4, 9, 16, 25]", "isCorrect": false },
+      { "text": "(1, 4, 9, 16, 25)", "isCorrect": false },
+      { "text": "[0, 4, 0, 16, 0]", "isCorrect": false },
+      { "text": "(0, 4, 0, 16, 0)", "isCorrect": false },
+      { "text": "[None, None, None, None, None]", "isCorrect": false },
+      { "text": "[None, 4, None, 16, None]", "isCorrect": true },
+      { "text": "(None, 4, None, 16, None)", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "square 함수는 짝수일 때만 제곱값을 반환하고, 홀수일 때는 암묵적으로 None을 반환합니다.",
+    "explanation_eng": "The square function returns squared values for even numbers and implicitly returns None for odd numbers."
+  },
+  {
+    "id": "2023_1_m_6",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["for", "if"],
+    "question": "Please choose the most appropriate output for the code",
+    "options": [
+      { "text": "1", "isCorrect": true },
+      { "text": "999", "isCorrect": false },
+      { "text": "-1", "isCorrect": false },
+      { "text": "0", "isCorrect": false },
+      { "text": "2", "isCorrect": false },
+      { "text": "-2", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "요소(0, {}, \"False\", [None], \"True\")에 대한 bool 평가 결과, False(0, {}) 2개(-2)와 True(\"False\", [None], \"True\") 3개(+3)로 최종 1이 됩니다.",
+    "explanation_eng": "Evaluating bool values: 2 False elements (0, {}) give -2, and 3 True elements (\"False\", [None], \"True\") give +3, resulting in 1."
+  },
+  {
+    "id": "2023_1_m_7",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["if", "function"],
+    "question": "Please choose the most appropriate output for the code",
+    "options": [
+      { "text": "21", "isCorrect": false },
+      { "text": "20", "isCorrect": false },
+      { "text": "25", "isCorrect": true },
+      { "text": "31", "isCorrect": false },
+      { "text": "30", "isCorrect": false },
+      { "text": "KeyError: \"age\"", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "func(1, 5, age=20) 호출 시 [args]는 [()]로 Ture이므로 if문이 실행되어 kw['age']+b = 20+5 = 25를 반환합니다.",
+    "explanation_eng": "When calling func(1, 5, age=20), [args] is [()] which is truthy, so the if branch executes returning kw['age']+b = 20+5 = 25."
+  },
+  {
+    "id": "2023_1_m_8",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["function"],
+    "question": "Please choose the most appropriate output for the code",
+    "options": [
+      { "text": "5 1", "isCorrect": false },
+      { "text": "1 5", "isCorrect": false },
+      { "text": "None 2", "isCorrect": false },
+      { "text": "2 2", "isCorrect": false },
+      { "text": "1 2", "isCorrect": false },
+      { "text": "1 None", "isCorrect": true }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "func1에서 global b를 5로 설정하지만, func2가 None을 반환하여 b가 None이 됩니다. a는 변경되지 않아 1입니다.",
+    "explanation_eng": "func1 sets global b to 5, but func2 returns None, making b become None. a remains unchanged at 1."
+  },
+  {
+    "id": "2023_1_m_9",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["function"],
+    "question": "Please choose the most appropriate output for the code",
+    "options": [
+      { "text": "[1, 2, 3, 1, 2, 3]", "isCorrect": false },
+      { "text": "3", "isCorrect": false },
+      { "text": "[1, 2, 3][1, 2, 3]", "isCorrect": false },
+      { "text": "6", "isCorrect": true },
+      { "text": "TypeError: unsupported operand type(s) for '*': 'NoneType' and 'int'", "isCorrect": false },
+      { "text": "0", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "function(len(L))은 function(3)을 호출하고, str(3)='3'이 되어 a*2 = 3*2 = 6을 반환합니다.",
+    "explanation_eng": "function(len(L)) calls function(3), which sets a=str(3)='3', then returns a*2 = 3*2 = 6."
+  },
+  {
+    "id": "2023_1_m_10",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Please choose the most appropriate output for the code",
+    "options": [
+      { "text": "None", "isCorrect": false },
+      { "text": "Error", "isCorrect": false },
+      { "text": "<built-in function len>", "isCorrect": false },
+      { "text": "TypeError: 'str' object is not callable", "isCorrect": false },
+      { "text": "6", "isCorrect": true },
+      { "text": "<built-in function print>", "isCorrect": false }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "test는 원래 len 함수를 가리킵니다. len이 print로 재할당된 후 len(test(s))는 print(6)이 되어 6을 출력합니다.",
+    "explanation_eng": "test references the original len function. After len is reassigned to print, len(test(s)) becomes print(6), printing 6."
+  }
+]

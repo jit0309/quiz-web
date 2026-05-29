@@ -1,0 +1,482 @@
+[
+  {
+    "id": "2022_2_f_1",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Which is an incorrect assignment?",
+    "options": [
+      {
+        "text": "_var1 = 100",
+        "isCorrect": false
+      },
+      {
+        "text": "_1var = 100",
+        "isCorrect": false
+      },
+      {
+        "text": "1var = 100",
+        "isCorrect": true
+      },
+      {
+        "text": "var1 = 100",
+        "isCorrect": false
+      },
+      {
+        "text": "var__ = 100",
+        "isCorrect": false
+      },
+      {
+        "text": "var_1 = 100",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "Python에서 변수 이름 규칙을 위반한 할당을 찾는 문제입니다. 변수 이름은 숫자로 시작할 수 없고, 문자(a-z, A-Z) 또는 밑줄(_)로 시작해야 합니다. 1var = 100은 숫자로 시작하므로 잘못된 할당입니다.",
+    "explanation_eng": "This question asks you to identify an invalid variable assignment in Python. Variable names cannot start with a number and must begin with a letter (a–z, A–Z) or an underscore (_). Therefore, 1var = 100 is invalid because it starts with a digit."
+  },
+  {
+    "id": "2022_2_f_2",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "for"
+    ],
+    "question": "What do you expect to be printed?",
+    "options": [
+      {
+        "text": "9",
+        "isCorrect": false
+      },
+      {
+        "text": "infinite loop",
+        "isCorrect": false
+      },
+      {
+        "text": "1",
+        "isCorrect": true
+      },
+      {
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "text": "10",
+        "isCorrect": false
+      },
+      {
+        "text": "11",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "i += 2는 for문의 반복 변수에 영향을 주지 않으므로 실제 반복 값은 0 -> 1 순으로 진행됩니다. i가 1이 되는 순간 break로 종료되며, 최종 출력은 1입니다.",
+    "explanation_eng": "i += 2 does not affect the loop variable in a for-loop, so the actual iteration proceeds as 0 → 1. When i becomes 1, the loop stops due to the break, and the final output is 1."
+  },
+  {
+    "id": "2022_2_f_3",
+    "type": "saq",
+    "language": "python",
+    "tags": [],
+    "question": "What do you expect to be printed?",
+    "options": null,
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "L2 = L1[:] 구문은 리스트의 shallow copy가 아니라, 새로운 리스트를 완전히 복사하는 slicing copy입니다. 즉, L1과 L2는 서로 독립적인 리스트가 됩니다. 따라서 L1[1] = 4 로 값을 바꿔도 L2에는 영향을 주지 않습니다. L2[1]에는 여전히 원래 값인 2가 들어있습니다. 따라서 출력 결과는 2입니다.",
+    "explanation_eng": "L2 = L1[:] creates a full slicing copy, not a shallow copy, so L1 and L2 become independent lists. Therefore, changing L1[1] = 4 does not affect L2, and L2[1] remains the original value 2. Thus, the output is 2."
+  },
+  {
+    "id": "2022_2_f_4",
+    "type": "saq",
+    "language": "python",
+    "tags": [],
+    "question": "What do you expect to be printed?",
+    "options": null,
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "L2 = L1[:]는 새로운 리스트를 만들지만, 내부의 리스트( [4, 5] )는 동일한 객체를 공유하는 shallow copy입니다. 따라서 L1[3][0] = -4로 내부 리스트를 수정하면 L2가 가리키는 내부 리스트도 함께 변경됩니다. 그 결과 L2[3][0]은 -4가 출력됩니다.",
+    "explanation_eng": "L2 = L1[:] creates a new list, but the inner list [4, 5] is still shared because this is a shallow copy. Therefore, modifying L1[3][0] = -4 also changes the inner list referenced by L2. As a result, L2[3][0] prints -4."
+  },
+  {
+    "id": "2022_2_f_5",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "What do you expect to be printed?",
+    "options": [
+      {
+        "text": "1",
+        "isCorrect": true
+      },
+      {
+        "text": "False",
+        "isCorrect": false
+      },
+      {
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "text": "None",
+        "isCorrect": false
+      },
+      {
+        "text": "True",
+        "isCorrect": false
+      },
+      {
+        "text": "Syntax Error",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "1 or False는 논리 OR 연산으로, 처음 만나는 Truthy 값을 그대로 반환합니다. 1은 Truthy이므로 뒤의 False를 보지 않고 바로 1을 반환합니다. 따라서 출력값은 1입니다.",
+    "explanation_eng": "1 or False uses the logical OR operator, which returns the first truthy value it encounters. Since 1 is truthy, Python returns 1 without evaluating False. Therefore, the output is 1."
+  },
+  {
+    "id": "2022_2_f_6",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": null,
+    "options": [
+      {
+        "text": "False",
+        "isCorrect": true
+      },
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "True",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "text": "3",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "1 in ['1234']는 리스트 안에 정수 1이 있는지를 확인하는 표현입니다. 하지만 리스트의 요소는 '1234'라는 문자열 하나뿐이며, 정수 1과 문자열 '1234'는 서로 다르므로 포함되지 않습니다. 따라서 결과는 False입니다.",
+    "explanation_eng": "1 in ['1234'] checks whether the integer 1 is contained in the list. However, the list has only one element, the string '1234', and the integer 1 is not equal to that string. Therefore, the result is False."
+  },
+  {
+    "id": "2022_2_f_7",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "function"
+    ],
+    "question": "What do you expect to be printed?",
+    "options": [
+      {
+        "text": "1, 2",
+        "isCorrect": false
+      },
+      {
+        "text": "(1, 5, ())",
+        "isCorrect": true
+      },
+      {
+        "text": "1, 10, ()",
+        "isCorrect": false
+      },
+      {
+        "text": "(1, 2, ())",
+        "isCorrect": false
+      },
+      {
+        "text": "(1, 10, ())",
+        "isCorrect": false
+      },
+      {
+        "text": "1, 5, ()",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "func(1, 2)는 첫 번째 인자를 a=1, 두 번째 인자를 b=2로 받으며, 추가 인자가 없으므로 c는 빈 튜플이 됩니다. 함수 내부에서 b는 5로 다시 덮어쓰이기 때문에 반환값은 (1, 5, ())가 됩니다. 따라서 출력 결과는 (1,5, ())입니다.",
+    "explanation_eng": "func(1, 2) receives the first argument as a = 1 and the second as b = 2, and since there are no additional arguments, c becomes an empty tuple. Inside the function, b is reassigned to 5, so the return value becomes (1, 5, ()). Therefore, the output is (1, 5, ())."
+  },
+  {
+    "id": "2022_2_f_8",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "class"
+    ],
+    "question": "What do you expect to be printed?",
+    "options": [
+      {
+        "text": "Cry",
+        "isCorrect": false
+      },
+      {
+        "text": "AttributeError: 'Cat' object has no attribute 'eat'",
+        "isCorrect": false
+      },
+      {
+        "text": "None",
+        "isCorrect": false
+      },
+      {
+        "text": "Eat",
+        "isCorrect": true
+      },
+      {
+        "text": "Error",
+        "isCorrect": false
+      },
+      {
+        "text": "Meow",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "클래스 Cat은 Animal을 상속하므로 Animal에 정의된 eat 메서드를 그대로 사용할 수 있습니다. cry 메서드만 Cat에서 재정의되었기 때문에 eat은 부모 클래스의 동작을 따라 'Eat'을 출력합니다. 따라서 결과는 Eat입니다.",
+    "explanation_eng": "Since the Cat class inherits from Animal, it can use the eat method defined in Animal. Only the cry method is overridden in Cat, so eat follows the parent class’s behavior and prints 'Eat'. Therefore, the result is Eat."
+  },
+  {
+    "id": "2022_2_f_9",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Which is an incorrect assignment?",
+    "options": [],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "",
+    "explanation_eng": ""
+  },
+  {
+    "id": "2022_2_f_10",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "function"
+    ],
+    "question": "What do you expect to be printed?",
+    "options": [
+      {
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "text": "4",
+        "isCorrect": false
+      },
+      {
+        "text": "None",
+        "isCorrect": false
+      },
+      {
+        "text": "10",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "1",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "func3()에서 nonlocal a는 바로 바깥 함수인 func2()의 a를 가리키므로 func2()의 a가 3에서 4로 변경됩니다. 하지만 print(a)는 func1() 내부의 a를 출력하며, func1()의 a는 초기값 2에서 변경되지 않습니다. 따라서 출력 결과는 2입니다.",
+    "explanation_eng": "In func3(), nonlocal a refers to the a in the immediately enclosing function func2(), so func2()’s a changes from 3 to 4. However, print(a) outputs the a inside func1(), and that value remains 2 because it is never modified. Therefore, the output is 2."
+  },
+  {
+    "id": "2022_2_f_11",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "function"
+    ],
+    "question": "What do you expect to be printed?",
+    "options": [
+      {
+        "text": "4",
+        "isCorrect": true
+      },
+      {
+        "text": "10",
+        "isCorrect": false
+      },
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "None",
+        "isCorrect": false
+      },
+      {
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "func3()에서 global a를 사용하면 전역 변수 a를 가리키게 되므로, func3() 실행 후 전역 변수 a는 4로 변경됩니다. func1() 내부의 a 값은 출력에 사용되지 않고, 마지막 print(a)는 전역 변수 a를 출력합니다. 따라서 결과는 4입니다.",
+    "explanation_eng": "In func3(), using global a makes the function refer to the global variable a, so after func3() runs, the global a is changed to 4. The a inside func1() is not used for the final output, and the last print(a) prints the global variable. Therefore, the result is 4."
+  },
+  {
+    "id": "2022_2_f_12",
+    "type": "saq",
+    "language": "python",
+    "tags": [],
+    "question": "What do you expect to be filled in the question mark?",
+    "options": null,
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "open('./python.txt', 'r') as f: 형태를 사용하려면 파일을 열고 닫는 과정을 자동으로 관리하는 with문이 필요합니다. with문은 파일 객체를 안전하게 처리하기 위한 표준 방식이므로 괄호 안에 들어갈 가장 적절한 키워드는 with입니다. 따라서 정답은 with입니다.",
+    "explanation_eng": "To use the form open('./python.txt', 'r') as f:, you need a with statement, which automatically manages opening and closing the file. Since the with statement is the standard way to safely handle file objects, the most appropriate keyword to fill in the blank is with. Therefore, the correct answer is with."
+  },
+  {
+    "id": "2022_2_f_13",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Which is an incorrect assignment?",
+    "options": [],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "",
+    "explanation_eng": ""
+  },
+  {
+    "id": "2022_2_f_14",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Which is an incorrect assignment?",
+    "options": [],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "",
+    "explanation_eng": ""
+  },
+  {
+    "id": "2022_2_f_15",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Which is an incorrect assignment?",
+    "options": [],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "",
+    "explanation_eng": ""
+  },
+  {
+    "id": "2022_2_f_16",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Which is an incorrect assignment?",
+    "options": [],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "",
+    "explanation_eng": ""
+  },
+  {
+    "id": "2022_2_f_17",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "class"
+    ],
+    "question": "What do you expect to be printed?",
+    "options": [
+      {
+        "text": "TypeError: 'c' is not defined",
+        "isCorrect": false
+      },
+      {
+        "text": "10",
+        "isCorrect": false
+      },
+      {
+        "text": "20",
+        "isCorrect": false
+      },
+      {
+        "text": "AttributeError: 'Cat' object has no attribute 'age'",
+        "isCorrect": true
+      },
+      {
+        "text": "Park",
+        "isCorrect": false
+      },
+      {
+        "text": "None",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "__init__ 안에서 age = a라고 작성하면 지역 변수 age만 생성될 뿐, 객체 속성(self.age)이 만들어지지 않습니다. 따라서 c.age를 출력하려고 하면 객체에는 age라는 속성이 없기 때문에 AttributeError가 발생합니다. 따라서 결과는 AttributeError: 'Cat' object has no attribute 'age'입니다.",
+    "explanation_eng": "Inside __init__, writing age = a creates only a local variable rather than an instance attribute (self.age). Therefore, when trying to access c.age, the object has no such attribute, resulting in an AttributeError. Hence, the output is AttributeError: 'Cat' object has no attribute 'age'."
+  },
+  {
+    "id": "2022_2_f_18",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "function"
+    ],
+    "question": "What do you expect to be printed?",
+    "options": [
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "text": "'2'",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "'0'",
+        "isCorrect": false
+      },
+      {
+        "text": "'11'",
+        "isCorrect": true
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "func(multiple, '1')에서 첫 번째 인자 multiple은 함수이지만, func 내부에서는 int(i)만 반환하고 첫 번째 인자는 사용하지 않습니다. 두 번째 인자 i는 문자열 '1'이므로 int(i)는 정수 1로 변환됩니다. 따라서 출력 결과는 1입니다.",
+    "explanation_eng": "In func(multiple, '1'), the first argument multiple is a function, but it is not used inside func, which simply returns int(i). The second argument i is the string '1', so int(i) becomes the integer 1. Therefore, the output is 1."
+  }
+]

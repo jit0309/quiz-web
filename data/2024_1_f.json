@@ -1,0 +1,186 @@
+[
+  {
+    "id": "2024_1_f_1",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["while"],
+    "question": "Please choose the most appropriate output for the code.\n\nn = 10\nwhile n >= 0:\n    n = n / 2\n    n = n - 1\nprint(n)",
+    "options": [
+      { "text": "-0.5", "isCorrect": true },
+      { "text": "1", "isCorrect": false },
+      { "text": "Error", "isCorrect": false },
+      { "text": "0.5", "isCorrect": false },
+      { "text": "-1.5", "isCorrect": false },
+      { "text": "0", "isCorrect": false },
+      { "text": "-1", "isCorrect": false }
+    ],
+    "answers": "-0.5",
+    "correctAnswerRate": null,
+    "explanation_kor": "처음에 n은 10입니다. 첫 번째 반복에서 n은 5가 되고 다시 1을 빼서 4가 됩니다. 두 번째 반복에서 4는 2가 되고 다시 1을 빼서 1이 됩니다. 세 번째 반복에서 1은 0.5가 되고 다시 1을 빼서 -0.5가 됩니다. 이때 while 문의 조건인 n >= 0을 확인하면 -0.5는 0보다 작으므로 조건이 거짓(False)이 되어 반복문이 종료됩니다. 따라서 마지막으로 출력되는 n의 값은 -0.5입니다.",
+    "explanation_eng": "Initially, n is 10. In the first iteration, n becomes 5 and then 4 after subtraction. In the second iteration, 4 becomes 2 and then 1. In the third iteration, 1 becomes 0.5 and then -0.5. At this point, the while condition n >= 0 is checked; since -0.5 is less than 0, the condition becomes False, and the loop terminates. Therefore, the final printed value of n is -0.5."
+  },
+
+  {
+    "id": "2024_1_f_2",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["try", "except"],
+    "question": "Please choose the most appropriate output for the code.\n\nn = [1, 2, 3, {1, 2}]\ntry:\n    n[-1][0] += 1\nexcept:\n    print(n[-1])\nelse:\n    print(len(n))",
+    "options": [
+      { "text": "{1, 2}", "isCorrect": true },
+      { "text": "1", "isCorrect": false },
+      { "text": "2", "isCorrect": false },
+      { "text": "{1}", "isCorrect": false },
+      { "text": "Error", "isCorrect": false },
+      { "text": "3", "isCorrect": false },
+      { "text": "{2}", "isCorrect": false }
+    ],
+    "answers": "{1, 2}",
+    "correctAnswerRate": null,
+    "explanation_kor": "리스트 n의 마지막 요소인 n[-1]은 집합(Set)인 {1, 2}입니다. try 블록에서 n[-1][0]을 통해 집합의 요소에 인덱스로 접근하려고 시도하지만, 파이썬의 집합은 인덱싱(Indexing)을 지원하지 않는 자료형입니다. 따라서 TypeError가 발생하게 되고, 실행 흐름은 except 블록으로 넘어갑니다. except 블록에서 print(n[-1])이 실행되어 집합 그대로인 {1, 2}가 출력됩니다.",
+    "explanation_eng": "The last element of list n, accessed by n[-1], is the set {1, 2}. In the try block, the code attempts to access an element of this set using an index (n[-1][0]). However, Python sets are unordered and do not support indexing, so a TypeError is raised. Consequently, the execution flow moves to the except block. In the except block, print(n[-1]) executes, printing the set {1, 2} as it is."
+  },
+
+  {
+    "id": "2024_1_f_3",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["try", "except"],
+    "question": "Please choose the most appropriate output for the code.\n\na = 10\nb = '20'\ncondition = a or b\ntry:\n    print(len(condition))\nexcept:\n    print(condition)",
+    "options": [
+      { "text": "10", "isCorrect": true },
+      { "text": "2", "isCorrect": false },
+      { "text": "True", "isCorrect": false },
+      { "text": "None", "isCorrect": false },
+      { "text": "1", "isCorrect": false },
+      { "text": "20", "isCorrect": false },
+      { "text": "False", "isCorrect": false }
+    ],
+    "answers": "10",
+    "correctAnswerRate": null,
+    "explanation_kor": "condition = a or b 구문에서 a가 10(0이 아닌 숫자)으로 참(True)으로 평가되므로, 파이썬의 단락 평가(Short-circuit evaluation)에 의해 condition 변수에는 a의 값인 10이 할당됩니다. 이후 try 블록에서 len(condition), 즉 len(10)을 실행하려고 시도합니다. 하지만 정수형(int)은 길이를 잴 수 없으므로 TypeError가 발생합니다. 따라서 except 블록이 실행되어 condition의 값인 10이 출력됩니다.",
+    "explanation_eng": "In the statement condition = a or b, since a is 10 (which is Truthy), Python's short-circuit evaluation assigns the value of a (10) to the variable condition. Then, the try block attempts to execute len(condition), which is len(10). Since integers imply no length, a TypeError occurs. Thus, the except block is executed, printing the value of condition, which is 10."
+  },
+
+  {
+    "id": "2024_1_f_4",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["function"],
+    "question": "Please choose the most inappropriate code to call the following function.\n\ndef plus(a, *, b=0):\n    result = a + b\n    return result",
+    "options": [
+      { "text": "plus(a=1)", "isCorrect": false },
+      { "text": "plus(a=1, b=1)", "isCorrect": false },
+      { "text": "plus(1, b=1)", "isCorrect": false },
+      { "text": "plus(1)", "isCorrect": false },
+      { "text": "plus(b=1, a=1)", "isCorrect": false },
+      { "text": "plus(a=1, 1)", "isCorrect": true }
+    ],
+    "answers": "plus(a=1, 1)",
+    "correctAnswerRate": null,
+    "explanation_kor": "* 이후의 매개변수 b는 키워드 인자로만 받을 수 있다. plus(a=1, 1)은 키워드 인자 뒤에 위치 인자를 사용하므로 SyntaxError가 발생한다.",
+    "explanation_eng": "Since the parameter b follows *, it must be passed as a keyword argument. The call plus(a=1, 1) uses a positional argument after a keyword, causing a SyntaxError."
+  },
+
+  {
+    "id": "2024_1_f_5",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["class"],
+    "question": "Please choose the most appropriate output for the code.\n\nmsg = 'Hello'\nclass Person():\n    msg = ['Hi']\n    def __len__():\n        return len(msg)\n\np = Person()\nlength = len(p)\nprint(length)",
+    "options": [
+      { "text": "Hi", "isCorrect": false },
+      { "text": "Error", "isCorrect": true },
+      { "text": "1", "isCorrect": false },
+      { "text": "['Hi']", "isCorrect": false },
+      { "text": "Hello", "isCorrect": false },
+      { "text": "2", "isCorrect": false },
+      { "text": "5", "isCorrect": false }
+    ],
+    "answers": "Error",
+    "correctAnswerRate": null,
+    "explanation_kor": "len(p)를 호출하면 파이썬은 p 객체의 __len__ 메서드를 찾지만, Person 클래스에는 __len__이 아니라 len이라는 일반 함수만 정의되어 있다. 또한 self 인자가 없어 인스턴스 메서드로서도 올바르지 않다. 따라서 len(p)는 에러를 발생시킨다.",
+    "explanation_eng": "When len(p) is called, Python looks for __len__, but the class only defines a normal function len without self. Thus, len(p) raises an error."
+  },
+
+  {
+    "id": "2024_1_f_6",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["class"],
+    "question": "Please choose the most appropriate output for the code.\n\nclass Phone:\n    width = 6\n    height = 8\n\nclass Galaxy(Phone):\n    def __init__(self):\n        self.brand = 'Samsung'\n\nS24 = Galaxy()\nS25 = Galaxy()\nS25.width = 8\nS25.height = 10\n\nprint(S24.brand, S24.width, S24.height)",
+    "options": [
+      { "text": "Error", "isCorrect": false },
+      { "text": "Samsung 8 10", "isCorrect": false },
+      { "text": "None, 8, 10", "isCorrect": false },
+      { "text": "Samsung, 8, 10", "isCorrect": false },
+      { "text": "Samsung 6 8", "isCorrect": true },
+      { "text": "None 6 8", "isCorrect": false },
+      { "text": "None 8 10", "isCorrect": false }
+    ],
+    "answers": "Samsung 6 8",
+    "correctAnswerRate": null,
+    "explanation_kor": "S24 인스턴스에는 width와 height 인스턴스 변수가 없으므로 부모 클래스 Phone의 클래스 변수를 참조한다. 따라서 Samsung 6 8이 출력된다.",
+    "explanation_eng": "S24 does not have instance variables width and height, so it refers to the class variables defined in Phone. The output is Samsung 6 8."
+  },
+
+  {
+    "id": "2024_1_f_7",
+    "type": "saq",
+    "language": "python",
+    "tags": ["class"],
+    "question": "Please choose the most appropriate output for the code.\n\nclass Book():\n    page = 0\n    def __init__(self):\n        Book.page += 1\n\nb1 = Book()\nb2 = Book()\nb3 = Book()\nL = [b1.page, b2.page, b3.page]\nprint(sum(L))",
+    "options": [],
+    "answers": "9",
+    "correctAnswerRate": null,
+    "explanation_kor": "Book.page는 클래스 변수로, 객체 생성 시마다 1씩 증가한다. 세 번의 인스턴스 생성 후 page는 3이 되고, 각 인스턴스는 이를 공유하므로 L = [3, 3, 3]이 되어 합은 9이다.",
+    "explanation_eng": "Book.page is a class variable incremented on each instance creation. After three instances, page becomes 3 and all instances share it, making L = [3, 3, 3] and sum(L) = 9."
+  },
+
+  {
+    "id": "2024_1_f_8",
+    "type": "mcq",
+    "language": "python",
+    "tags": ["class"],
+    "question": "Please choose the most appropriate output for the code.\n\nclass Pet():\n    def __init__(self, name):\n        self.__name = name\n\nclass Cat(Pet):\n    def cry(self):\n        return 'Meow'\n\nc = Cat('Lucy')\nprint(c.__name, c.cry())",
+    "options": [
+      { "text": "Lucy, Meow", "isCorrect": false },
+      { "text": "LucyMeow", "isCorrect": false },
+      { "text": "Lucy Meow", "isCorrect": false },
+      { "text": "LucyNone", "isCorrect": false },
+      { "text": "Error", "isCorrect": true },
+      { "text": "Lucy None", "isCorrect": false },
+      { "text": "Lucy, None", "isCorrect": false }
+    ],
+    "answers": "Error",
+    "correctAnswerRate": null,
+    "explanation_kor": "변수명 앞의 __는 이름 맹글링이 적용되어 _Pet__name으로 변환된다. c.__name으로 접근하면 존재하지 않아 AttributeError가 발생한다.",
+    "explanation_eng": "The variable with __ is name-mangled to _Pet__name. Accessing c.__name raises an AttributeError."
+  },
+
+  {
+    "id": "2024_1_f_9",
+    "type": "saq",
+    "language": "python",
+    "tags": [],
+    "question": "Enter the appropriate keyword for the yellow question mark box.\n\n? open('./test.txt', 'r') as f:\n    contents = f.readlines()\n    print(contents)",
+    "options": [],
+    "answers": "with",
+    "correctAnswerRate": null,
+    "explanation_kor": "with입니다. 파이썬에서 파일을 열고 닫는 작업을 안전하게 처리하기 위한 Context Manager 구문입니다.",
+    "explanation_eng": "The correct answer is with. This keyword is used for Context Managers to handle file operations safely."
+  },
+
+  {
+    "id": "2024_1_f_10",
+    "type": "saq",
+    "language": "python",
+    "tags": ["function"],
+    "question": "When trying to use the my module in main.py, which code is most appropriate to enter in the yellow box?",
+    "options": [],
+    "answers": "from my import plus",
+    "correctAnswerRate": null,
+    "explanation_kor": "main.py에서 plus(1, 2)를 직접 호출하고 있으므로 모듈 이름 없이 함수를 사용하기 위해서는 from my import plus를 사용해야 한다.",
+    "explanation_eng": "In main.py, plus(1, 2) is called directly. To call the function without the module name, use from my import plus."
+  }
+]

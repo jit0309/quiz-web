@@ -1,0 +1,360 @@
+[
+  {
+    "id": "2023_1_f_1",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Please choose the most appropriate output for the code.",
+    "options": [
+      {
+        "text": "[(3, 2), [5]]",
+        "isCorrect": false
+      },
+      {
+        "text": "[(1, 2), [[5], 4]]",
+        "isCorrect": true
+      },
+      {
+        "text": "IndexError: list assignment index out of range",
+        "isCorrect": false
+      },
+      {
+        "text": "[3, [[5], 4]]",
+        "isCorrect": false
+      },
+      {
+        "text": "[(1, 2), [5, 4]]",
+        "isCorrect": false
+      },
+      {
+        "text": "[(3, 2), [[5], 4]]",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "L1.copy() 구문은 shallow copy입니다. 따라서 L2[1][0] = 5를 하게 된다면 L1[1]의 리스트 값 또한 바뀌게 됩니다. 하지만 L1과 L2 자체는 다르기 때문에 L2[0] = 3에 대해서는 L1에 반영되지 않습니다. 따라서 정답은 2번입니다.",
+    "explanation_eng": "L1.copy() creates a shallow copy, so modifying L2[1][0] affects L1, but assigning L2[0] = 3 does not, making option 2 correct."
+  },
+  {
+    "id": "2023_1_f_2",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Please choose the most appropriate output for the code.",
+    "options": [
+      {
+        "text": "AttributeError: type object 'Book' has no attribute 'page'",
+        "isCorrect": false
+      },
+      {
+        "text": "99",
+        "isCorrect": true
+      },
+      {
+        "text": "100",
+        "isCorrect": false
+      },
+      {
+        "text": "name 'page' is not defined",
+        "isCorrect": false
+      },
+      {
+        "text": "None",
+        "isCorrect": false
+      },
+      {
+        "text": "1",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "b1 = Book('Python', 'Park', 100) 이 과정에서 생성자를 통해 title, author, page 인스턴스 변수의 값이 결정됩니다. 이때 b1.page 값이 99로 지정되므로, 이후 Book.page = 100으로 지정하더라도 page에 대해서는 서로 다른 값을 가리키게 됩니다. 따라서 정답은 2번입니다.",
+    "explanation_eng": "During b1 = Book('Python', 'Park', 100), the constructor sets the instance variables, so since b1.page is set to 99, changing Book.page = 100 later does not affect it, making option 2 correct."
+  },
+  {
+    "id": "2023_1_f_3",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Please choose the most appropriate output for the code.",
+    "options": [
+      {
+        "text": "False",
+        "isCorrect": false
+      },
+      {
+        "text": "AttributeError: type object 'Value' has no attribute '=='",
+        "isCorrect": false
+      },
+      {
+        "text": "Value.__eq__",
+        "isCorrect": false
+      },
+      {
+        "text": "TypeError: unsupported operand type(s) for +: 'Value' and 'int'",
+        "isCorrect": false
+      },
+      {
+        "text": "RecursionError: maximum recursion depth exceeded",
+        "isCorrect": false
+      },
+      {
+        "text": "True",
+        "isCorrect": true
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "괄호가 있으니 v1+v2를 먼저 연산합니다. 이 경우 __add__가 호출되며, 결과값은 self.value + other.value입니다. 주의할 점은 최종 반환 결과가 int라는 점입니다. 따라서 (v1+v2)==30에서 Value의 __eq__가 아닌, int의 비교연산이 되므로 30 == 30, 즉 True가 됩니다.",
+    "explanation_eng": "Because of the parentheses, v1 + v2 is evaluated first, which calls __add__ and returns self.value + other.value. The key point is that the result is an int, so in (v1 + v2) == 30, the comparison uses the integer’s equality operation, resulting in 30 == 30, which is True."
+  },
+  {
+    "id": "2023_1_f_4",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Please choose the most appropriate output for the code.",
+    "options": [
+      {
+        "text": "None",
+        "isCorrect": false
+      },
+      {
+        "text": "TypeError: Student.get_uppercase_name() takes 1 positional argument but 2 were given",
+        "isCorrect": true
+      },
+      {
+        "text": "self.name",
+        "isCorrect": false
+      },
+      {
+        "text": "Guido",
+        "isCorrect": false
+      },
+      {
+        "text": "RecursionError: maximum recursion depth exceeded",
+        "isCorrect": false
+      },
+      {
+        "text": "GUIDO",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "s1.get_uppercase_name을 호출하게 되면 첫 번째 인자에는 자기 자신이 들어갑니다. 즉, 눈에 보이지 않는 인자인 나 자신 s1이 인자로 하나 더 들어갑니다. Student.get_uppercase_name(s1, s1.name) 따라서 인자가 2개 주어진 경우이므로 정답은 2번 TypeError가 됩니다.",
+    "explanation_eng": "When calling s1.get_uppercase_name, the first argument implicitly becomes the instance itself. In other words, an unseen argument—s1—is passed automatically, making the call equivalent to Student.get_uppercase_name(s1, s1.name). Since this results in two arguments being provided, it raises a TypeError, so the correct answer is option 2."
+  },
+  {
+    "id": "2023_1_f_5",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Please choose the most appropriate output for the code.",
+    "options": [
+      {
+        "text": "C,",
+        "isCorrect": false
+      },
+      {
+        "text": "C,B1,A,",
+        "isCorrect": false
+      },
+      {
+        "text": "C,B2,A,",
+        "isCorrect": false
+      },
+      {
+        "text": "C,B2,B1,A,object",
+        "isCorrect": false
+      },
+      {
+        "text": "C,B2,B1,A,",
+        "isCorrect": true
+      },
+      {
+        "text": "C,B1,B2,A,",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "super를 이용하면 부모의 메소드를 사용할 수가 있습니다. 하지만, 주의할 점이 있습니다. __mro__는 부모의 순서를 담고 있습니다. 최초로 super()를 호출한 메소드를 기준으로 __mro__ 순서대로 마치 부모인 것처럼 다루게 됩니다. 따라서 최초로 호출한 C()를 기준으로 그 부모는 B2, B1, A, object 순이므로 C, B2, B1, A,가 출력됩니다. 참고로 A에서는 더 이상 부모를 호출하지 않으니 A까지만 출력된 5번이 정답이 됩니다.",
+    "explanation_eng": "Using super allows you to call a parent’s method, but you must be careful: __mro__ defines the order of parent classes, and super() follows this order starting from the class where it is first invoked. Since the initial call is made from C(), the MRO is C → B2 → B1 → A → object, so the methods are executed in the order C, B2, B1, and A, and because A does not call any further parent, the output ends there, making option 5 correct."
+  },
+  {
+    "id": "2023_1_f_6",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Please choose the most appropriate output for the code.",
+    "options": [
+      {
+        "text": "None",
+        "isCorrect": false
+      },
+      {
+        "text": "invalid literal for int() with base 10: 'zero'",
+        "isCorrect": false
+      },
+      {
+        "text": "Finally",
+        "isCorrect": true
+      },
+      {
+        "text": "No Error",
+        "isCorrect": false
+      },
+      {
+        "text": "name 'Value' is not defined",
+        "isCorrect": false
+      },
+      {
+        "text": "0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "value값이 str로 주어져 있습니다. int('zero')는 숫자로 바꿀 수 없는 값이므로 바로 ValueError가 발생합니다. try-except 구문에 따라 except ValueError as e: 부분이 실행되고, return값은 오류 내용입니다. 하지만! 모든 try-except 구문은 finally가 있다면 반드시 finally를 실행합니다. 그리고 여기에서 return값이 새로 재지정되고 있는 것을 볼 수 있습니다. finally에서 마지막으로 지정한 return값이 최종 return값이 되므로 'Finally'가 출력됩니다.",
+    "explanation_eng": "The value is given as a string, and int('zero') immediately raises a ValueError because it cannot be converted to a number. According to the try-except flow, the except ValueError as e: block runs, but since a finally block is present, it is executed no matter what—and because it defines a new return value, the value from the finally block becomes the final result, so 'Finally' is printed."
+  },
+  {
+    "id": "2023_1_f_7",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Please choose the most appropriate output for the code.",
+    "options": [
+      {
+        "text": "0 0",
+        "isCorrect": false
+      },
+      {
+        "text": "1 None",
+        "isCorrect": false
+      },
+      {
+        "text": "0 1",
+        "isCorrect": false
+      },
+      {
+        "text": "1 1",
+        "isCorrect": false
+      },
+      {
+        "text": "AttributionError: type object 'PersonFrom2023' has no attribute 'base_age'",
+        "isCorrect": false
+      },
+      {
+        "text": "1 0",
+        "isCorrect": true
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "먼저 p1 = Person('Park') 구문에서 initializer에 의해 p1.name이 'Park'이 됩니다. p2=PersonFrom2023('Kim')을 봅시다. 이 클래스는 Person에서 정의한 initializer를 그대로 씁니다. 왜냐하면 새로 정의하지 않았기 때문입니다. 따라서 p2.name이 'Kim'이 됩니다. PersonFrom2023.set_base_age(0) 이 과정에서 클래스 메소드 set_base_age가 호출되고 있습니다. PersonFrom2023 클래스의 base_age를 변경하는 구문이며, 이 시점부터 두 클래스는 서로 다른 base_age값을 갖습니다. 따라서 출력 값은 1 0 입니다.",
+    "explanation_eng": "Executing p1 = Person('Park') sets p1.name to 'Park', and p2 = PersonFrom2023('Kim') uses the inherited initializer so p2.name becomes 'Kim', and since PersonFrom2023.set_base_age(0) changes only the subclass’s base_age, the two classes end up with different values, producing the output 1 0."
+  },
+  {
+    "id": "2023_1_f_8",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "다음 중 좌측 HTML 문서에서 오른쪽 웹 페이지를 만들기 위해 6번 라인에 들어갈 적절하지 않은 CSS를 고르세요. Please choose the inappropriate CSS for the Line #6 on the HTML document to create the webpage (right).",
+    "options": [
+      {
+        "text": "ul.dept_computer { color: red; }",
+        "isCorrect": false
+      },
+      {
+        "text": "body>.dept_computer {color: red; }",
+        "isCorrect": false
+      },
+      {
+        "text": "#kim, #lee {color: red; }",
+        "isCorrect": false
+      },
+      {
+        "text": "body #kim, body #lee {color: red; }",
+        "isCorrect": false
+      },
+      {
+        "text": "body.dept_computer {color: red; }",
+        "isCorrect": true
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "결과를 보면, kim과 lee라는 아이디를 가진 두 li에 color: red; 라는 속성이 적용되었습니다. 1) 클래스가 dept_computer인 ul 2) body의 직접적인 자식 중 dept_computer 클래스 3) kim과 lee라는 아이디를 가진 것 4) body의 자식 중 id가 kim과 lee인 것 5) 클래스가 dept_computer인 body. 따라서 5번이 적절하지 않은 답이 됩니다.",
+    "explanation_eng": "Both kim and lee receive the color: red style, which correctly matches (1) a ul with class dept_computer, (2) a direct child of body with class dept_computer, (3) elements with IDs kim and lee, and (4) children of body whose IDs are kim and lee; therefore, option 5 (a body element with class dept_computer) is the incorrect one."
+  },
+  {
+    "id": "2023_1_f_9",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "다음 중 좌측 HTML 문서에서 오른쪽 웹페이지를 만들기 위해 24번 라인에 들어갈 적절하지 않은 CSS를 고르세요. Please choose the inappropriate CSS for the Line #24 on the HTML document to create the webpage (right).",
+    "options": [
+      {
+        "text": "let elements = document.querySelectorAll('.department');",
+        "isCorrect": false
+      },
+      {
+        "text": "let elements = document.getElementsByClassName('department');",
+        "isCorrect": false
+      },
+      {
+        "text": "let elements = document.getElementsByTagName('li');",
+        "isCorrect": false
+      },
+      {
+        "text": "let elements = document.querySelectorAll('ul.department');",
+        "isCorrect": false
+      },
+      {
+        "text": "let elements = document.querySelectorAll('div.department');",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "모든 li의 color가 red가 되어 있습니다. for문에 따라, 넘겨주는 모든 element들에 color: red;가 붙을 것을 알 수 있습니다. 1), 2) 모든 department 클래스 선택 3) li 태그 모두 선택 4) 클래스가 document인 ul 모두 선택 5) 클래스가 document인 div 모두 선택. 이때 document인 div가 없으므로 5번이 오답입니다.",
+    "explanation_eng": ""
+  },
+  {
+    "id": "2023_1_f_10",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "다음 중 버튼을 클릭하면 Text의 색깔을 변경하는 웹페이지를 만들기 위해 8번 라인에 들어갈 것으로 가장 적절한 것을 고르세요. Please choose the most appropriate element for the Line #8 on the HTML document to change a color of Text on the webpage by clicking the button.",
+    "options": [
+      {
+        "text": "<button src='change_color('red')'>Click</button>",
+        "isCorrect": false
+      },
+      {
+        "text": "<button script='change_color('red')'>Click</button>",
+        "isCorrect": false
+      },
+      {
+        "text": "<button click='change_color('red')'>Click</button>",
+        "isCorrect": false
+      },
+      {
+        "text": "<button onclick='change_color('red')'>Click</button>",
+        "isCorrect": true
+      },
+      {
+        "text": "<button onclick='change_color()'>Click</button>",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "1) src는 이미지 등의 경로를 지정할 때 씁니다. 2, 3) script와 click은 없는 속성입니다. 4) 정답 5) 함수의 인자가 없습니다.",
+    "explanation_eng": "src is used for specifying paths like images, script and click are not valid attributes, option 4 is correct, and option 5 has no function arguments."
+  }
+]
