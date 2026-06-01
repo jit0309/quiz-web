@@ -566,6 +566,11 @@ async function showResult() {
   document.getElementById('resLangBtn').textContent = '🌐 English 해설';
   renderReview();
 
+  // userNick이 비어있으면 localStorage에서 재로드 (안전장치)
+  if (!userNick && userInfo) {
+    userNick = localStorage.getItem('nick_' + userInfo.id) || userInfo.name;
+  }
+
   if (SHEET_URL) {
     await sendToSheet({ googleId: userInfo.id, nickname: userNick, email: userInfo.email,
                         exam: currentExam.id, score, total, rate: pct,
