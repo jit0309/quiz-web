@@ -604,7 +604,11 @@ async function renderRankTable(areaId, examFilter) {
   const filtered = examFilter === 'all' ? data : data.filter(r => r.exam === examFilter);
 
   // 구글 ID + 시험별 최고점수만 (% 기호 제거 후 비교)
-  const parseRate = v => parseFloat(String(v).replace('%','')) || 0;
+  // 시트가 "40%" → 0.4(소수)로 변환하는 경우도 처리
+  const parseRate = v => {
+    const n = parseFloat(String(v).replace('%','')) || 0;
+    return n > 0 && n <= 1 ? Math.round(n * 100) : Math.round(n);
+  };
   const best = {};
   filtered.forEach(r => {
     const key = r.googleId + '_' + r.exam;
