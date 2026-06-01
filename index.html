@@ -566,13 +566,17 @@ async function showResult() {
   document.getElementById('resLangBtn').textContent = '🌐 English 해설';
   renderReview();
 
-  // userNick이 비어있으면 localStorage에서 재로드 (안전장치)
-  if (!userNick && userInfo) {
-    userNick = localStorage.getItem('nick_' + userInfo.id) || userInfo.name;
-  }
+  // 닉네임 최종 확인 (3단계 fallback)
+  const finalNick = userNick
+    || localStorage.getItem('nick_' + userInfo.id)
+    || userInfo.name
+    || '익명';
+  if (!userNick) userNick = finalNick; // 상태도 업데이트
+
+  console.log('[퀴즈] 결과 전송:', { nickname: finalNick, score, total, rate: pct });
 
   if (SHEET_URL) {
-    await sendToSheet({ googleId: userInfo.id, nickname: userNick, email: userInfo.email,
+    await sendToSheet({ googleId: userInfo.id, nickname: finalNick, email: userInfo.email,
                         exam: currentExam.id, score, total, rate: pct,
                         time: new Date().toLocaleString('ko-KR') });
     cachedRank = null;
