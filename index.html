@@ -178,6 +178,17 @@
     .btn-home  { background:#f0f0f0; color:#555; }
 
     .back-link { display:inline-block; margin-top:16px; font-size:13px; color:#aaa; cursor:pointer; text-decoration:underline; background:none; border:none; }
+
+    /* ── 닉네임 ── */
+    .input-field { width:100%; padding:13px 16px; border:2px solid #e8e8e8; border-radius:12px; font-size:15px; outline:none; margin-bottom:6px; transition:border-color .2s; }
+    .input-field:focus { border-color:#764ba2; }
+    .input-field.error { border-color:#e53935; }
+    .error-msg { font-size:12px; color:#e53935; margin-bottom:12px; display:none; }
+    .error-msg.show { display:block; }
+    .primary-btn { width:100%; padding:14px; background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; border:none; border-radius:12px; font-size:16px; font-weight:700; cursor:pointer; transition:opacity .2s,transform .15s; margin-top:8px; }
+    .primary-btn:hover { opacity:.9; transform:translateY(-2px); }
+    .google-sub { font-size:12px; color:#ccc; margin-top:12px; }
+    .change-nick-btn { font-size:12px; color:#764ba2; background:none; border:none; cursor:pointer; text-decoration:underline; padding:0; }
   </style>
 </head>
 <body>
@@ -215,7 +226,20 @@
     </div>
   </div>
 
-  <!-- ② 시험 선택 -->
+  <!-- ② 닉네임 설정 -->
+  <div id="screen-nickname" class="screen">
+    <div class="card center-screen">
+      <div class="big-emoji">🎮</div>
+      <div class="screen-title">닉네임 설정</div>
+      <div class="screen-sub">랭킹에 표시될 이름이에요<br>나중에 언제든 바꿀 수 있어요</div>
+      <input class="input-field" type="text" id="nickInput" placeholder="닉네임 입력 (2~12자)" maxlength="12" />
+      <div class="error-msg" id="nickError">⚠️ 닉네임은 2자 이상 입력해주세요</div>
+      <button class="primary-btn" onclick="saveNickname()">완료 →</button>
+      <div class="google-sub" id="nickGoogleSub"></div>
+    </div>
+  </div>
+
+  <!-- ③ 시험 선택 -->
   <div id="screen-select" class="screen">
     <div class="card">
       <div id="userHeader"></div>
@@ -308,6 +332,7 @@ const EXAMS = [
 
 /* ═══════════════════ STATE ═══════════════════ */
 let userInfo     = null; // { id, name, email, picture }
+let userNick     = '';   // 랭킹 표시용 닉네임
 let currentExam  = null;
 let questions    = [];
 let current      = 0;
@@ -335,22 +360,57 @@ function parseJwt(token) {
 }
 
 function onLoggedIn() {
+  const savedNick = localStorage.getItem('nick_' + userInfo.id);
+  if (savedNick) {
+    userNick = savedNick;
+    updateUserHeader();
+    showScreen('screen-select');
+  } else {
+    // 닉네임 미설정 → 닉네임 화면
+    document.getElementById('nickInput').value = '';
+    document.getElementById('nickGoogleSub').textContent = `Google 계정: ${userInfo.name}`;
+    showScreen('screen-nickname');
+  }
+}
+
+function saveNickname() {
+  const val = document.getElementById('nickInput').value.trim();
+  if (val.length < 2) {
+    document.getElementById('nickInput').classList.add('error');
+    document.getElementById('nickError').classList.add('show');
+    document.getElementById('nickInput').focus();
+    return;
+  }
+  userNick = val;
+  localStorage.setItem('nick_' + userInfo.id, userNick);
+  updateUserHeader();
+  showScreen('screen-select');
+}
+
+function updateUserHeader() {
   document.getElementById('userHeader').innerHTML = `
     <div class="user-info-bar">
       <img src="${userInfo.picture}" class="user-avatar" referrerpolicy="no-referrer" />
       <div style="flex:1">
-        <div class="user-name">${escHtml(userInfo.name)}</div>
+        <div class="user-name">${escHtml(userNick)}</div>
         <div class="user-email">${escHtml(userInfo.email)}</div>
       </div>
-      <button class="logout-btn" onclick="logout()">로그아웃</button>
+      <button class="change-nick-btn" onclick="changeNickname()">닉네임 변경</button>
+      <button class="logout-btn" onclick="logout()" style="margin-left:6px">로그아웃</button>
     </div>`;
-  showScreen('screen-select');
+}
+
+function changeNickname() {
+  document.getElementById('nickInput').value = userNick;
+  document.getElementById('nickGoogleSub').textContent = `Google 계정: ${userInfo.name}`;
+  showScreen('screen-nickname');
 }
 
 function logout() {
   if (window.google) google.accounts.id.disableAutoSelect();
   localStorage.removeItem('quizUser');
   userInfo = null;
+  userNick = '';
   showScreen('screen-login');
 }
 
@@ -384,6 +444,14 @@ function init() {
       };
       filterEl.appendChild(btn);
     });
+
+  // 닉네임 입력창 이벤트
+  const nickEl = document.getElementById('nickInput');
+  nickEl.addEventListener('keydown', e => { if (e.key === 'Enter') saveNickname(); });
+  nickEl.addEventListener('input', () => {
+    nickEl.classList.remove('error');
+    document.getElementById('nickError').classList.remove('show');
+  });
 
   // 저장된 로그인 확인
   const saved = localStorage.getItem('quizUser');
@@ -499,10 +567,10 @@ async function showResult() {
   renderReview();
 
   if (SHEET_URL) {
-    await sendToSheet({ googleId: userInfo.id, name: userInfo.name, email: userInfo.email,
+    await sendToSheet({ googleId: userInfo.id, nickname: userNick, email: userInfo.email,
                         exam: currentExam.id, score, total, rate: pct,
                         time: new Date().toLocaleString('ko-KR') });
-    cachedRank = null; // 캐시 초기화
+    cachedRank = null;
   }
   renderRankTable('resultRankingArea', currentExam.id);
 }
@@ -535,13 +603,14 @@ async function renderRankTable(areaId, examFilter) {
 
   const filtered = examFilter === 'all' ? data : data.filter(r => r.exam === examFilter);
 
-  // 구글 ID + 시험별 최고점수만
+  // 구글 ID + 시험별 최고점수만 (% 기호 제거 후 비교)
+  const parseRate = v => parseFloat(String(v).replace('%','')) || 0;
   const best = {};
   filtered.forEach(r => {
     const key = r.googleId + '_' + r.exam;
-    if (!best[key] || Number(r.rate) > Number(best[key].rate)) best[key] = r;
+    if (!best[key] || parseRate(r.rate) > parseRate(best[key].rate)) best[key] = r;
   });
-  const rows = Object.values(best).sort((a,b) => Number(b.rate)-Number(a.rate) || Number(b.score)-Number(a.score));
+  const rows = Object.values(best).sort((a,b) => parseRate(b.rate)-parseRate(a.rate) || Number(b.score)-Number(a.score));
 
   if (!rows.length) { area.innerHTML = '<div class="rank-empty">해당 시험 기록이 없어요</div>'; return; }
 
@@ -560,12 +629,13 @@ async function renderRankTable(areaId, examFilter) {
     const rank = i < 3
       ? `<span class="rank-medal">${medals[i]}</span>`
       : `<span class="rank-num">${i+1}</span>`;
+    const displayRate = parseRate(r.rate); // % 기호 제거 후 숫자만
     html += `<tr class="${isMe?'me':''}">
       <td>${rank}</td>
-      <td>${escHtml(r.name)}${isMe?' <small style="color:#764ba2">(나)</small>':''}</td>
+      <td>${escHtml(r.nickname||r.name||'익명')}${isMe?' <small style="color:#764ba2">(나)</small>':''}</td>
       ${examFilter==='all' ? `<td style="font-size:11px;color:#888">${examLabel(r.exam)}</td>` : ''}
       <td>${r.score} / ${r.total}</td>
-      <td><b style="color:#764ba2">${r.rate}%</b></td>
+      <td><b style="color:#764ba2">${displayRate}%</b></td>
     </tr>`;
   });
 
