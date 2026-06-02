@@ -162,11 +162,18 @@
   },
   {
     "id": "2023_2_m_5",
-    "type": "saq",
+    "type": "mcq",
     "language": "python",
     "tags": [],
     "question": "Please choose the most appropriate output for the code.\n\nL = [0, \"False\", True, None]\nprint(L[1] and L[3])",
-    "options": [],
+    "options": [
+      { "text": "None", "isCorrect": true },
+      { "text": "False", "isCorrect": false },
+      { "text": "True", "isCorrect": false },
+      { "text": "0", "isCorrect": false },
+      { "text": "\"False\"", "isCorrect": false },
+      { "text": "Error", "isCorrect": false }
+    ],
     "answers": "None",
     "correctAnswerRate": null,
     "explanation_kor": "L[1] and L[3] → \"False\" and None. 문자열 'False'는 비어있지 않으므로 True로 평가된다. 따라서 and 연산자는 두 번째 값인 None을 반환한다.",
