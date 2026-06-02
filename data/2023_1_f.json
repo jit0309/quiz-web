@@ -4,7 +4,7 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Please choose the most appropriate output for the code.",
+    "question": "Please choose the most appropriate output for the code.\n\nL1 = [(1, 2), 3, 4]\nL2 = L1.copy()\nL2[1] = 5\nL2[1][0] = 5\nprint(L1)",
     "options": [
       {
         "text": "[(3, 2), [5]]",
@@ -41,7 +41,7 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Please choose the most appropriate output for the code.",
+    "question": "Please choose the most appropriate output for the code.\n\nclass Book(object):\n    def __init__(self, title, author, page=None):\n        self.title = title\n        self.author = author\n        if page:\n            self.page = page\n\nb1 = Book(\"Python\", \"Park\", 99)\nBook.page = 100\nprint(b1.page)",
     "options": [
       {
         "text": "AttributeError: type object 'Book' has no attribute 'page'",
@@ -78,7 +78,7 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Please choose the most appropriate output for the code.",
+    "question": "Please choose the most appropriate output for the code.\n\nclass Value:\n    def __init__(self, value):\n        self.value = value\n    def __add__(self, other):\n        return self.value + other.value\n    def __eq__(self, other):\n        return \"Value.__eq__\"\n\nv1 = Value(10)\nv2 = Value(20)\nprint((v1 + v2) == 30)",
     "options": [
       {
         "text": "False",
@@ -115,7 +115,7 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Please choose the most appropriate output for the code.",
+    "question": "Please choose the most appropriate output for the code.\n\nclass Student:\n    def __init__(self, name):\n        self.name = name\n    def get_uppercase_name(name):\n        return name.upper()\n\ns1 = Student(\"Guido\")\nprint(s1.get_uppercase_name(s1.name))",
     "options": [
       {
         "text": "None",
@@ -152,7 +152,7 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Please choose the most appropriate output for the code.",
+    "question": "Please choose the most appropriate output for the code.\n\nclass A():\n    def __init__(self):\n        print(\"A\", end=\",\")\n\nclass B1(A):\n    def __init__(self):\n        print(\"B1\", end=\",\")\n        super().__init__()\n\nclass B2(A):\n    def __init__(self):\n        print(\"B2\", end=\",\")\n        super().__init__()\n\nclass C(B2, B1):\n    def __init__(self):\n        print(\"C\", end=\",\")\n        super().__init__()\n\nprint(C.__mro__)\n\ne = C()",
     "options": [
       {
         "text": "C,",
@@ -189,7 +189,7 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Please choose the most appropriate output for the code.",
+    "question": "Please choose the most appropriate output for the code.\n\ndef int_converter(value):\n    try:\n        return int(value)\n    except ValueError as e:\n        return e\n    except NameError as e:\n        return e\n    else:\n        return \"No Error\"\n    finally:\n        return \"Finally\"\n\nprint(int_converter(\"zero\"))",
     "options": [
       {
         "text": "None",
@@ -226,7 +226,7 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Please choose the most appropriate output for the code.",
+    "question": "Please choose the most appropriate output for the code.\n\nclass Person:\n    base_age = 1\n    def __init__(self, name):\n        self.name = name\n    @classmethod\n    def set_base_age(cls, age):\n        cls.base_age = age\n\nclass PersonFrom2023(Person):\n    pass\n\np1 = Person(\"Park\")\np2 = PersonFrom2023(\"Kim\")\nPersonFrom2023.set_base_age(0)\nprint(p1.base_age, p2.base_age)",
     "options": [
       {
         "text": "0 0",

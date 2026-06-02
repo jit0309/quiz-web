@@ -4,14 +4,32 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Choose the most appropriate answer for the output of the following code",
+    "question": "Choose the most appropriate answer for the output of the following code\n\ndata = [1, '2', (3,), {4}]\ndata[-1]=[1]\nprint(data)",
     "options": [
-      { "text": "[1, '2', (3,), {4, 1}]", "isCorrect": false },
-      { "text": "[1, '2', (3,), {4}]", "isCorrect": false },
-      { "text": "[1, '2', (3,), [1]]", "isCorrect": true },
-      { "text": "[[1], '2', (3,), {4}]", "isCorrect": false },
-      { "text": "Error", "isCorrect": false },
-      { "text": "[1, '2', (3,), {4, 1}]", "isCorrect": false }
+      {
+        "text": "[1, '2', (3,), {4, 1}]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, '2', (3,), {4}]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, '2', (3,), [1]]",
+        "isCorrect": true
+      },
+      {
+        "text": "[[1], '2', (3,), {4}]",
+        "isCorrect": false
+      },
+      {
+        "text": "Error",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, '2', (3,), {4, 1}]",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -22,15 +40,36 @@
     "id": "2024_1_m_2",
     "type": "mcq",
     "language": "python",
-    "tags": ["for", "if"],
-    "question": "Choose the most appropriate answer for the output of the following code",
+    "tags": [
+      "for",
+      "if"
+    ],
+    "question": "Choose the most appropriate answer for the output of the following code\n\ntotal = 0\nfor i in range(0, 5):\n    total += i\n    if total>3:\n        break\nprint(total)",
     "options": [
-      { "text": "3", "isCorrect": false },
-      { "text": "6", "isCorrect": true },
-      { "text": "1", "isCorrect": false },
-      { "text": "10", "isCorrect": false },
-      { "text": "2", "isCorrect": false },
-      { "text": "0", "isCorrect": false }
+      {
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "text": "6",
+        "isCorrect": true
+      },
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "10",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "0",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -42,14 +81,32 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Choose the most appropriate answer for the output of the following code",
+    "question": "Choose the most appropriate answer for the output of the following code\n\ns = { (1, 2, 3), (3, 4, 5) }\nlength = len(s)\nprint(length)",
     "options": [
-      { "text": "5", "isCorrect": false },
-      { "text": "6", "isCorrect": false },
-      { "text": "Error", "isCorrect": false },
-      { "text": "3", "isCorrect": false },
-      { "text": "4", "isCorrect": false },
-      { "text": "2", "isCorrect": true }
+      {
+        "text": "5",
+        "isCorrect": false
+      },
+      {
+        "text": "6",
+        "isCorrect": false
+      },
+      {
+        "text": "Error",
+        "isCorrect": false
+      },
+      {
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "text": "4",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": true
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -61,14 +118,32 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Choose the most appropriate answer for the output of the following code",
+    "question": "Choose the most appropriate answer for the output of the following code\n\na = [1, 2, 3, {1, 2, 3}]\nb = a.copy()\nb[-1].add(4)\nb[-2]=4\nprint(a)",
     "options": [
-      { "text": "[1, 2, 4, {1, 2, 3, 4}]", "isCorrect": false },
-      { "text": "[1, 2, 3, {1, 2, 3}]", "isCorrect": false },
-      { "text": "[1, 2, 3, 4, {1, 2, 3, 4}]", "isCorrect": false },
-      { "text": "[1, 2, 3, {1, 2, 3, 4}]", "isCorrect": true },
-      { "text": "[1, 2, 4, {1, 2, 3}]", "isCorrect": false },
-      { "text": "[1, 2, 3, 4, {1, 2, 3}]", "isCorrect": false }
+      {
+        "text": "[1, 2, 4, {1, 2, 3, 4}]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, 2, 3, {1, 2, 3}]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, 2, 3, 4, {1, 2, 3, 4}]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, 2, 3, {1, 2, 3, 4}]",
+        "isCorrect": true
+      },
+      {
+        "text": "[1, 2, 4, {1, 2, 3}]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, 2, 3, 4, {1, 2, 3}]",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -79,15 +154,36 @@
     "id": "2024_1_m_5",
     "type": "mcq",
     "language": "python",
-    "tags": ["for", "function"],
-    "question": "Choose the most appropriate answer for the output of the following code",
+    "tags": [
+      "for",
+      "function"
+    ],
+    "question": "Choose the most appropriate answer for the output of the following code\n\ndef func(*args):\n    total = 0\n    for n in args:\n        total += 10\n    return total\n\nL = [1, 2, 3, 4, 5]\nprint(func(L))",
     "options": [
-      { "text": "40", "isCorrect": false },
-      { "text": "10", "isCorrect": true },
-      { "text": "20", "isCorrect": false },
-      { "text": "30", "isCorrect": false },
-      { "text": "0", "isCorrect": false },
-      { "text": "50", "isCorrect": false }
+      {
+        "text": "40",
+        "isCorrect": false
+      },
+      {
+        "text": "10",
+        "isCorrect": true
+      },
+      {
+        "text": "20",
+        "isCorrect": false
+      },
+      {
+        "text": "30",
+        "isCorrect": false
+      },
+      {
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "text": "50",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -98,15 +194,35 @@
     "id": "2024_1_m_6",
     "type": "mcq",
     "language": "python",
-    "tags": ["function"],
-    "question": "Choose the most appropriate answer for the output of the following code",
+    "tags": [
+      "function"
+    ],
+    "question": "Choose the most appropriate answer for the output of the following code\n\ndef func(a, b):\n    global c\n    c = a+b\n    a = 2\n    b = 3\n\na, b = 1, 1\nc = 0\na = func(a, b)\nprint(a, b, c)",
     "options": [
-      { "text": "1 1 2", "isCorrect": false },
-      { "text": "2 3 2", "isCorrect": false },
-      { "text": "None 3 2", "isCorrect": false },
-      { "text": "1 1 0", "isCorrect": false },
-      { "text": "None 1 2", "isCorrect": true },
-      { "text": "0 1 2", "isCorrect": false }
+      {
+        "text": "1 1 2",
+        "isCorrect": false
+      },
+      {
+        "text": "2 3 2",
+        "isCorrect": false
+      },
+      {
+        "text": "None 3 2",
+        "isCorrect": false
+      },
+      {
+        "text": "1 1 0",
+        "isCorrect": false
+      },
+      {
+        "text": "None 1 2",
+        "isCorrect": true
+      },
+      {
+        "text": "0 1 2",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -117,15 +233,36 @@
     "id": "2024_1_m_7",
     "type": "mcq",
     "language": "python",
-    "tags": ["if", "function"],
-    "question": "Choose the most appropriate answer for the output of the following code",
+    "tags": [
+      "if",
+      "function"
+    ],
+    "question": "Choose the most appropriate answer for the output of the following code\n\ndef func(a, b):\n    if a and b:\n        return a\n    elif b:\n        return b\n    elif a:\n        return 1\n    else:\n        return 2\n    return None\n\nL = [\"True\", \"False\"]\nresult = func(L[0], L[1])\nprint(result)",
     "options": [
-      { "text": "False", "isCorrect": false },
-      { "text": "0", "isCorrect": false },
-      { "text": "1", "isCorrect": false },
-      { "text": "True", "isCorrect": true },
-      { "text": "None", "isCorrect": false },
-      { "text": "['True', 'False']", "isCorrect": false }
+      {
+        "text": "False",
+        "isCorrect": false
+      },
+      {
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "True",
+        "isCorrect": true
+      },
+      {
+        "text": "None",
+        "isCorrect": false
+      },
+      {
+        "text": "['True', 'False']",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -136,15 +273,35 @@
     "id": "2024_1_m_8",
     "type": "mcq",
     "language": "python",
-    "tags": ["function"],
-    "question": "Write the most appropriate answer for the output of the following code",
+    "tags": [
+      "function"
+    ],
+    "question": "Write the most appropriate answer for the output of the following code\n\ndef func(f1, f2, value=[1,2,3]):\n    a = f2(value)\n    b = f1(a)\n    return b\n\nresult = func(lambda x: x-1, len)\nprint(result)",
     "options": [
-        { "text": "Error", "isCorrect": false },
-        { "text": "2", "isCorrect": true },
-        { "text": "None", "isCorrect": false },
-        { "text": "3", "isCorrect": false },
-        { "text": "1", "isCorrect": false },
-        { "text": "[2, 3]", "isCorrect": false }
+      {
+        "text": "Error",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": true
+      },
+      {
+        "text": "None",
+        "isCorrect": false
+      },
+      {
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "[2, 3]",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -155,15 +312,35 @@
     "id": "2024_1_m_9",
     "type": "mcq",
     "language": "python",
-    "tags": ["function"],
-    "question": "Choose the most appropriate answer for the output of the following code",
+    "tags": [
+      "function"
+    ],
+    "question": "Choose the most appropriate answer for the output of the following code\n\ndef func(a, *b, c=10, **d):\n    return a, b, c, d\n\nprint(func(1, b=2))",
     "options": [
-      { "text": "(1, (), 10, {'b': 2})", "isCorrect": true },
-      { "text": "1, (2), 10, {}", "isCorrect": false },
-      { "text": "()", "isCorrect": false },
-      { "text": "Error", "isCorrect": false },
-      { "text": "(1, (2), 10, {})", "isCorrect": false },
-      { "text": "1, (), 10, {'b': 2}", "isCorrect": false }
+      {
+        "text": "(1, (), 10, {'b': 2})",
+        "isCorrect": true
+      },
+      {
+        "text": "1, (2), 10, {}",
+        "isCorrect": false
+      },
+      {
+        "text": "()",
+        "isCorrect": false
+      },
+      {
+        "text": "Error",
+        "isCorrect": false
+      },
+      {
+        "text": "(1, (2), 10, {})",
+        "isCorrect": false
+      },
+      {
+        "text": "1, (), 10, {'b': 2}",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -174,15 +351,35 @@
     "id": "2024_1_m_10",
     "type": "mcq",
     "language": "python",
-    "tags": ["function"],
-    "question": "Choose the most appropriate code to call the plus function",
+    "tags": [
+      "function"
+    ],
+    "question": "Choose the most appropriate code to call the plus function\n\ndef plus(a, b, /, *, c, d):\n    return a + b + c + d",
     "options": [
-      { "text": "plus(d=3, c=4)", "isCorrect": false },
-      { "text": "plus(1, 2, 3, 4)", "isCorrect": false },
-      { "text": "plus(1, 2, d=3, c=4)", "isCorrect": true },
-      { "text": "plus(a=1, b=2, c=3, d=4)", "isCorrect": false },
-      { "text": "plus(1, 2)", "isCorrect": false },
-      { "text": "plus(1, b=2, c=3, d=4)", "isCorrect": false }
+      {
+        "text": "plus(d=3, c=4)",
+        "isCorrect": false
+      },
+      {
+        "text": "plus(1, 2, 3, 4)",
+        "isCorrect": false
+      },
+      {
+        "text": "plus(1, 2, d=3, c=4)",
+        "isCorrect": true
+      },
+      {
+        "text": "plus(a=1, b=2, c=3, d=4)",
+        "isCorrect": false
+      },
+      {
+        "text": "plus(1, 2)",
+        "isCorrect": false
+      },
+      {
+        "text": "plus(1, b=2, c=3, d=4)",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,

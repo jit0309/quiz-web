@@ -6,12 +6,30 @@
     "tags": [],
     "question": "Please choose a possible assignment",
     "options": [
-      { "text": "_KHU = \"University\"", "isCorrect": true },
-      { "text": "web/python = \"Select me\"", "isCorrect": false },
-      { "text": "python programming = (0, 1)", "isCorrect": false },
-      { "text": "2023_python = {\"score\": 4.3}", "isCorrect": false },
-      { "text": "@email_address = \"sk.park@khu.ac.kr\"", "isCorrect": false },
-      { "text": "kyunghee-university = \"This is a correct answer\"", "isCorrect": false }
+      {
+        "text": "_KHU = \"University\"",
+        "isCorrect": true
+      },
+      {
+        "text": "web/python = \"Select me\"",
+        "isCorrect": false
+      },
+      {
+        "text": "python programming = (0, 1)",
+        "isCorrect": false
+      },
+      {
+        "text": "2023_python = {\"score\": 4.3}",
+        "isCorrect": false
+      },
+      {
+        "text": "@email_address = \"sk.park@khu.ac.kr\"",
+        "isCorrect": false
+      },
+      {
+        "text": "kyunghee-university = \"This is a correct answer\"",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -23,15 +41,36 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Please choose the most appropriate output for the code",
+    "question": "Please choose the most appropriate output for the code\n\na, b, c = (1, 2, 3,)\nc = d = e = 1\nprint((a*b*c) / (d*e))",
     "options": [
-      { "text": "6", "isCorrect": false },
-      { "text": "2.0", "isCorrect": true },
-      { "text": "ZeroDivisionError: division by zero", "isCorrect": false },
-      { "text": "6.0", "isCorrect": false },
-      { "text": "2", "isCorrect": false },
-      { "text": "ValueError: too many values to unpack", "isCorrect": false },
-      { "text": "0", "isCorrect": false }
+      {
+        "text": "6",
+        "isCorrect": false
+      },
+      {
+        "text": "2.0",
+        "isCorrect": true
+      },
+      {
+        "text": "ZeroDivisionError: division by zero",
+        "isCorrect": false
+      },
+      {
+        "text": "6.0",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "ValueError: too many values to unpack",
+        "isCorrect": false
+      },
+      {
+        "text": "0",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -43,14 +82,32 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Please choose the most appropriate output for the code",
+    "question": "Please choose the most appropriate output for the code\n\ns = \"Hello\"\ns = s + \"World\"\nlength = len(s[-5:0])\nprint(length)",
     "options": [
-      { "text": "0", "isCorrect": true },
-      { "text": "10", "isCorrect": false },
-      { "text": "None", "isCorrect": false },
-      { "text": "5", "isCorrect": false },
-      { "text": "11", "isCorrect": false },
-      { "text": "Error", "isCorrect": false }
+      {
+        "text": "0",
+        "isCorrect": true
+      },
+      {
+        "text": "10",
+        "isCorrect": false
+      },
+      {
+        "text": "None",
+        "isCorrect": false
+      },
+      {
+        "text": "5",
+        "isCorrect": false
+      },
+      {
+        "text": "11",
+        "isCorrect": false
+      },
+      {
+        "text": "Error",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -62,14 +119,32 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Please choose the most appropriate output for the code",
+    "question": "Please choose the most appropriate output for the code\n\nL1 = [1, (3, 4), [5, 6], {7}]\nL2 = L1.copy()\nL2[2][-1] += len(L1)\nprint(L1)",
     "options": [
-      { "text": "[1, (3, 4), 12, {7}]", "isCorrect": false },
-      { "text": "[1, (3, 4), 10, {7}]", "isCorrect": false },
-      { "text": "[1, (3, 4), [5, 6], {7}]", "isCorrect": false },
-      { "text": "TypeError: 'tuple' object does not support item assignment", "isCorrect": false },
-      { "text": "[1, (3, 4), [5, 12], {7}]", "isCorrect": false },
-      { "text": "[1, (3, 4), [5, 10], {7}]", "isCorrect": true }
+      {
+        "text": "[1, (3, 4), 12, {7}]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, (3, 4), 10, {7}]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, (3, 4), [5, 6], {7}]",
+        "isCorrect": false
+      },
+      {
+        "text": "TypeError: 'tuple' object does not support item assignment",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, (3, 4), [5, 12], {7}]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, (3, 4), [5, 10], {7}]",
+        "isCorrect": true
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -80,16 +155,41 @@
     "id": "2023_1_m_5",
     "type": "mcq",
     "language": "python",
-    "tags": ["for", "if", "function"],
-    "question": "Please choose the most appropriate output for the code",
+    "tags": [
+      "for",
+      "if",
+      "function"
+    ],
+    "question": "Please choose the most appropriate output for the code\n\ndef square(a):\n    if a%2==0:\n        return a*a\n\nbase = (1, 2, 3, 4, 5)\nL = [square(n) for n in base]\nprint(L)",
     "options": [
-      { "text": "[1, 4, 9, 16, 25]", "isCorrect": false },
-      { "text": "(1, 4, 9, 16, 25)", "isCorrect": false },
-      { "text": "[0, 4, 0, 16, 0]", "isCorrect": false },
-      { "text": "(0, 4, 0, 16, 0)", "isCorrect": false },
-      { "text": "[None, None, None, None, None]", "isCorrect": false },
-      { "text": "[None, 4, None, 16, None]", "isCorrect": true },
-      { "text": "(None, 4, None, 16, None)", "isCorrect": false }
+      {
+        "text": "[1, 4, 9, 16, 25]",
+        "isCorrect": false
+      },
+      {
+        "text": "(1, 4, 9, 16, 25)",
+        "isCorrect": false
+      },
+      {
+        "text": "[0, 4, 0, 16, 0]",
+        "isCorrect": false
+      },
+      {
+        "text": "(0, 4, 0, 16, 0)",
+        "isCorrect": false
+      },
+      {
+        "text": "[None, None, None, None, None]",
+        "isCorrect": false
+      },
+      {
+        "text": "[None, 4, None, 16, None]",
+        "isCorrect": true
+      },
+      {
+        "text": "(None, 4, None, 16, None)",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -100,15 +200,36 @@
     "id": "2023_1_m_6",
     "type": "mcq",
     "language": "python",
-    "tags": ["for", "if"],
-    "question": "Please choose the most appropriate output for the code",
+    "tags": [
+      "for",
+      "if"
+    ],
+    "question": "Please choose the most appropriate output for the code\n\nL = [0, {}, \"False\", [None], \"True\"]\ntotal = 0\nfor value in L:\n    if value:\n        total += 1\n    else:\n        total -= 1\nprint(total)",
     "options": [
-      { "text": "1", "isCorrect": true },
-      { "text": "999", "isCorrect": false },
-      { "text": "-1", "isCorrect": false },
-      { "text": "0", "isCorrect": false },
-      { "text": "2", "isCorrect": false },
-      { "text": "-2", "isCorrect": false }
+      {
+        "text": "1",
+        "isCorrect": true
+      },
+      {
+        "text": "999",
+        "isCorrect": false
+      },
+      {
+        "text": "-1",
+        "isCorrect": false
+      },
+      {
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "-2",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -119,15 +240,36 @@
     "id": "2023_1_m_7",
     "type": "mcq",
     "language": "python",
-    "tags": ["if", "function"],
-    "question": "Please choose the most appropriate output for the code",
+    "tags": [
+      "if",
+      "function"
+    ],
+    "question": "Please choose the most appropriate output for the code\n\ndef func(a, b=10, *args, **kw):\n    if [args]:\n        return kw[\"age\"]+b\n    else:\n        return kw[\"age\"]+a\n\nprint(func(1, 5, age=20))",
     "options": [
-      { "text": "21", "isCorrect": false },
-      { "text": "20", "isCorrect": false },
-      { "text": "25", "isCorrect": true },
-      { "text": "31", "isCorrect": false },
-      { "text": "30", "isCorrect": false },
-      { "text": "KeyError: \"age\"", "isCorrect": false }
+      {
+        "text": "21",
+        "isCorrect": false
+      },
+      {
+        "text": "20",
+        "isCorrect": false
+      },
+      {
+        "text": "25",
+        "isCorrect": true
+      },
+      {
+        "text": "31",
+        "isCorrect": false
+      },
+      {
+        "text": "30",
+        "isCorrect": false
+      },
+      {
+        "text": "KeyError: \"age\"",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -138,15 +280,35 @@
     "id": "2023_1_m_8",
     "type": "mcq",
     "language": "python",
-    "tags": ["function"],
-    "question": "Please choose the most appropriate output for the code",
+    "tags": [
+      "function"
+    ],
+    "question": "Please choose the most appropriate output for the code\n\ndef func1(a: int) -> None:\n    global b\n    b=5\n\n    def func2(a: int, b: int) -> None:\n        a, b = b, a\n    \n    b = func2(a, b)\n\na, b = 1, 2\nfunc1(a)\nprint(a, b)",
     "options": [
-      { "text": "5 1", "isCorrect": false },
-      { "text": "1 5", "isCorrect": false },
-      { "text": "None 2", "isCorrect": false },
-      { "text": "2 2", "isCorrect": false },
-      { "text": "1 2", "isCorrect": false },
-      { "text": "1 None", "isCorrect": true }
+      {
+        "text": "5 1",
+        "isCorrect": false
+      },
+      {
+        "text": "1 5",
+        "isCorrect": false
+      },
+      {
+        "text": "None 2",
+        "isCorrect": false
+      },
+      {
+        "text": "2 2",
+        "isCorrect": false
+      },
+      {
+        "text": "1 2",
+        "isCorrect": false
+      },
+      {
+        "text": "1 None",
+        "isCorrect": true
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -157,15 +319,35 @@
     "id": "2023_1_m_9",
     "type": "mcq",
     "language": "python",
-    "tags": ["function"],
-    "question": "Please choose the most appropriate output for the code",
+    "tags": [
+      "function"
+    ],
+    "question": "Please choose the most appropriate output for the code\n\ndef function(str, a=None):\n    a = str(a)\n    return a*2\n\nL = [1, 2, 3]\nprint(function(len, L))",
     "options": [
-      { "text": "[1, 2, 3, 1, 2, 3]", "isCorrect": false },
-      { "text": "3", "isCorrect": false },
-      { "text": "[1, 2, 3][1, 2, 3]", "isCorrect": false },
-      { "text": "6", "isCorrect": true },
-      { "text": "TypeError: unsupported operand type(s) for '*': 'NoneType' and 'int'", "isCorrect": false },
-      { "text": "0", "isCorrect": false }
+      {
+        "text": "[1, 2, 3, 1, 2, 3]",
+        "isCorrect": false
+      },
+      {
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, 2, 3][1, 2, 3]",
+        "isCorrect": false
+      },
+      {
+        "text": "6",
+        "isCorrect": true
+      },
+      {
+        "text": "TypeError: unsupported operand type(s) for '*': 'NoneType' and 'int'",
+        "isCorrect": false
+      },
+      {
+        "text": "0",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,
@@ -177,14 +359,32 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Please choose the most appropriate output for the code",
+    "question": "Please choose the most appropriate output for the code\n\ns = \"Python\"\ntest = len\nlen = print\nlen(test(s))",
     "options": [
-      { "text": "None", "isCorrect": false },
-      { "text": "Error", "isCorrect": false },
-      { "text": "<built-in function len>", "isCorrect": false },
-      { "text": "TypeError: 'str' object is not callable", "isCorrect": false },
-      { "text": "6", "isCorrect": true },
-      { "text": "<built-in function print>", "isCorrect": false }
+      {
+        "text": "None",
+        "isCorrect": false
+      },
+      {
+        "text": "Error",
+        "isCorrect": false
+      },
+      {
+        "text": "<built-in function len>",
+        "isCorrect": false
+      },
+      {
+        "text": "TypeError: 'str' object is not callable",
+        "isCorrect": false
+      },
+      {
+        "text": "6",
+        "isCorrect": true
+      },
+      {
+        "text": "<built-in function print>",
+        "isCorrect": false
+      }
     ],
     "answers": null,
     "correctAnswerRate": 0,

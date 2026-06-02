@@ -43,7 +43,7 @@
     "tags": [
       "for"
     ],
-    "question": "What do you expect to be printed?",
+    "question": "What do you expect to be printed?\n\nfor i in range(10):\n    if i == 1:\n        break\n    else:\n        i += 2\nprint(i)",
     "options": [
       {
         "text": "9",
@@ -80,7 +80,7 @@
     "type": "saq",
     "language": "python",
     "tags": [],
-    "question": "What do you expect to be printed?",
+    "question": "What do you expect to be printed?\n\nL1 = [1, 2, 3]\nL2 = L1[:]\nL1[1] = 4\nprint(L2[1])",
     "options": null,
     "answers": null,
     "correctAnswerRate": "",
@@ -92,7 +92,7 @@
     "type": "saq",
     "language": "python",
     "tags": [],
-    "question": "What do you expect to be printed?",
+    "question": "What do you expect to be printed?\n\nL1 = [1, 2, 3, [4, 5]]\nL2 = L1[:]\nL1[3][0] = -4\nprint(L2[3][0])",
     "options": null,
     "answers": null,
     "correctAnswerRate": "",
@@ -104,7 +104,7 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "What do you expect to be printed?",
+    "question": "What do you expect to be printed?\n\nprint(1 or False)",
     "options": [
       {
         "text": "1",
@@ -141,7 +141,7 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": null,
+    "question": "\n\nprint(1 in [\"1234\"])",
     "options": [
       {
         "text": "False",
@@ -180,7 +180,7 @@
     "tags": [
       "function"
     ],
-    "question": "What do you expect to be printed?",
+    "question": "What do you expect to be printed?\n\ndef func(a, b=10, *c):\n    b = 5\n    return a, b, c\n\nresult = func(1, 2)\nprint(result)",
     "options": [
       {
         "text": "1, 2",
@@ -219,7 +219,7 @@
     "tags": [
       "class"
     ],
-    "question": "What do you expect to be printed?",
+    "question": "What do you expect to be printed?\n\nclass Animal:\n    def eat(self):\n        print(\"Eat\")\n    def cry(self):\n        print(\"Cry\")\n        \nclass Cat(Animal):\n    def cry(self):\n        print(\"Meow\")\n        \nc = Cat()\nc.eat()",
     "options": [
       {
         "text": "Cry",
@@ -270,7 +270,7 @@
     "tags": [
       "function"
     ],
-    "question": "What do you expect to be printed?",
+    "question": "What do you expect to be printed?\n\na = 1\ndef func1():\n    a = 2\n    def func2():\n        a = 3\n        def func3():\n            nonlocal a\n            a = 4\n            return 10\n        func3()\n    func2()\n    print(a)\n\nfunc1()",
     "options": [
       {
         "text": "3",
@@ -309,7 +309,7 @@
     "tags": [
       "function"
     ],
-    "question": "What do you expect to be printed?",
+    "question": "What do you expect to be printed?\n\na = 1\ndef func1():\n    a = 2\n    def func2():\n        nonlocal a\n        a = 3\n        def func3():\n            global a\n            a = 4\n            return 10\n        func3()\n    func2()\nfunc1()\n\nprint(a)",
     "options": [
       {
         "text": "4",
@@ -408,7 +408,7 @@
     "tags": [
       "class"
     ],
-    "question": "What do you expect to be printed?",
+    "question": "What do you expect to be printed?\n\nclass Cat:\n    def __init__(self, n, a = 10):\n        name = n\n        age = a\n        \nc = Cat(\"Park\", 20)\nprint(c.age)",
     "options": [
       {
         "text": "TypeError: 'c' is not defined",
@@ -447,7 +447,7 @@
     "tags": [
       "function"
     ],
-    "question": "What do you expect to be printed?",
+    "question": "What do you expect to be printed?\n\ndef multiple(n):\n    return n * 2\n\ndef func(int, i):\n    return int(i)\n\nresult = func(multiple, \"1\")\nprint(result)",
     "options": [
       {
         "text": "1",
