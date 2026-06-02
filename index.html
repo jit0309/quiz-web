@@ -479,16 +479,13 @@ async function startQuiz() {
     return;
   }
 
-  // 유효한 문제만 필터링
-  questions = rawQuestions.filter(q => {
-    // 기본 조건: 문제 텍스트, 보기, 정답 필수
-    if (!q.question || !Array.isArray(q.options) || q.options.length === 0 || !q.options.some(o => o.isCorrect)) return false;
-    // 코드 출력 유형 문제인데 코드가 없으면 제외 (데이터 누락)
-    const needsCode = /printed|output|expect/i.test(q.question);
-    const hasCode   = q.question.includes('\n\n');
-    if (needsCode && !hasCode) return false;
-    return true;
-  });
+  // 유효한 문제만 필터링 (null 문제, null/빈 보기, 정답 없는 문제 제외)
+  questions = rawQuestions.filter(q =>
+    q.question != null &&
+    Array.isArray(q.options) &&
+    q.options.length > 0 &&
+    q.options.some(o => o.isCorrect)
+  );
 
   if (questions.length === 0) {
     alert('풀 수 있는 문제가 없습니다.');
