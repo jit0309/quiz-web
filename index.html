@@ -261,6 +261,7 @@
         <div class="progress-fill" id="progressFill" style="width:0%"></div>
       </div>
       <div class="question-text" id="questionText"></div>
+      <img id="questionImg" src="" alt="문제 이미지" style="display:none;max-width:100%;border-radius:10px;margin-bottom:14px;" />
       <pre class="code-block" id="codeBlock" style="display:none"></pre>
       <div class="options-list" id="optionsList"></div>
       <div class="explanation" id="explanation">
@@ -513,6 +514,9 @@ function renderQuestion() {
   const cEl  = document.getElementById('codeBlock');
   if (code) { cEl.textContent = code; cEl.style.display = 'block'; }
   else       { cEl.style.display = 'none'; }
+  const imgEl = document.getElementById('questionImg');
+  if (q.image) { imgEl.src = q.image; imgEl.style.display = 'block'; }
+  else          { imgEl.style.display = 'none'; }
 
   const list = document.getElementById('optionsList');
   list.innerHTML = '';
@@ -707,6 +711,7 @@ function renderReview() {
     div.className = `review-item ${isCorrect?'ri-correct':'ri-wrong'}`;
     div.innerHTML = `
       <div class="ri-question">${i+1}. ${escHtml(parts[0].trim())} ${isCorrect?'✅':'❌'}</div>
+      ${q.image ? `<img src="${q.image}" alt="문제 이미지" style="max-width:100%;border-radius:8px;margin-bottom:8px;" />` : ''}
       ${code ? `<pre class="ri-code">${escHtml(code)}</pre>` : ''}
       ${!isCorrect ? `<div class="ri-answer"><b style="color:#e53935">내 답: </b>${escHtml(selOpt.text)}</div>` : ''}
       <div class="ri-answer"><b style="color:#43a047">정답: </b>${escHtml(correctOpt.text)}</div>

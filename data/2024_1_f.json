@@ -170,7 +170,8 @@
     "type": "mcq",
     "language": "python",
     "tags": [],
-    "question": "Enter the appropriate keyword for the yellow question mark box.\n\n? open('./test.txt', 'r') as f:\n    contents = f.readlines()\n    print(contents)",
+    "image": "data/img/2024_1_f_9.png",
+    "question": "Enter the appropriate keyword for the yellow question mark box.",
     "options": [
       { "text": "with", "isCorrect": true },
       { "text": "open", "isCorrect": false },
@@ -190,6 +191,7 @@
     "type": "mcq",
     "language": "python",
     "tags": ["function"],
+    "image": "data/img/2024_1_f_10.png",
     "question": "When trying to use the my module in main.py, which code is most appropriate to enter in the yellow box?",
     "options": [
       { "text": "from my import plus", "isCorrect": true },
