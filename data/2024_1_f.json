@@ -126,11 +126,18 @@
 
   {
     "id": "2024_1_f_7",
-    "type": "saq",
+    "type": "mcq",
     "language": "python",
     "tags": ["class"],
     "question": "Please choose the most appropriate output for the code.\n\nclass Book():\n    page = 0\n    def __init__(self):\n        Book.page += 1\n\nb1 = Book()\nb2 = Book()\nb3 = Book()\nL = [b1.page, b2.page, b3.page]\nprint(sum(L))",
-    "options": [],
+    "options": [
+      { "text": "9", "isCorrect": true },
+      { "text": "3", "isCorrect": false },
+      { "text": "6", "isCorrect": false },
+      { "text": "1", "isCorrect": false },
+      { "text": "0", "isCorrect": false },
+      { "text": "Error", "isCorrect": false }
+    ],
     "answers": "9",
     "correctAnswerRate": null,
     "explanation_kor": "Book.page는 클래스 변수로, 객체 생성 시마다 1씩 증가한다. 세 번의 인스턴스 생성 후 page는 3이 되고, 각 인스턴스는 이를 공유하므로 L = [3, 3, 3]이 되어 합은 9이다.",
@@ -160,11 +167,18 @@
 
   {
     "id": "2024_1_f_9",
-    "type": "saq",
+    "type": "mcq",
     "language": "python",
     "tags": [],
     "question": "Enter the appropriate keyword for the yellow question mark box.\n\n? open('./test.txt', 'r') as f:\n    contents = f.readlines()\n    print(contents)",
-    "options": [],
+    "options": [
+      { "text": "with", "isCorrect": true },
+      { "text": "open", "isCorrect": false },
+      { "text": "try", "isCorrect": false },
+      { "text": "import", "isCorrect": false },
+      { "text": "for", "isCorrect": false },
+      { "text": "as", "isCorrect": false }
+    ],
     "answers": "with",
     "correctAnswerRate": null,
     "explanation_kor": "with입니다. 파이썬에서 파일을 열고 닫는 작업을 안전하게 처리하기 위한 Context Manager 구문입니다.",
@@ -173,11 +187,18 @@
 
   {
     "id": "2024_1_f_10",
-    "type": "saq",
+    "type": "mcq",
     "language": "python",
     "tags": ["function"],
     "question": "When trying to use the my module in main.py, which code is most appropriate to enter in the yellow box?",
-    "options": [],
+    "options": [
+      { "text": "from my import plus", "isCorrect": true },
+      { "text": "import my", "isCorrect": false },
+      { "text": "import my.plus", "isCorrect": false },
+      { "text": "from my import *", "isCorrect": false },
+      { "text": "import plus from my", "isCorrect": false },
+      { "text": "my.import(plus)", "isCorrect": false }
+    ],
     "answers": "from my import plus",
     "correctAnswerRate": null,
     "explanation_kor": "main.py에서 plus(1, 2)를 직접 호출하고 있으므로 모듈 이름 없이 함수를 사용하기 위해서는 from my import plus를 사용해야 한다.",
