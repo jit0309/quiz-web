@@ -1,0 +1,305 @@
+[
+  {
+    "id": "2024_2_f_1",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "if"
+    ],
+    "question": "Please choose the most appropriate output for the following code\n\nL1 = [1, 2, [3]]  \nL2 = L1.copy()\n \nif 3 in L1:\n    L1[2].append(4)\nelse:\n    L1[2].append([4])\n \nprint(L2)",
+    "options": [
+      {
+        "text": "[1, 4, [3]]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, 2, [3, 4]]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, 2, [3], [4]]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, 2, [3], 4]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, 2, [4]]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, 2, 4]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, 2, [3, [4]]]",
+        "isCorrect": true
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "L1은 [1, 2, [3]] 이므로 최상위 원소는 1, 2, [3]이고, 정수 3은 리스트 L1 안에 직접 포함되어 있지 않아 if 3 in L1 조건은 거짓입니다. 따라서 else 블록이 실행되어 L1[2].append([4])가 호출되고, 내부 리스트 [3]이 [3, [4]]로 바뀝니다. L2 = L1.copy()는 얕은 복사이므로 바깥 리스트만 새로 만들고 내부 리스트는 공유하므로, L1[2]의 변경이 그대로 L2[2]에도 반영됩니다. 따라서 L2는 [1, 2, [3, [4]]]가 되어 이것이 출력됩니다.",
+    "explanation_eng": "L1 is [1, 2, [3]], so the top-level elements are 1, 2, and [3]; the integer 3 is not directly in L1, so the condition if 3 in L1 is False. Thus the else block executes, calling L1[2].append([4]), which changes the inner list from [3] to [3, [4]]. Since L2 = L1.copy() is a shallow copy, it creates a new outer list but shares the same inner list, so the change to L1[2] is also seen in L2[2]. Therefore L2 becomes [1, 2, [3, [4]]], which is what gets printed."
+  },
+  {
+    "id": "2024_2_f_2",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "while",
+      "if"
+    ],
+    "question": "Please choose the most appropriate output for the following code\n\ntotal = 0  \nn = 0\n \nwhile n < 4:\n    n += 1\n    if n % 2 == 0:\n        continue\n    else:\n        total += n\n \nprint(total)",
+    "options": [
+      {
+        "text": "RecursionError",
+        "isCorrect": false
+      },
+      {
+        "text": "7",
+        "isCorrect": false
+      },
+      {
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "text": "4",
+        "isCorrect": true
+      },
+      {
+        "text": "5",
+        "isCorrect": false
+      },
+      {
+        "text": "6",
+        "isCorrect": false
+      },
+      {
+        "text": "3 ",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "n은 0에서 시작해 while n < 4 반복마다 1씩 증가합니다. 짝수일 때(n % 2 == 0)에는 continue로 인해 total에 더하지 않고 다음 반복으로 넘어갑니다. 따라서 n이 1일 때 total = 1, n이 3일 때 total = 1 + 3 = 4가 되고, n이 2와 4일 때는 더하지 않습니다. 반복이 끝난 뒤 total은 4이므로 출력은 4입니다.",
+    "explanation_eng": "n starts at 0 and is incremented by 1 in each iteration of the while n < 4 loop. When n is even (n % 2 == 0), continue skips adding to total. Thus, when n = 1, total becomes 1; when n = 3, total becomes 1 + 3 = 4. For n = 2 and n = 4, total is not changed. After the loop ends, total is 4, so the output is 4."
+  },
+  {
+    "id": "2024_2_f_3",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "function"
+    ],
+    "question": "Please choose the most appropriate output for the following code\n\ndef func1():\n    a = [0]\n    def func2():\n        global a\n        a += [2]\n    func2()\n    return [3]\n \na = [1]\nfunc1()\nprint(a)",
+    "options": [
+      {
+        "text": "[0, 2]",
+        "isCorrect": false
+      },
+      {
+        "text": "[0]",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, 2]",
+        "isCorrect": true
+      },
+      {
+        "text": "[1]",
+        "isCorrect": false
+      },
+      {
+        "text": "[3]",
+        "isCorrect": false
+      },
+      {
+        "text": "[2]",
+        "isCorrect": false
+      },
+      {
+        "text": "None",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "전역 변수 a는 처음에 [1]로 정의됩니다. func1 안에서 a = [0]은 지역 변수 a를 새로 만드는 것이고, 내부의 func2에서는 global a를 사용하므로 전역 변수 a를 참조합니다. func2에서 a += [2]는 전역 리스트 a에 2를 추가하여 [1, 2]로 만듭니다. func1이 반환하는 [3]은 사용되지 않으며, 마지막에 print(a)는 전역 변수 a를 출력하므로 결과는 [1, 2]입니다.",
+    "explanation_eng": "The global variable a is initially [1]. Inside func1, the assignment a = [0] creates a new local variable a, while the inner func2 declares global a, so it refers to the global variable. In func2, the statement a += [2] modifies the global list a in place, changing it to [1, 2]. The return value [3] from func1 is ignored. Therefore, print(a) prints the global a, which is [1, 2]."
+  },
+  {
+    "id": "2024_2_f_4",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "class",
+      "function"
+    ],
+    "question": "Please choose the most appropriate output for the following code\n\nclass Group:\n    members = ['Park']\n    def __init__(self, members):\n        self.members = members\n \n    @classmethod\n    def get_members(self):\n        return self.members\n \ng = Group(['Lee'])\ng.members.append('Kim')\nprint(g.get_members())",
+    "options": [
+      {
+        "text": "['Park']",
+        "isCorrect": true
+      },
+      {
+        "text": "['Lee', 'Kim']",
+        "isCorrect": false
+      },
+      {
+        "text": "['Kim']",
+        "isCorrect": false
+      },
+      {
+        "text": "AttributeError",
+        "isCorrect": false
+      },
+      {
+        "text": "Group",
+        "isCorrect": false
+      },
+      {
+        "text": "['Lee']",
+        "isCorrect": false
+      },
+      {
+        "text": "['Park', 'Kim']",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "Group.members는 클래스 변수로 ['Park']으로 정의됩니다. 생성자에서 self.members = members를 통해 인스턴스 변수 members에 ['Lee']가 저장되고, 이후 g.members.append('Kim')으로 인스턴스 변수는 ['Lee', 'Kim']이 됩니다. 그러나 get_members는 @classmethod로 정의되어 있어 첫 번째 인자로 인스턴스가 아니라 클래스 Group을 받습니다. 따라서 self.members는 클래스 변수 Group.members를 가리키며, 이는 여전히 ['Park']입니다. 따라서 출력 결과는 ['Park']입니다.",
+    "explanation_eng": "Group.members is a class variable initialized as ['Park']. In the constructor, self.members = members creates an instance attribute members with ['Lee'], and g.members.append('Kim') modifies this instance list to ['Lee', 'Kim']. However, get_members is defined as a @classmethod, so its first parameter receives the class Group, not the instance. Thus, self.members inside get_members refers to the class attribute Group.members, which remains ['Park']. Therefore, the printed result is ['Park']."
+  },
+  {
+    "id": "2024_2_f_5",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "class",
+      "function"
+    ],
+    "question": "Please choose the most appropriate output for the following code\n\nclass Shape():\n    def __init__(self):\n        self.width = 5\n        self.height = 5\n    def get_area(self):\n        return self.width * self.height / 2\n \nclass Triangle(Shape):\n    def __init__(self, w, h):\n        self.width = w\n        self.height = h\n    def __add__(self, other):\n        return self.get_area() + other.get_area()\n \nt1 = Triangle(10, 10)\nt2 = Triangle(10, 10)\nprint(t1 + t2)",
+    "options": [
+      {
+        "text": "25.0",
+        "isCorrect": false
+      },
+      {
+        "text": "100.0",
+        "isCorrect": true
+      },
+      {
+        "text": "50.0",
+        "isCorrect": false
+      },
+      {
+        "text": "100",
+        "isCorrect": false
+      },
+      {
+        "text": "AttributeError",
+        "isCorrect": false
+      },
+      {
+        "text": "25",
+        "isCorrect": false
+      },
+      {
+        "text": "50",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "Shape 클래스의 get_area 메서드는 self.width * self.height / 2를 반환합니다. Triangle은 Shape를 상속하지만 자신의 __init__에서 width와 height를 각각 전달받은 w, h로 설정하므로, t1과 t2의 가로, 세로는 모두 10입니다. 따라서 각 삼각형의 넓이는 10 * 10 / 2 = 50.0이고, __add__ 메서드는 self.get_area() + other.get_area()를 반환하므로 50.0 + 50.0 = 100.0이 됩니다. 따라서 출력 결과는 100.0입니다.",
+    "explanation_eng": "The Shape class's get_area method returns self.width * self.height / 2. Triangle inherits from Shape but its own __init__ sets width and height to the given w and h. Thus for t1 and t2, both have width = 10 and height = 10, so each area is 10 * 10 / 2 = 50.0. The __add__ method returns self.get_area() + other.get_area(), so the sum is 50.0 + 50.0 = 100.0. Therefore, the printed result is 100.0."
+  },
+  {
+    "id": "2024_2_f_6",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "class"
+    ],
+    "question": "Please choose the most appropriate output for the following code\n\nclass Person():\n    count = 0\n \n    def __init__(self):\n        Person.count += 1\n \np1 = Person()\np2 = Person()\nval = sum([p1.count, p2.count, Person.count])\nprint(val)",
+    "options": [
+      {
+        "text": "6",
+        "isCorrect": true
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "text": "4",
+        "isCorrect": false
+      },
+      {
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "text": "Error",
+        "isCorrect": false
+      }
+    ],
+    "answers": [
+      "6"
+    ],
+    "correctAnswerRate": 0,
+    "explanation_kor": "Person.count는 인스턴스가 생성될 때마다 1씩 증가하는 클래스 변수다. 그래서 p1과 p2 두 객체를 생성하면 Person.count의 값은 2가 된다. 또한 p1.count와 p2.count도 동일한 클래스 변수 Person.count를 참조하므로 둘 다 2의 값을 가진다. 결과적으로 [2, 2, 2]를 합산하면 6이 출력된다.",
+    "explanation_eng": "Person.count is a class variable that increases by 1 each time an instance is created. Therefore, when the two objects p1 and p2 are created, the value of Person.count becomes 2. Since p1.count and p2.count both refer to the same class variable Person.count, they each also have the value 2. As a result, adding the three values [2, 2, 2] produces the final output of 6."
+  },
+  {
+    "id": "2024_2_f_7",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "class",
+      "function"
+    ],
+    "question": "Please choose the most appropriate code to fill in the white box so that the code prints \"Hello.\"\n\nclass A():\n    def hello(self):\n        return \"Hello\"\n \nclass B(A):\n    def hello(self):\n        return super().hello()\n \nb = B()\nprint(b.hello())",
+    "options": [
+      {
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "text": "super(self)",
+        "isCorrect": false
+      },
+      {
+        "text": "super()",
+        "isCorrect": true
+      },
+      {
+        "text": "super(A)",
+        "isCorrect": false
+      },
+      {
+        "text": "b",
+        "isCorrect": false
+      },
+      {
+        "text": "super(B)",
+        "isCorrect": false
+      },
+      {
+        "text": "A",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "클래스 B는 클래스 A를 상속하며, B.hello에서 부모 클래스 A의 hello 메서드를 호출해야 \"Hello\"가 반환된다. Python 3에서 부모 메서드를 호출하는 올바른 방법은 super()를 사용해 super().hello()처럼 작성하는 것이다. 따라서 빈칸에는 super()가 들어가야 하며, b나 A 등은 인스턴스나 클래스 자체를 가리켜서 바로 올바른 메서드 호출을 보장하지 못한다.",
+    "explanation_eng": "Class B inherits from class A, and inside B.hello we need to call the parent class A's hello method to return \"Hello\". In Python 3, the correct way to call the parent method is to use super(), writing super().hello(). Therefore, the blank should be filled with super(). Using B, A, or b would not correctly refer to the parent method in this context."
+  }
+]

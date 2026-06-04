@@ -1,0 +1,248 @@
+[
+  {
+    "id": "2025_1_f_1",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "if"
+    ],
+    "question": "Please choose the most appropriate output for the following code\n\na = {'1', '2'}\nb = {'2', '1', '3'}\n\nresult = a in b\nprint(result)",
+    "options": [
+      {
+        "text": "{'2', '1', '3'}",
+        "isCorrect": false
+      },
+      {
+        "text": "Error",
+        "isCorrect": false
+      },
+      {
+        "text": "True",
+        "isCorrect": false
+      },
+      {
+        "text": "False",
+        "isCorrect": true
+      },
+      {
+        "text": "('1', '2')",
+        "isCorrect": false
+      },
+      {
+        "text": "(3)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "변수 a는 {'1', '2'}라는 집합이고, b는 {'2', '1', '3'}이라는 집합이다. a in b는 '집합 a가 b의 원소로 존재하는가?'를 검사하는 표현식이다. 집합 b에는 문자열 '1', '2', '3'만 들어 있으며 {'1', '2'}라는 집합은 존재하지 않는다. 따라서 결과는 False이다.",
+    "explanation_eng": "The variable a is the tuple ('1', '2'), and b is a set {'2', '1', '3'}. The expression a in b checks whether the entire tuple a exists as an element of the set b. Since b only contains the strings '1', '2', and '3', and does not contain the tuple ('1', '2'), the result is False."
+  },
+  {
+    "id": "2025_1_f_2",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "function"
+    ],
+    "question": "Please choose the most inappropriate code to call the following add function\n\ndef add(a, *, b):\n    return a+b",
+    "options": [
+      {
+        "text": "add(1)",
+        "isCorrect": false
+      },
+      {
+        "text": "add(b=2, a=1)",
+        "isCorrect": false
+      },
+      {
+        "text": "add(1, 2)",
+        "isCorrect": true
+      },
+      {
+        "text": "add(a=1, b=2)",
+        "isCorrect": false
+      },
+      {
+        "text": "add(1, b=2)",
+        "isCorrect": false
+      },
+      {
+        "text": "add(b=2)",
+        "isCorrect": false
+      },
+      {
+        "text": "add(a=1)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "함수 정의 def add(a, *, b):에서 a는 위치 또는 키워드 인수로 받을 수 있지만, * 뒤의 인수 b는 반드시 b=값 형태로만 전달해야 하는 키워드 전용 인수이다. add(1), add(a=1), add(b=2)는 인수가 부족해 실행 시점에 TypeError가 나지만, b를 키워드 인수로 사용한다는 규칙 자체는 지키고 있다. 반면 add(1, 2)는 두 번째 인수 2를 b에 위치 인수로 전달하려 하기 때문에 키워드 전용 인수 규칙을 직접 위반한 호출 방식이다. 따라서 보기 중 가장 부적절한(inappropriate) 호출은 add(1, 2)이다.",
+    "explanation_eng": "In the function definition def add(a, *, b): parameter a can be passed positionally or by keyword, but parameter b comes after *, so it is keyword-only and must be passed as b=value. Calls like add(1), add(a=1), and add(b=2) will raise a TypeError at runtime because a or b is missing, but they still respect the keyword-only rule for b. In contrast, add(1, 2) passes the second argument 2 to b as a positional argument, which directly violates the keyword-only requirement. Therefore, among the options, add(1, 2) is the most inappropriate call."
+  },
+  {
+    "id": "2025_1_f_3",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "class",
+      "function"
+    ],
+    "question": "Please choose the most appropriate output for the following code\n\nclass Num:\n    def __init__(self, value):\n        self.value = value\n    def __add__(self, other):\n        try:\n            result = self.value + other.value\n            return result\n        except:\n            return self.value\n\nnum1 = Num(10)\nnum2 = Num(20)\nnum3 = num1 +num2\nnum4 = Num(40)\n\nprint(num4 + num3)",
+    "options": [
+      {
+        "text": "20",
+        "isCorrect": false
+      },
+      {
+        "text": "Error",
+        "isCorrect": false
+      },
+      {
+        "text": "30",
+        "isCorrect": false
+      },
+      {
+        "text": "60",
+        "isCorrect": false
+      },
+      {
+        "text": "10",
+        "isCorrect": false
+      },
+      {
+        "text": "70",
+        "isCorrect": false
+      },
+      {
+        "text": "40",
+        "isCorrect": true
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "num1 = Num(10), num2 = Num(20)이고 num1 + num2를 계산하면 __add__에서 self.value(10)와 other.value(20)를 더해 30을 반환한다. 이때 num3는 Num 객체가 아니라 정수 30이다. 이후 num4 = Num(40)이고, num4 + num3를 계산할 때 __add__의 other는 정수 30이므로 other.value 접근에서 예외가 발생한다. 예외가 발생하면 except 블록이 실행되어 self.value, 즉 40을 반환하므로 최종 출력은 40이다.",
+    "explanation_eng": "num1 = Num(10) and num2 = Num(20). When computing num1 + num2, __add__ uses self.value (10) and other.value (20) to return 30, so num3 becomes the integer 30, not a Num instance. Then num4 = Num(40), and for num4 + num3, __add__ is called with other being the integer 30. Accessing other.value raises an exception, so the except block runs and returns self.value, which is 40. Therefore, the final output is 40."
+  },
+  {
+    "id": "2025_1_f_4",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "class"
+    ],
+    "question": "Please choose the most appropriate output for the following code\n\nclass Singer:\n    count = 0\n    def __init__(self, name):\n        self.name = name\n        Singer.count += 1\n\nrose = Singer(\"Rose\")\n\nrose.count = 0\n\nlisa = Singer(\"Lisa\")\n\nprint(Singer.count, rose.count, lisa.count)",
+    "options": [
+      {
+        "text": "2 0 0",
+        "isCorrect": false
+      },
+      {
+        "text": "2 0 2",
+        "isCorrect": true
+      },
+      {
+        "text": "2 2 0",
+        "isCorrect": false
+      },
+      {
+        "text": "0 0 0",
+        "isCorrect": false
+      },
+      {
+        "text": "0 2 0",
+        "isCorrect": false
+      },
+      {
+        "text": "2 2 2",
+        "isCorrect": false
+      },
+      {
+        "text": "0 2 2",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "Singer.count는 클래스 변수로 처음 0에서 시작한다. rose = Singer('Rose')를 실행하면 생성자에서 Singer.count가 1이 된다. 이어서 rose.count = 0을 하면 rose 인스턴스에 count라는 인스턴스 변수가 새로 생겨 값 0을 가진다. Singer.count는 여전히 1이다. 그 다음 lisa = Singer('Lisa')를 호출하면 다시 생성자에서 Singer.count가 1 증가해 2가 된다. 이제 Singer.count는 2, rose.count는 인스턴스 변수로 0, lisa.count는 별도의 인스턴스 변수가 없어 클래스 변수 Singer.count를 참조하므로 2이다. 따라서 출력은 '2 0 2'이다.",
+    "explanation_eng": "Singer.count is a class variable starting at 0. When rose = Singer('Rose') is created, the constructor increments Singer.count to 1. Then rose.count = 0 creates an instance attribute count on rose with value 0, while the class variable Singer.count remains 1. Next, lisa = Singer('Lisa') increments Singer.count again to 2. Thus, Singer.count is 2, rose.count is the instance attribute 0, and lisa.count has no instance attribute and therefore refers to the class variable Singer.count, which is 2. Hence, the output is '2 0 2'."
+  },
+  {
+    "id": "2025_1_f_5",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "class",
+      "function"
+    ],
+    "question": "Please choose the most appropriate output for the following code\n\nclass A:\n    def hello(self):\n        return \"A\"\n\nclass B(A):\n    def hello(self):\n        return \"B\"\n    \nclass C(B):\n    def hello(a):\n        return super().hello()\n\nc = C()\nprint(c.hello())",
+    "options": [
+      {
+        "text": "super",
+        "isCorrect": false
+      },
+      {
+        "text": "AB",
+        "isCorrect": false
+      },
+      {
+        "text": "Error",
+        "isCorrect": false
+      },
+      {
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "클래스 A의 hello는 \"A\"를, 클래스 B(A)의 hello는 \"B\"를 반환한다. 클래스 C(B)에서 hello 메서드는 첫 번째 인자 이름이 a이지만, 실제로는 self와 같은 위치 인자로 인스턴스가 전달된다. C.hello 안의 super()는 MRO 상에서 C 다음 클래스인 B를 가리키므로 super().hello()는 B.hello를 호출한다. 따라서 c = C() 이후 c.hello()는 B.hello(c)를 호출하여 \"B\"를 반환한다.",
+    "explanation_eng": "Class A's hello returns \"A\", and class B(A)'s hello returns \"B\". In class C(B), the hello method's first parameter is named a, but it still receives the instance (like self). Inside C.hello, super() refers to the next class in the MRO after C, which is B, so super().hello() calls B.hello. Therefore, after c = C(), calling c.hello() invokes B.hello(c), and the result printed is \"B\"."
+  },
+  {
+    "id": "2025_1_f_6",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Please choose the most appropriate code for the yellow box to use my module in the main.py\n\n# my.py\ndef add(a, b):\n    return a + b\n\ndef sub(a, b):\n    return a - b\n\n# main.py\nimport my\n\nresult1 = my.add(1,2)\nprint(result1) #3\n\nresult2 = my.sub(3,2)\nprint(result2) #1",
+    "options": [
+      {
+        "text": "import my",
+        "isCorrect": true
+      },
+      {
+        "text": "import my.add, my.sub",
+        "isCorrect": false
+      },
+      {
+        "text": "from my",
+        "isCorrect": false
+      },
+      {
+        "text": "from import add, sub from my",
+        "isCorrect": false
+      },
+      {
+        "text": "from my import *",
+        "isCorrect": false
+      },
+      {
+        "text": "from my import add, sub",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "main.py에서 my.add(1, 2), my.sub(3, 2)처럼 모듈 이름 my를 접두어로 사용하고 있으므로, my라는 모듈 객체 자체를 가져와야 한다. 이를 위해서는 `import my`라고 작성해야 하며, 이렇게 하면 my.add, my.sub 형태로 함수에 접근할 수 있다. `from my import add, sub`를 사용하면 add, sub만 직접 이름으로 가져오게 되어 my.add 형태로는 사용할 수 없다.",
+    "explanation_eng": "In main.py, the functions are called as my.add(1, 2) and my.sub(3, 2), which means the module object my must be imported. The statement `import my` imports the module so that its functions can be accessed via my.add and my.sub. Using `from my import add, sub` would import the functions directly into the namespace, so my.add would not be valid. Therefore, the correct code for the yellow box is `import my`."
+  }
+]

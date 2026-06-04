@@ -1,0 +1,422 @@
+[
+  {
+    "id": "2025_1_m_1",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Which of the following is the most appropriate output of the code?\n\na = [(1, 2), 3, (2, 1)]\nb = set(a)\nc = {(1, 2), 3}\nprint(b, b == c)",
+    "options": [
+      {
+        "text": "True 4 4",
+        "isCorrect": true
+      },
+      {
+        "text": "True, 4, 4",
+        "isCorrect": false
+      },
+      {
+        "text": "False 4 4",
+        "isCorrect": false
+      },
+      {
+        "text": "False, 4, 4",
+        "isCorrect": false
+      },
+      {
+        "text": "True 6 6",
+        "isCorrect": false
+      },
+      {
+        "text": "False 6 6",
+        "isCorrect": false
+      },
+      {
+        "text": "False, 6, 6",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "S1 = {1, 2, 3, 4}, S2 = {1, 2, 3, 4}이므로 S1 == S2는 True입니다. 또한 집합의 길이(len(S1), len(S2))는 중복을 제외한 원소의 개수인 4입니다. 따라서 print(S1 == S2, len(S1), len(S2))는 'True 4 4'를 출력합니다.",
+    "explanation_eng": "S1 = {1, 2, 3, 4} and S2 = {1, 2, 3, 4}, so S1 == S2 is True. The length of each set (len(S1), len(S2)) is 4 because duplicate elements are removed. The output of print(S1 == S2, len(S1), len(S2)) is True 4 4."
+  },
+  {
+    "id": "2025_1_m_2",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Which of the following is the most appropriate output of the code?\n\nnumbers = [1, 2, 3, 4, 5]\nnumbers[1:-1] = [2, 3, 4]\nprint(numbers)",
+    "options": [
+      {
+        "text": "[[1], 2, (3,)]",
+        "isCorrect": false
+      },
+      {
+        "text": "[[1, 2], 2, (3,)]",
+        "isCorrect": true
+      },
+      {
+        "text": "[[1], 2, (3,), 2]",
+        "isCorrect": false
+      },
+      {
+        "text": "[[1], 2, 4]",
+        "isCorrect": false
+      },
+      {
+        "text": "[[1], 2, (3,), 4]",
+        "isCorrect": false
+      },
+      {
+        "text": "[[1, 2], 2, (3,), 4]",
+        "isCorrect": false
+      },
+      {
+        "text": "[[1, 2], 2, 4]",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "L2[0]은 L1[0]과 같은 리스트를 공유하므로 [1, 2]로 변경됩니다. 또한 L2[-1]은 튜플로 변경할 수 없는 객체이므로 (3,) 그대로 유지됩니다.",
+    "explanation_eng": "L2[0] shares the same list as L1[0], so it is changed to [1, 2]. Also, L2[-1] remains (3,) because tuples are immutable and cannot be changed."
+  },
+  {
+    "id": "2025_1_m_3",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "for"
+    ],
+    "question": "Which of the following is the most appropriate output of the code?\n\nL1 = L = [1, (1,), {1}, [1]]\nL2 = L1.copy()\nL2[2].add(1)\nL2[3].append(1)\nprint(L1)",
+    "options": [
+      {
+        "text": "-2",
+        "isCorrect": true
+      },
+      {
+        "text": "-1",
+        "isCorrect": false
+      },
+      {
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "text": "-3",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "1회 루프에서 value = (1,)이고, len(value) == 1이므로 continue 문이 실행되어 다음 루프로 넘어갑니다. 2회 루프에서 value = '(2,3)’이고 문자열의 길이는 5이므로 else문에 의해 answer -= 1 이 실행됩니다 (answer = -1). 3회 루프에서 value = [4,5,6]이고 리스트의 길이는 3이므로 else 문에 의해 answer -= 1 이 실행됩니다 (answer = -2).",
+    "explanation_eng": "In the first loop, value = (1,), and since len(value) == 1, the continue statement is executed, moving to the next loop. In the second loop, value = '(2,3)', and since the length of the string is 5, the else block executes, resulting in answer -= 1 (answer = -1). In the third loop, value = [4,5,6], and since the length of the list is 3, the else block executes again, resulting in answer -= 1 (answer = -2)."
+  },
+  {
+    "id": "2025_1_m_4",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "for"
+    ],
+    "question": "Which of the following is the most appropriate output of the code?\n\nn = 4\nwhile n >= 0:\n    n = n - 2\nprint(n)",
+    "options": [
+      {
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "text": "6",
+        "isCorrect": false
+      },
+      {
+        "text": "7",
+        "isCorrect": false
+      },
+      {
+        "text": "8",
+        "isCorrect": false
+      },
+      {
+        "text": "9",
+        "isCorrect": true
+      },
+      {
+        "text": "10",
+        "isCorrect": false
+      },
+      {
+        "text": "1",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "n1 = 1 인 경우, total += 1 (total = 1)이 됩니다. 그리고 두 번째 for 루프를 실행합니다 (리스트 [3, 4] 순회). 만약 n2 = 3 인 경우, total += 3 (total = 4)가 됩니다. 그 후 break 문에 의해 두 번째 for 루프가 종료되고 첫 번째 for 루프의 다음 반복으로 이동합니다. n1 = 2 인 경우, total += 2 (total = 6)이 됩니다. 그 후, 두 번째 for 루프에 의해 n2 = 3 인 경우, total += 3 (total = 9)가 됩니다. 그 후, break 문에 의해 두 번째 for 루프가 종료됩니다 (n2 = 4는 실행되지 않음). 따라서 최종적으로 total 값으로 9를 출력합니다.",
+    "explanation_eng": "When n1 = 1, total += 1 (total = 1). Then, the second for loop iterates over the list [3, 4]. When n2 = 3, total += 3 (total = 4). The break statement then exits the second for loop, moving to the next iteration of the first for loop. When n1 = 2, total += 2 (total = 6). Then, in the second for loop, when n2 = 3, total += 3 (total = 9). The break statement again exits the second for loop (n2 = 4 is not executed). Therefore, the final value of total is 9."
+  },
+  {
+    "id": "2025_1_m_5",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "while"
+    ],
+    "question": "Which of the following is the most appropriate output of the code?\n\ntotal = 0\nfor n in range(0, 5):\n    if n == 3:\n        continue\n    total += 1\nprint(total)",
+    "options": [
+      {
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "3",
+        "isCorrect": true
+      },
+      {
+        "text": "4",
+        "isCorrect": false
+      },
+      {
+        "text": "5",
+        "isCorrect": false
+      },
+      {
+        "text": "None",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "while 루프는 리스트의 마지막 요소(L[-1])가 참(True)인 동안 반복합니다. 루프에서는 total을 1 증가시키고, L = L[:-1]을 실행하여 마지막 요소를 제거합니다. total은 True, [None](비어있지 않은 리스트), 'False'(비어있지 않은 문자열)를 만날때마다 증가하고, 빈 딕셔너리는 False로 평가되어 루프가 종료됩니다.",
+    "explanation_eng": "The while loop continues as long as the last element of the list (L[-1]) is true. Inside the loop, total is incremented by 1, and L = L[:-1] removes the last element from the list. total increments when it encounters True, [None] (a non-empty list), and 'False' (a non-empty string). The loop ends when it encounters an empty dictionary, which evaluates to False."
+  },
+  {
+    "id": "2025_1_m_6",
+    "type": "mcq",
+    "language": "python",
+    "tags": [],
+    "question": "Which of the following is the most appropriate output of the code?\n\ndef func(a, b):\n    if a and b:\n        return 1\n    elif a > b:\n        return 2\n    elif b:\n        return 3\n    else:\n        a += b\nprint(func(-1, 0))",
+    "options": [
+      {
+        "text": "H",
+        "isCorrect": true
+      },
+      {
+        "text": "F",
+        "isCorrect": false
+      },
+      {
+        "text": "False",
+        "isCorrect": false
+      },
+      {
+        "text": "Hello",
+        "isCorrect": false
+      },
+      {
+        "text": "True",
+        "isCorrect": false
+      },
+      {
+        "text": "T",
+        "isCorrect": false
+      },
+      {
+        "text": "None",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "or 연산자는 첫 번째 피연산자가 참이면 그 값을 반환하고, 그렇지 않으면 두 번째 피연산자를 반환합니다. 따라서 a('Hello')는 참이므로 result는 'Hello'가 되고, result[0]은 'H'입니다.",
+    "explanation_eng": "The or operator returns the first operand if it is true. otherwise, it returns the second operand. Since a('Hello') is true, result becomes 'Hello', and result[0] is 'H'."
+  },
+  {
+    "id": "2025_1_m_7",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "for"
+    ],
+    "question": "Which of the following is the most appropriate output of the code?\n\ndef func(*args):\n    for arg in args:\n        return arg\nvalue = {1, 2, 3}\nprint(func(value))",
+    "options": [
+      {
+        "text": "[2]",
+        "isCorrect": true
+      },
+      {
+        "text": "[1]",
+        "isCorrect": false
+      },
+      {
+        "text": "[]",
+        "isCorrect": false
+      },
+      {
+        "text": "[2, 4]",
+        "isCorrect": false
+      },
+      {
+        "text": "[2, 4, 6]",
+        "isCorrect": false
+      },
+      {
+        "text": "[0]",
+        "isCorrect": false
+      },
+      {
+        "text": "[None]",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "for n in range(1, 6): n을 1부터 5까지 반복합니다. 1회 루프에서 (n = 1), 1 % 2 == 0이 False 이고 total이 비어있으므로 else 문이 실행됩니다(total = []). 2회 루프에서 (n = 2), 2 % 2 == 0이 True 이므로 total.append(2) 를 실행합니다 (total = [2]). 3회 루프에서 3 % 2 == 0이 False 이고, total이 비어있지 않으므로 break 문이 실행되어 for 루프가 종료됩니다. 따라서 최종 total 값은 '[2]'를 출력합니다.",
+    "explanation_eng": "The for loop iterates n from 1 to 5. In the first iteration (n = 1), 1 % 2 == 0 is False and total is empty, so the else block executes (total = []). In the second iteration (n = 2), 2 % 2 == 0 is True, so total.append(2) is executed (total = [2]). In the third iteration, 3 % 2 == 0 is False, and since total is not empty, the break statement executes, terminating the for loop. Therefore, the final value of total is '[2]'."
+  },
+  {
+    "id": "2025_1_m_8",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "function"
+    ],
+    "question": "Which of the following is the most appropriate output of the code?\n\ndef func(a, *b, c=5, **d):\n    return a, b, c\nprint(func(1, 2, c=3))",
+    "options": [
+      {
+        "text": "(30, 50)",
+        "isCorrect": true
+      },
+      {
+        "text": "30, 50",
+        "isCorrect": false
+      },
+      {
+        "text": "30 50",
+        "isCorrect": false
+      },
+      {
+        "text": "(30, 40)",
+        "isCorrect": false
+      },
+      {
+        "text": "30, 40",
+        "isCorrect": false
+      },
+      {
+        "text": "30 40",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "result = func(10, 20, c=30) 에서 a = 10, b = 20, c = 30으로 함수가 호출됩니다. a + b = 10 + 20 = 30, b + c = 20 + 30 = 50 이므로, 함수 func는 튜플 (30, 50)을 반환합니다. 따라서 result는 튜플 (30, 50)을 출력합니다.",
+    "explanation_eng": "In result = func(10, 20, c=30), the function is called with a = 10, b = 20, and c = 30. The calculations a + b = 10 + 20 = 30 and b + c = 20 + 30 = 50 lead the function func to return the tuple (30, 50). Therefore, result outputs the tuple (30, 50)."
+  },
+  {
+    "id": "2025_1_m_9",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "function"
+    ],
+    "question": "Which of the following is the most appropriate output of the code?\n\ndef func(a, *b, c=5, **d):\n    return d\nprint(func(1, 2, c=3, d=99))",
+    "options": [
+      {
+        "text": "(0,)",
+        "isCorrect": true
+      },
+      {
+        "text": "(0, 1, 2, 3)",
+        "isCorrect": false
+      },
+      {
+        "text": "(0, 2, 3)",
+        "isCorrect": false
+      },
+      {
+        "text": "(0, 3)",
+        "isCorrect": false
+      },
+      {
+        "text": "(1, 2, 3)",
+        "isCorrect": false
+      },
+      {
+        "text": "None",
+        "isCorrect": false
+      },
+      {
+        "text": "(0)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "함수 func(a, *b) 에서 첫번째 인자 a는 일반 인자이고, *b는 가변 인자로 여러 개의 값을 받아 튜플 형태로 저장합니다. 위 문제에서 arg는 (1, 2, 3)이라는 튜플로, 함수가 호출될 때 arg 전체가 a에 하나의 값으로 전달됩니다. 따라서 a = (1, 2, 3)이고  b = () 입니다. b가 빈 튜플이므로 if b: 조건이 False가 되어 total의 초기값 (0,)만 반환됩니다.",
+    "explanation_eng": "In the function func(a, *b), the first parameter a is a regular argument, while *b is a variable-length argument that can accept multiple values and stores them as a tuple. In this case, arg is the tuple (1, 2, 3), which is passed as a single value to a when the function is called. Therefore, a = (1, 2, 3) and b = (). Since b is an empty tuple, the condition if b: evaluates to False, and only the initial value of total (0,) is returned."
+  },
+  {
+    "id": "2025_1_m_10",
+    "type": "mcq",
+    "language": "python",
+    "tags": [
+      "function"
+    ],
+    "question": "Which of the following is the most appropriate output of the code?\n\ndef func(a, *, b=0):\n    return a + b",
+    "options": [
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "('2',)",
+        "isCorrect": true
+      },
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "('1',)",
+        "isCorrect": false
+      },
+      {
+        "text": "4",
+        "isCorrect": false
+      },
+      {
+        "text": "{'x': 4}",
+        "isCorrect": false
+      },
+      {
+        "text": "None",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": "",
+    "explanation_kor": "함수 func(a, *b, **c) 에서 a는 일반 인자로, 첫 번째 값을 받습니다. 또한 *b는 가변 인자로, 여러 개의 값을 튜플로 받습니다. **c는 키워드 인자로, 키워드와 함께 전달된 값을 딕셔너리로 받습니다. 따라서 func('1', '2', x='4') 호출 시, a = '1', b = ('2',), c = {'x': '4'}가 됩니다. if-elif-else 문에서 c는 비어있지 않으므로 참이므로 결국 b가 반환됩니다. 결국 result 값은 ('2',) 가 됩니다.",
+    "explanation_eng": "In the function func(a, *b, **c), a is a regular argument that takes the first value. *b is a variable-length argument that takes multiple values as a tuple. **c is a keyword argument that takes values passed with keywords as a dictionary. Therefore, when calling func('1', '2', x='4'), we have a = '1', b = ('2',), and c = {'x': '4'}. In the if-elif-else statement, c is not empty and evaluates to true, so b is returned. Thus, the final value of result is ('2',)."
+  }
+]
