@@ -1,0 +1,807 @@
+[
+  {
+    "id": "2024_1_f_1",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "correlation",
+      "marketing"
+    ],
+    "question": "광고 노출 시간과 매출의 상관계수는 얼마인가? (What is the correlation coefficient between ad exposure time and sales?)",
+    "options": [
+      {
+        "text": "0.0",
+        "isCorrect": false
+      },
+      {
+        "text": "0.5",
+        "isCorrect": false
+      },
+      {
+        "text": "0.8",
+        "isCorrect": false
+      },
+      {
+        "text": "1.0",
+        "isCorrect": true
+      },
+      {
+        "text": "-1.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "광고 노출 시간 [1,2,3,4,5]와 매출 [2,4,6,8,10]은 완전한 양의 선형관계입니다. 따라서 상관계수는 1.0입니다.",
+    "explanation_eng": "Ad exposure time [1,2,3,4,5] and sales [2,4,6,8,10] have a perfect positive linear relationship. Therefore, the correlation coefficient is 1.0."
+  },
+  {
+    "id": "2024_1_f_2",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "vif",
+      "multicollinearity"
+    ],
+    "question": "광고 노출 시간의 VIF 값은 얼마인가? (What is the VIF value for ad exposure time?)",
+    "options": [
+      {
+        "text": "1.0",
+        "isCorrect": false
+      },
+      {
+        "text": "2.0",
+        "isCorrect": false
+      },
+      {
+        "text": "5.0",
+        "isCorrect": false
+      },
+      {
+        "text": "10.0",
+        "isCorrect": true
+      },
+      {
+        "text": "100.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "광고 노출 시간을 나머지 변수들로 예측했을 때 R²=0.9이므로 VIF=1/(1-R²)=1/(1-0.9)=10.0입니다.",
+    "explanation_eng": "Since R²=0.9 when predicting ad exposure time from the other variables, VIF=1/(1-R²)=1/(1-0.9)=10.0."
+  },
+  {
+    "id": "2024_1_f_3",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "bayes theorem",
+      "classification",
+      "probability"
+    ],
+    "question": "진상 고객 예측 알고리즘이 진상이라고 예측했을 때, 실제 진상일 확률 P(진상고객 | Positive)는 얼마인가? (If the algorithm predicts a customer as problematic, what is P(problematic customer | Positive)?)",
+    "options": [
+      {
+        "text": "1.0",
+        "isCorrect": false
+      },
+      {
+        "text": "47.6",
+        "isCorrect": false
+      },
+      {
+        "text": "90.1",
+        "isCorrect": true
+      },
+      {
+        "text": "99.0",
+        "isCorrect": false
+      },
+      {
+        "text": "99.9",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "P(진상)=0.01, TPR=0.90, FPR=0.001입니다. P(진상|Positive)=0.01×0.90 / (0.01×0.90 + 0.99×0.001)=0.9009이므로 약 90.1%입니다.",
+    "explanation_eng": "P(problematic)=0.01, TPR=0.90, and FPR=0.001. P(problematic|Positive)=0.01×0.90/(0.01×0.90+0.99×0.001)=0.9009, or about 90.1%."
+  },
+  {
+    "id": "2024_1_f_4",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "recall",
+      "confusion matrix"
+    ],
+    "question": "주어진 혼동행렬에서 재현율(Recall)은 얼마인가? (What is the Recall from the given confusion matrix?)",
+    "options": [
+      {
+        "text": "0.4",
+        "isCorrect": false
+      },
+      {
+        "text": "0.5",
+        "isCorrect": false
+      },
+      {
+        "text": "0.8",
+        "isCorrect": true
+      },
+      {
+        "text": "0.9",
+        "isCorrect": false
+      },
+      {
+        "text": "1.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "실제 진상 고객 중 진상으로 맞게 예측한 경우가 40, 일반 고객으로 틀리게 예측한 경우가 10입니다. Recall=TP/(TP+FN)=40/(40+10)=0.8입니다.",
+    "explanation_eng": "There are 40 true positives and 10 false negatives. Recall=TP/(TP+FN)=40/(40+10)=0.8."
+  },
+  {
+    "id": "2024_1_f_5",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "t-test",
+      "hypothesis testing"
+    ],
+    "question": "광고A와 광고B의 매출 차이에 대한 t값의 절댓값은 얼마인가? (What is the absolute t-value for the sales difference between ad A and ad B?)",
+    "options": [
+      {
+        "text": "0.5",
+        "isCorrect": false
+      },
+      {
+        "text": "1.0",
+        "isCorrect": false
+      },
+      {
+        "text": "2.5",
+        "isCorrect": true
+      },
+      {
+        "text": "5.0",
+        "isCorrect": false
+      },
+      {
+        "text": "10.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "두 집단 평균은 50과 55, 표본 수는 각각 50, pooled standard deviation은 10입니다. t=|50-55|/(10×sqrt(1/50+1/50))=2.5입니다.",
+    "explanation_eng": "The means are 50 and 55, each group has n=50, and the pooled standard deviation is 10. t=|50-55|/(10×sqrt(1/50+1/50))=2.5."
+  },
+  {
+    "id": "2024_1_f_6",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "p-value",
+      "hypothesis testing"
+    ],
+    "question": "p값이 0.012일 때 다음 설명 중 가장 적절한 것은? (If the p-value is 0.012, which statement is the most appropriate?)",
+    "options": [
+      {
+        "text": "유의수준 0.05에서는 귀무가설을 기각할 수 있다. (At significance level 0.05, the null hypothesis can be rejected.)",
+        "isCorrect": true
+      },
+      {
+        "text": "유의수준 0.01에서는 귀무가설을 기각할 수 있다. (At significance level 0.01, the null hypothesis can be rejected.)",
+        "isCorrect": false
+      },
+      {
+        "text": "유의수준 0.05에서는 p값이 유의수준보다 크므로 유의미한 차이가 없다. (At 0.05, p is greater than alpha, so there is no significant difference.)",
+        "isCorrect": false
+      },
+      {
+        "text": "p값이 0.012이므로 어떤 유의수준에서도 항상 귀무가설을 기각한다. (Since p=0.012, the null is always rejected at any significance level.)",
+        "isCorrect": false
+      },
+      {
+        "text": "유의수준 0.01과 0.05 모두에서 귀무가설을 기각할 수 없다. (The null cannot be rejected at both 0.01 and 0.05.)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "p=0.012는 0.05보다 작고 0.01보다 큽니다. 따라서 유의수준 0.05에서는 귀무가설을 기각하지만, 0.01에서는 기각하지 못합니다.",
+    "explanation_eng": "p=0.012 is smaller than 0.05 but larger than 0.01. Thus, the null hypothesis is rejected at 0.05 but not at 0.01."
+  },
+  {
+    "id": "2024_1_f_7",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "hawthorne effect",
+      "experiment"
+    ],
+    "question": "사람들이 자신이 관찰되거나 연구 대상이라는 사실을 알게 되면 행동이 변하는 현상은 무엇인가? (What is the phenomenon in which people change their behavior because they know they are being observed or studied?)",
+    "options": [
+      {
+        "text": "호손 효과 (Hawthorne effect)",
+        "isCorrect": true
+      },
+      {
+        "text": "확증 편향 (Confirmation bias)",
+        "isCorrect": false
+      },
+      {
+        "text": "생존자 편향 (Survivorship bias)",
+        "isCorrect": false
+      },
+      {
+        "text": "다중공선성 (Multicollinearity)",
+        "isCorrect": false
+      },
+      {
+        "text": "베이즈 정리 (Bayes theorem)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "관찰받고 있다는 사실 때문에 사람의 행동이 달라지는 현상을 호손 효과라고 합니다.",
+    "explanation_eng": "The Hawthorne effect refers to changes in behavior caused by awareness of being observed or studied."
+  },
+  {
+    "id": "2024_1_f_8",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "roi",
+      "digital marketing"
+    ],
+    "question": "광고비 10만원, 매출 20만원일 때 ROI는 몇 %인가? (If ad cost is 100,000 KRW and sales are 200,000 KRW, what is the ROI?)",
+    "options": [
+      {
+        "text": "50.0",
+        "isCorrect": false
+      },
+      {
+        "text": "100.0",
+        "isCorrect": true
+      },
+      {
+        "text": "150.0",
+        "isCorrect": false
+      },
+      {
+        "text": "200.0",
+        "isCorrect": false
+      },
+      {
+        "text": "1000.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "ROI=(매출-비용)/비용×100=(200000-100000)/100000×100=100.0%입니다.",
+    "explanation_eng": "ROI=(revenue-cost)/cost×100=(200000-100000)/100000×100=100.0%."
+  },
+  {
+    "id": "2024_1_f_9",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "roas",
+      "digital marketing"
+    ],
+    "question": "광고비 10만원, 매출 20만원일 때 ROAS는 몇 %인가? (If ad cost is 100,000 KRW and sales are 200,000 KRW, what is the ROAS?)",
+    "options": [
+      {
+        "text": "50.0",
+        "isCorrect": false
+      },
+      {
+        "text": "100.0",
+        "isCorrect": false
+      },
+      {
+        "text": "150.0",
+        "isCorrect": false
+      },
+      {
+        "text": "200.0",
+        "isCorrect": true
+      },
+      {
+        "text": "1000.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "ROAS=매출/광고비×100=200000/100000×100=200.0%입니다.",
+    "explanation_eng": "ROAS=revenue/ad spend×100=200000/100000×100=200.0%."
+  },
+  {
+    "id": "2024_1_f_10",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "ctr",
+      "digital marketing"
+    ],
+    "question": "광고 노출 수 1,000회, 광고 클릭 수 100회일 때 CTR은 몇 %인가? (If impressions are 1,000 and clicks are 100, what is the CTR?)",
+    "options": [
+      {
+        "text": "1.0",
+        "isCorrect": false
+      },
+      {
+        "text": "5.0",
+        "isCorrect": false
+      },
+      {
+        "text": "10.0",
+        "isCorrect": true
+      },
+      {
+        "text": "15.0",
+        "isCorrect": false
+      },
+      {
+        "text": "100.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "CTR=클릭 수/노출 수×100=100/1000×100=10.0%입니다.",
+    "explanation_eng": "CTR=clicks/impressions×100=100/1000×100=10.0%."
+  },
+  {
+    "id": "2024_1_f_11",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "cpc",
+      "digital marketing"
+    ],
+    "question": "광고비 10만원, 광고 클릭 수 100회일 때 CPC는 얼마인가? (If ad cost is 100,000 KRW and clicks are 100, what is the CPC?)",
+    "options": [
+      {
+        "text": "100",
+        "isCorrect": false
+      },
+      {
+        "text": "500",
+        "isCorrect": false
+      },
+      {
+        "text": "1000",
+        "isCorrect": true
+      },
+      {
+        "text": "1500",
+        "isCorrect": false
+      },
+      {
+        "text": "2000",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "CPC=광고비/클릭 수=100000/100=1000원입니다.",
+    "explanation_eng": "CPC=ad cost/clicks=100000/100=1000 KRW."
+  },
+  {
+    "id": "2024_1_f_12",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "cvr",
+      "digital marketing"
+    ],
+    "question": "광고 클릭 수 100회, 결제 수 15회일 때 CVR은 몇 %인가? (If clicks are 100 and conversions are 15, what is the CVR?)",
+    "options": [
+      {
+        "text": "5.0",
+        "isCorrect": false
+      },
+      {
+        "text": "10.0",
+        "isCorrect": false
+      },
+      {
+        "text": "15.0",
+        "isCorrect": true
+      },
+      {
+        "text": "20.0",
+        "isCorrect": false
+      },
+      {
+        "text": "100.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "CVR=결제 수/클릭 수×100=15/100×100=15.0%입니다.",
+    "explanation_eng": "CVR=conversions/clicks×100=15/100×100=15.0%."
+  },
+  {
+    "id": "2024_1_f_13",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "bias",
+      "survivorship bias"
+    ],
+    "question": "성공한 광고 문구 사례만 고려하고 실패하거나 도태된 사례를 무시하는 편향은 무엇인가? (What bias occurs when only successful ad copy cases are considered while failed cases are ignored?)",
+    "options": [
+      {
+        "text": "생존자 편향 (Survivorship bias)",
+        "isCorrect": true
+      },
+      {
+        "text": "확증 편향 (Confirmation bias)",
+        "isCorrect": false
+      },
+      {
+        "text": "표본 선택 편향 (Sampling bias)",
+        "isCorrect": false
+      },
+      {
+        "text": "호손 효과 (Hawthorne effect)",
+        "isCorrect": false
+      },
+      {
+        "text": "정규화 (Normalization)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "성공하거나 살아남은 사례만 보고 실패한 사례를 무시하면 생존자 편향이 발생합니다.",
+    "explanation_eng": "Survivorship bias occurs when only successful or surviving cases are considered while failed cases are ignored."
+  },
+  {
+    "id": "2024_1_f_14",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "moving average",
+      "time series"
+    ],
+    "question": "윈도우 사이즈 3으로 단순이동평균을 계산했을 때 ①+②+③+④ 값은 얼마인가? (With a simple moving average window size of 3, what is ①+②+③+④?)",
+    "options": [
+      {
+        "text": "150",
+        "isCorrect": false
+      },
+      {
+        "text": "180",
+        "isCorrect": false
+      },
+      {
+        "text": "200",
+        "isCorrect": true
+      },
+      {
+        "text": "220",
+        "isCorrect": false
+      },
+      {
+        "text": "240",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "판매 수는 [10,20,90,40,50,60]입니다. 윈도우 3의 단순이동평균은 40, 50, 60, 50이고 합은 200입니다.",
+    "explanation_eng": "The sales values are [10,20,90,40,50,60]. The 3-point simple moving averages are 40, 50, 60, and 50, whose sum is 200."
+  },
+  {
+    "id": "2024_1_f_15",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "weighted moving average",
+      "time series"
+    ],
+    "question": "윈도우 사이즈 5, 가중치 w1=1, w2=2, w3=3, w4=4, w5=5일 때 ① 값은 얼마인가? (With window size 5 and weights 1,2,3,4,5, what is ①?)",
+    "options": [
+      {
+        "text": "40.0",
+        "isCorrect": false
+      },
+      {
+        "text": "45.3",
+        "isCorrect": false
+      },
+      {
+        "text": "48.7",
+        "isCorrect": true
+      },
+      {
+        "text": "50.0",
+        "isCorrect": false
+      },
+      {
+        "text": "60.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "①=(10×1+20×2+90×3+40×4+50×5)/(1+2+3+4+5)=730/15=48.7입니다.",
+    "explanation_eng": "①=(10×1+20×2+90×3+40×4+50×5)/(1+2+3+4+5)=730/15=48.7."
+  },
+  {
+    "id": "2024_1_f_16",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "tf-idf"
+    ],
+    "question": "5개 게시글의 모든 명사 중 TF-IDF 값이 가장 낮은 명사는 무엇인가? 모두 고르시오. (Among all nouns in the five posts, which noun has the lowest TF-IDF value? Choose all that apply.)",
+    "options": [
+      {
+        "text": "벌레 (bug)",
+        "isCorrect": false
+      },
+      {
+        "text": "맛 (taste)",
+        "isCorrect": false
+      },
+      {
+        "text": "탕후루 (tanghulu)",
+        "isCorrect": true
+      },
+      {
+        "text": "마라탕 (malatang)",
+        "isCorrect": false
+      },
+      {
+        "text": "무설탕 (sugar-free)",
+        "isCorrect": false
+      },
+      {
+        "text": "민트 (mint)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "탕후루는 5개 문서 모두에 등장하므로 df=5, IDF=log(5/5)=log(1)=0입니다. 따라서 TF-IDF가 가장 낮습니다.",
+    "explanation_eng": "Tanghulu appears in all five documents, so df=5 and IDF=log(5/5)=log(1)=0. Therefore, it has the lowest TF-IDF."
+  },
+  {
+    "id": "2024_1_f_17",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "tf-idf"
+    ],
+    "question": "5개 게시글의 모든 명사 중 TF-IDF 값이 가장 높은 단어는 무엇인가? 모두 고르시오. (Among all nouns in the five posts, which words have the highest TF-IDF value? Choose all that apply.)",
+    "options": [
+      {
+        "text": "무설탕 (sugar-free)",
+        "isCorrect": true
+      },
+      {
+        "text": "탕후루 (tanghulu)",
+        "isCorrect": false
+      },
+      {
+        "text": "민트 (mint)",
+        "isCorrect": true
+      },
+      {
+        "text": "마라탕 (malatang)",
+        "isCorrect": true
+      },
+      {
+        "text": "벌레 (bug)",
+        "isCorrect": true
+      },
+      {
+        "text": "맛 (taste)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "민트, 벌레, 무설탕, 마라탕은 각각 한 문서에만 등장하므로 IDF=log(5)=1.5로 가장 큽니다.",
+    "explanation_eng": "Mint, bug, sugar-free, and malatang each appear in only one document, so their IDF is log(5)=1.5, the highest."
+  },
+  {
+    "id": "2024_1_f_18",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "entropy",
+      "homogeneity",
+      "clustering"
+    ],
+    "question": "주어진 성별 분포에서 H(C)의 값은 얼마인가? (What is H(C) for the given gender distribution?)",
+    "options": [
+      {
+        "text": "0.0",
+        "isCorrect": false
+      },
+      {
+        "text": "0.6",
+        "isCorrect": false
+      },
+      {
+        "text": "0.7",
+        "isCorrect": false
+      },
+      {
+        "text": "0.9",
+        "isCorrect": true
+      },
+      {
+        "text": "1.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "성별은 0이 1명, 1이 2명입니다. H(C)=-(1/3)log2(1/3)-(2/3)log2(2/3)≈0.9입니다.",
+    "explanation_eng": "There is one case of gender 0 and two cases of gender 1. H(C)=-(1/3)log2(1/3)-(2/3)log2(2/3)≈0.9."
+  },
+  {
+    "id": "2024_1_f_19",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "conditional entropy",
+      "homogeneity",
+      "clustering"
+    ],
+    "question": "주어진 클러스터링 결과에서 H(C|K)의 값은 얼마인가? (What is H(C|K) for the given clustering result?)",
+    "options": [
+      {
+        "text": "0.0",
+        "isCorrect": false
+      },
+      {
+        "text": "0.3",
+        "isCorrect": false
+      },
+      {
+        "text": "0.5",
+        "isCorrect": false
+      },
+      {
+        "text": "0.7",
+        "isCorrect": true
+      },
+      {
+        "text": "0.9",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "클러스터 0에는 성별 0과 1이 각각 1명씩 있어 엔트로피가 1이고, 클러스터 1에는 성별 1만 있어 엔트로피가 0입니다. H(C|K)=(2/3)×1+(1/3)×0≈0.7입니다.",
+    "explanation_eng": "Cluster 0 contains one gender 0 and one gender 1, so its entropy is 1. Cluster 1 contains only gender 1, so its entropy is 0. H(C|K)=(2/3)×1+(1/3)×0≈0.7."
+  },
+  {
+    "id": "2024_1_f_20",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "association rule",
+      "support"
+    ],
+    "question": "단일 상품 기준으로 지지도(Support)가 가장 높은 상품은 무엇인가? (Considering single items, which product has the highest support?)",
+    "options": [
+      {
+        "text": "티셔츠(초록) (green T-shirt)",
+        "isCorrect": false
+      },
+      {
+        "text": "탕후루(사과맛) (apple tanghulu)",
+        "isCorrect": false
+      },
+      {
+        "text": "새우깡 (shrimp snack)",
+        "isCorrect": false
+      },
+      {
+        "text": "모자(파랑) (blue hat)",
+        "isCorrect": false
+      },
+      {
+        "text": "소주 (soju)",
+        "isCorrect": true
+      },
+      {
+        "text": "맥주 (beer)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "동일 세션의 구매 기록을 하나의 거래로 보면, 소주는 8개 거래 중 4개 거래에 등장하여 가장 지지도가 높습니다.",
+    "explanation_eng": "When purchases in the same session are treated as one transaction, soju appears in 4 out of 8 transactions, the highest support."
+  },
+  {
+    "id": "2024_1_f_21",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "association rule",
+      "confidence"
+    ],
+    "question": "신뢰도(소주 -> 맥주)는 얼마인가? (What is the confidence of the rule soju -> beer?)",
+    "options": [
+      {
+        "text": "0.1",
+        "isCorrect": false
+      },
+      {
+        "text": "0.3",
+        "isCorrect": false
+      },
+      {
+        "text": "0.5",
+        "isCorrect": true
+      },
+      {
+        "text": "0.7",
+        "isCorrect": false
+      },
+      {
+        "text": "1.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "소주가 포함된 거래는 4개이고, 그중 맥주도 함께 포함된 거래는 2개입니다. 신뢰도=2/4=0.5입니다.",
+    "explanation_eng": "There are 4 transactions containing soju, and 2 of them also contain beer. Confidence=2/4=0.5."
+  },
+  {
+    "id": "2024_1_f_22",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "association rule",
+      "confidence"
+    ],
+    "question": "신뢰도(소주&맥주 -> 새우깡)는 얼마인가? (What is the confidence of the rule soju & beer -> shrimp snack?)",
+    "options": [
+      {
+        "text": "0.1",
+        "isCorrect": false
+      },
+      {
+        "text": "0.3",
+        "isCorrect": false
+      },
+      {
+        "text": "0.5",
+        "isCorrect": true
+      },
+      {
+        "text": "0.7",
+        "isCorrect": false
+      },
+      {
+        "text": "1.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "소주와 맥주가 함께 포함된 거래는 2개이고, 그중 새우깡도 함께 포함된 거래는 1개입니다. 신뢰도=1/2=0.5입니다.",
+    "explanation_eng": "There are 2 transactions containing both soju and beer, and 1 of them also contains shrimp snack. Confidence=1/2=0.5."
+  }
+]

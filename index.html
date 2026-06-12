@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Python 기출 퀴즈</title>
+  <title>기출 퀴즈</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -90,6 +90,12 @@
       transition: all .2s;
     }
     .ranking-home-btn:hover { background: #f5f0ff; transform: translateY(-2px); }
+
+    /* ── 과목 탭 ── */
+    .subject-tabs { display:flex; gap:8px; margin-bottom:20px; }
+    .subject-tab  { flex:1; padding:10px 14px; border:2px solid #e8e8e8; border-radius:14px; background:#fafafa; font-size:14px; font-weight:700; color:#888; cursor:pointer; text-align:center; transition:all .2s; }
+    .subject-tab:hover { border-color:#764ba2; }
+    .subject-tab.active { border-color:#764ba2; background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; }
 
     /* ── 퀴즈 ── */
     .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
@@ -203,15 +209,15 @@
 
 <div class="container">
   <div class="site-header">
-    <h1>🐍 Python 기출 퀴즈</h1>
+    <h1>📚 기출 퀴즈</h1>
     <p>기출문제를 풀고 실력을 확인해보세요</p>
   </div>
 
   <!-- ① 로그인 -->
   <div id="screen-login" class="screen active">
     <div class="card center-screen">
-      <div class="big-emoji">🐍</div>
-      <div class="screen-title">Python 기출 퀴즈</div>
+      <div class="big-emoji">📚</div>
+      <div class="screen-title">기출 퀴즈</div>
       <div class="screen-sub">Google 계정으로 로그인하면<br>점수가 기록되고 랭킹에 올라가요</div>
       <div style="display:flex;justify-content:center;margin-top:8px">
         <div class="g_id_signin"
@@ -243,8 +249,12 @@
   <div id="screen-select" class="screen">
     <div class="card">
       <div id="userHeader"></div>
+      <div class="subject-tabs">
+        <button class="subject-tab active" id="tab-python" onclick="switchSubject('python')">🐍 Python</button>
+        <button class="subject-tab" id="tab-ada" onclick="switchSubject('ada')">📊 응용데이터분석</button>
+      </div>
       <div class="section-title">📚 시험 선택</div>
-      <div class="section-sub">풀고 싶은 시험을 선택하세요</div>
+      <div class="section-sub" id="selectSub">풀고 싶은 시험을 선택하세요</div>
       <div class="exam-grid" id="examGrid"></div>
       <button class="ranking-home-btn" onclick="showRankingScreen()">🏆 전체 랭킹 보기</button>
     </div>
@@ -309,6 +319,10 @@
     <div class="card">
       <div class="ranking-label">🏆 전체 랭킹</div>
       <div class="ranking-sub">동일 계정 최고 점수만 표시</div>
+      <div class="subject-tabs">
+        <button class="subject-tab active" id="rankTab-python" onclick="switchRankSubject('python')">🐍 Python</button>
+        <button class="subject-tab" id="rankTab-ada" onclick="switchRankSubject('ada')">📊 응용데이터분석</button>
+      </div>
       <div class="rank-filter" id="rankFilter"></div>
       <div id="rankingArea"><div class="rank-loading">불러오는 중…</div></div>
       <button class="back-link" onclick="showScreen('screen-select')">← 홈으로</button>
@@ -334,6 +348,14 @@ const EXAMS = [
   { id:'2025_1_f', label:'2025-1', sub:'기말고사', emoji:'📋', file:'data/2025_1_f.json' },
 ];
 
+const EXAMS_ADA = [
+  { id:'ada_2024_1_m', label:'2024-1', sub:'중간고사', emoji:'📝', file:'data/ada_2024_1_m.json' },
+  { id:'ada_2024_1_f', label:'2024-1', sub:'기말고사', emoji:'📋', file:'data/ada_2024_1_f.json' },
+  { id:'ada_2025_1_m', label:'2025-1', sub:'중간고사', emoji:'📝', file:'data/ada_2025_1_m.json' },
+];
+
+const ALL_EXAMS = [...EXAMS, ...EXAMS_ADA];
+
 /* ═══════════════════ STATE ═══════════════════ */
 let userInfo     = null; // { id, name, email, picture }
 let userNick     = '';   // 랭킹 표시용 닉네임
@@ -346,8 +368,10 @@ let langKor      = true;
 let resLangKor   = true;
 let history      = [];
 let reviewOpen   = false;
-let rankFilter   = 'all';
-let cachedRank   = null;
+let rankFilter     = 'all';
+let cachedRank     = null;
+let currentSubject = 'python'; // 'python' | 'ada'
+let rankSubject    = 'python'; // 'python' | 'ada'
 
 /* ═══════════════════ GOOGLE 로그인 ═══════════════════ */
 function handleCredentialResponse(response) {
@@ -418,11 +442,12 @@ function logout() {
   showScreen('screen-login');
 }
 
-/* ═══════════════════ INIT ═══════════════════ */
-function init() {
-  // 시험 카드
+/* ═══════════════════ 과목 전환 ═══════════════════ */
+function buildExamGrid() {
+  const exams = currentSubject === 'ada' ? EXAMS_ADA : EXAMS;
   const grid = document.getElementById('examGrid');
-  EXAMS.forEach(exam => {
+  grid.innerHTML = '';
+  exams.forEach(exam => {
     const c = document.createElement('div');
     c.className = 'exam-card';
     c.innerHTML = `<div class="exam-emoji">${exam.emoji}</div>
@@ -431,10 +456,21 @@ function init() {
     c.onclick = () => selectExam(exam);
     grid.appendChild(c);
   });
+}
 
-  // 랭킹 필터 버튼
+function switchSubject(subj) {
+  currentSubject = subj;
+  document.getElementById('tab-python').classList.toggle('active', subj === 'python');
+  document.getElementById('tab-ada').classList.toggle('active', subj === 'ada');
+  buildExamGrid();
+}
+
+function buildRankFilter() {
+  const exams = rankSubject === 'ada' ? EXAMS_ADA : EXAMS;
   const filterEl = document.getElementById('rankFilter');
-  [{ id:'all', label:'전체' }, ...EXAMS.map(e => ({ id:e.id, label:`${e.label} ${e.sub}` }))]
+  filterEl.innerHTML = '';
+  rankFilter = 'all';
+  [{ id:'all', label:'전체' }, ...exams.map(e => ({ id:e.id, label:`${e.label} ${e.sub}` }))]
     .forEach(f => {
       const btn = document.createElement('button');
       btn.className   = 'rank-filter-btn' + (f.id === 'all' ? ' active' : '');
@@ -448,6 +484,21 @@ function init() {
       };
       filterEl.appendChild(btn);
     });
+}
+
+function switchRankSubject(subj) {
+  rankSubject = subj;
+  document.getElementById('rankTab-python').classList.toggle('active', subj === 'python');
+  document.getElementById('rankTab-ada').classList.toggle('active', subj === 'ada');
+  buildRankFilter();
+  cachedRank = null;
+  renderRankTable('rankingArea', 'all');
+}
+
+/* ═══════════════════ INIT ═══════════════════ */
+function init() {
+  buildExamGrid();
+  buildRankFilter();
 
   // 닉네임 입력창 이벤트
   const nickEl = document.getElementById('nickInput');
@@ -635,7 +686,10 @@ async function renderRankTable(areaId, examFilter) {
     return;
   }
 
-  const filtered = examFilter === 'all' ? data : data.filter(r => r.exam === examFilter);
+  const subjectExamIds = (rankSubject === 'ada' ? EXAMS_ADA : EXAMS).map(e => e.id);
+  const filtered = examFilter === 'all'
+    ? data.filter(r => subjectExamIds.includes(r.exam))
+    : data.filter(r => r.exam === examFilter);
 
   // 구글 ID + 시험별 최고점수만 (% 기호 제거 후 비교)
   // 시트가 "40%" → 0.4(소수)로 변환하는 경우도 처리
@@ -652,7 +706,7 @@ async function renderRankTable(areaId, examFilter) {
 
   if (!rows.length) { area.innerHTML = '<div class="rank-empty">해당 시험 기록이 없어요</div>'; return; }
 
-  const examLabel = id => { const e = EXAMS.find(x=>x.id===id); return e?`${e.label} ${e.sub}`:id; };
+  const examLabel = id => { const e = ALL_EXAMS.find(x=>x.id===id); return e?`${e.label} ${e.sub}`:id; };
   const medals    = ['🥇','🥈','🥉'];
 
   let html = `<table class="rank-table"><thead><tr>
@@ -683,8 +737,10 @@ async function renderRankTable(areaId, examFilter) {
 
 function showRankingScreen() {
   showScreen('screen-ranking');
-  rankFilter = 'all';
-  document.querySelectorAll('.rank-filter-btn').forEach(b => b.classList.toggle('active', b.dataset.id==='all'));
+  rankSubject = currentSubject;
+  document.getElementById('rankTab-python').classList.toggle('active', rankSubject === 'python');
+  document.getElementById('rankTab-ada').classList.toggle('active', rankSubject === 'ada');
+  buildRankFilter();
   cachedRank = null;
   renderRankTable('rankingArea', 'all');
 }

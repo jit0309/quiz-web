@@ -1,0 +1,560 @@
+[
+  {
+    "id": "2025_1_m_1",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "descriptive statistics",
+      "correlation",
+      "covariance",
+      "z-score"
+    ],
+    "question": "다음 중 틀린 것을 모두 고르시오. (Choose all incorrect statements.)",
+    "options": [
+      {
+        "text": "평균 Age는 26이다. (The mean Age is 26.)",
+        "isCorrect": false
+      },
+      {
+        "text": "Age와 Purchase Amount의 공분산은 32보다 크다. (The covariance between Age and Purchase Amount is greater than 32.)",
+        "isCorrect": true
+      },
+      {
+        "text": "Age와 Purchase Amount의 상관계수는 0.9 이상이다. (The correlation coefficient between Age and Purchase Amount is at least 0.9.)",
+        "isCorrect": false
+      },
+      {
+        "text": "Age의 분산은 소수점 둘째자리에서 반올림하면 83.30이다. (The variance of Age rounded to two decimal places is 83.30.)",
+        "isCorrect": false
+      },
+      {
+        "text": "표준편차를 10으로 가정하면, C6의 Age값 Z-Score는 1.20이다. (If the standard deviation is assumed to be 10, C6's Age Z-score is 1.20.)",
+        "isCorrect": false
+      },
+      {
+        "text": "Age와 Purchase Amount의 상관계수를 구할 때, 이 데이터가 샘플인지 모집단인지에 따라 상관계수 값이 달라진다. (The correlation coefficient between Age and Purchase Amount changes depending on whether the data is treated as a sample or a population.)",
+        "isCorrect": true
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "평균 Age는 26이고, Age와 Purchase Amount의 상관계수는 약 0.93입니다. 모집단 기준 Age 분산은 83.33으로 약 83.30이며, C6의 Z-score는 (38-26)/10=1.20입니다. 공분산은 모집단 기준 약 31.0이므로 32보다 크다는 설명은 틀렸고, 상관계수는 표본/모집단 여부에 따라 값이 달라지지 않습니다.",
+    "explanation_eng": "The mean Age is 26, and the correlation between Age and Purchase Amount is about 0.93. The population variance of Age is about 83.33, and C6's Z-score is (38-26)/10=1.20. The population covariance is about 31.0, so saying it is greater than 32 is incorrect. Correlation does not change depending on whether the data is treated as a sample or population."
+  },
+  {
+    "id": "2025_1_m_2",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "mae",
+      "linear regression"
+    ],
+    "question": "회귀식 y = -1 × Membership + 0.5 × Age + 10으로 제시된 데이터를 평가할 때, MAE는 얼마인가? (Using the regression equation y = -1 × Membership + 0.5 × Age + 10, what is the MAE on the given data?)",
+    "options": [
+      {
+        "text": "1.000",
+        "isCorrect": false
+      },
+      {
+        "text": "1.667",
+        "isCorrect": true
+      },
+      {
+        "text": "2.000",
+        "isCorrect": false
+      },
+      {
+        "text": "5.000",
+        "isCorrect": false
+      },
+      {
+        "text": "10.000",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "예측값은 [16.5, 17.5, 21.5, 24.0, 26.5, 29.0]이고 절대오차는 [1.5, 4.5, 2.5, 0, 0.5, 1.0]입니다. 평균 절대오차는 10/6=1.667입니다.",
+    "explanation_eng": "The predictions are [16.5, 17.5, 21.5, 24.0, 26.5, 29.0], and the absolute errors are [1.5, 4.5, 2.5, 0, 0.5, 1.0]. Therefore, MAE=10/6=1.667."
+  },
+  {
+    "id": "2025_1_m_3",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "mse",
+      "linear regression"
+    ],
+    "question": "회귀식 y = -1 × Membership + 0.5 × Age + 10으로 제시된 데이터를 평가할 때, MSE는 얼마인가? (Using the regression equation y = -1 × Membership + 0.5 × Age + 10, what is the MSE on the given data?)",
+    "options": [
+      {
+        "text": "1.667",
+        "isCorrect": false
+      },
+      {
+        "text": "2.500",
+        "isCorrect": false
+      },
+      {
+        "text": "5.000",
+        "isCorrect": true
+      },
+      {
+        "text": "10.000",
+        "isCorrect": false
+      },
+      {
+        "text": "30.000",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "오차는 [1.5, 4.5, 2.5, 0, -0.5, 1.0]이고 제곱오차의 합은 30입니다. 따라서 MSE=30/6=5.000입니다.",
+    "explanation_eng": "The errors are [1.5, 4.5, 2.5, 0, -0.5, 1.0], and the sum of squared errors is 30. Therefore, MSE=30/6=5.000."
+  },
+  {
+    "id": "2025_1_m_4",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "normalization",
+      "multicollinearity",
+      "vif"
+    ],
+    "question": "다음 중 틀린 내용을 모두 고르시오. (Choose all incorrect statements.)",
+    "options": [
+      {
+        "text": "Membership과 Age의 상관계수와 Membership과 Age_norm의 상관계수는 동일하다. (The correlation between Membership and Age is the same as the correlation between Membership and Age_norm.)",
+        "isCorrect": false
+      },
+      {
+        "text": "Membership의 VIF값은 1보다 크다. (The VIF of Membership is greater than 1.)",
+        "isCorrect": false
+      },
+      {
+        "text": "Age_norm의 VIF값은 1.5보다 크다. (The VIF of Age_norm is greater than 1.5.)",
+        "isCorrect": true
+      },
+      {
+        "text": "다중공선성 문제가 존재한다고 볼 수 있다. (It can be said that a multicollinearity problem exists.)",
+        "isCorrect": true
+      },
+      {
+        "text": "상관계수가 낮으면 다중공선성 문제는 존재하지 않는다. (If the correlation coefficient is low, multicollinearity does not exist.)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "Age_norm은 Age를 선형 변환한 것이므로 Membership과의 상관계수는 동일합니다. Membership의 VIF는 1/(1-0.20)=1.25이고, Age_norm의 VIF는 1/(1-0.30)=1.43입니다. 따라서 Age_norm의 VIF가 1.5보다 크다는 설명은 틀렸고, VIF가 낮으므로 다중공선성 문제가 있다고 보기 어렵습니다.",
+    "explanation_eng": "Age_norm is a linear transformation of Age, so its correlation with Membership is unchanged. The VIF of Membership is 1/(1-0.20)=1.25, and the VIF of Age_norm is 1/(1-0.30)=1.43. Thus, saying Age_norm's VIF is greater than 1.5 is incorrect, and the VIF values are too low to indicate serious multicollinearity."
+  },
+  {
+    "id": "2025_1_m_5",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "r2",
+      "test set",
+      "regression"
+    ],
+    "question": "테스트 데이터셋 C7~C10에 대해 회귀식 y = 2 × Membership + 12 × Age_norm + 18의 R²는 얼마인가? (For test data C7~C10, what is the R² of y = 2 × Membership + 12 × Age_norm + 18?)",
+    "options": [
+      {
+        "text": "0.500",
+        "isCorrect": false
+      },
+      {
+        "text": "0.750",
+        "isCorrect": false
+      },
+      {
+        "text": "0.820",
+        "isCorrect": false
+      },
+      {
+        "text": "0.900",
+        "isCorrect": true
+      },
+      {
+        "text": "1.000",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "테스트 예측값은 [18, 30, 20, 32], 실제값은 [17, 29, 23, 31]입니다. SSE=12, SST=120이므로 R²=1-12/120=0.900입니다.",
+    "explanation_eng": "The predictions are [18, 30, 20, 32], while the actual values are [17, 29, 23, 31]. SSE=12 and SST=120, so R²=1-12/120=0.900."
+  },
+  {
+    "id": "2025_1_m_6",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "linear regression",
+      "polynomial features",
+      "ridge",
+      "lasso"
+    ],
+    "question": "아래 코드에 대한 설명 중 틀린 문항을 모두 고르시오. (Choose all incorrect statements about the code.)",
+    "options": [
+      {
+        "text": "predict3과 predict4의 값은 같다. (predict3 and predict4 are the same.)",
+        "isCorrect": false
+      },
+      {
+        "text": "predict1과 predict2의 값은 같다. (predict1 and predict2 are the same.)",
+        "isCorrect": false
+      },
+      {
+        "text": "Ridge 회귀 모델에서 alpha값은 0에서 1의 값을 갖는다. (In Ridge regression, alpha must have a value between 0 and 1.)",
+        "isCorrect": true
+      },
+      {
+        "text": "Lasso 회귀 모델에서 alpha값은 0에서 1의 값을 갖는다. (In Lasso regression, alpha must have a value between 0 and 1.)",
+        "isCorrect": true
+      },
+      {
+        "text": "predict3은 predict1과 다르다. (predict3 is different from predict1.)",
+        "isCorrect": true
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "PolynomialFeatures(degree=1)는 선형 특성만 만들기 때문에 predict1과 predict2는 같다고 볼 수 있습니다. Ridge(alpha=0)는 OLS와 동일하게 작동하므로 predict3도 predict1과 같습니다. alpha는 반드시 0에서 1 사이여야 하는 값이 아니므로 해당 설명들은 틀렸습니다.",
+    "explanation_eng": "PolynomialFeatures(degree=1) only creates linear features, so predict1 and predict2 are effectively the same. Ridge(alpha=0) behaves like OLS, so predict3 is also the same as predict1. Alpha is not restricted to the range 0 to 1."
+  },
+  {
+    "id": "2025_1_m_7",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "classification error",
+      "type i error",
+      "type ii error"
+    ],
+    "question": "쿠옹이와 멘토가 말하는 개념을 바르게 짝지은 것을 모두 고르시오. (Choose all correct matches for the concepts mentioned by Kuong and the mentor.)",
+    "options": [
+      {
+        "text": "멘토: 2종 오류 (Mentor: Type II Error)",
+        "isCorrect": true
+      },
+      {
+        "text": "쿠옹이: 2종 오류 (Kuong: Type II Error)",
+        "isCorrect": true
+      },
+      {
+        "text": "멘토: 1종 오류 (Mentor: Type I Error)",
+        "isCorrect": false
+      },
+      {
+        "text": "쿠옹이: 1종 오류 (Kuong: Type I Error)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "남성을 여성으로 잘못 인식하여 경고음이 울리지 않는 상황은 실제 Positive를 Negative로 예측한 False Negative입니다. 이는 2종 오류(Type II Error)에 해당합니다.",
+    "explanation_eng": "Recognizing a male as female and failing to trigger an alert is a false negative: an actual positive case predicted as negative. This corresponds to a Type II Error."
+  },
+  {
+    "id": "2025_1_m_8",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "decision tree",
+      "entropy",
+      "information gain"
+    ],
+    "question": "X1, X2, X3로 Male을 예측하는 결정트리에서 첫 분할 기준으로 어떤 특성을 선택하는 것이 좋은가? (In a decision tree predicting Male from X1, X2, and X3, which feature is best for the first split?)",
+    "options": [
+      {
+        "text": "X1",
+        "isCorrect": true
+      },
+      {
+        "text": "X2",
+        "isCorrect": false
+      },
+      {
+        "text": "X3",
+        "isCorrect": false
+      },
+      {
+        "text": "포기 (giving up)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "엔트로피 감소, 즉 정보이득을 비교하면 X1의 정보이득이 가장 큽니다. 따라서 첫 분할 기준으로 X1을 선택하는 것이 가장 좋습니다.",
+    "explanation_eng": "Comparing entropy reduction, X1 gives the largest information gain. Therefore, X1 is the best feature for the first split."
+  },
+  {
+    "id": "2025_1_m_9",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "auc",
+      "roc",
+      "classification"
+    ],
+    "question": "주어진 predicted_positive 값을 기준으로 AUC 값은 얼마인가? (What is the AUC value based on the given predicted_positive values?)",
+    "options": [
+      {
+        "text": "0.120",
+        "isCorrect": true
+      },
+      {
+        "text": "0.300",
+        "isCorrect": false
+      },
+      {
+        "text": "0.500",
+        "isCorrect": false
+      },
+      {
+        "text": "0.880",
+        "isCorrect": false
+      },
+      {
+        "text": "1.000",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "주어진 실제 Male 라벨과 predicted_positive 점수를 기준으로 ROC AUC를 계산하면 0.120입니다.",
+    "explanation_eng": "Using the given Male labels and predicted_positive scores, the ROC AUC is 0.120."
+  },
+  {
+    "id": "2025_1_m_10",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "auc",
+      "model evaluation",
+      "classification"
+    ],
+    "question": "문제 9에서 계산한 AUC를 바탕으로 모델 성능을 해석한 내용 중 가장 적절한 것은? (Based on the AUC from Question 9, which interpretation is most appropriate?)",
+    "options": [
+      {
+        "text": "AUC가 0.5보다 훨씬 낮으므로 모델의 점수 방향 또는 Positive 클래스 설정을 의심해야 한다. (Since AUC is far below 0.5, the score direction or positive-class setting should be checked.)",
+        "isCorrect": true
+      },
+      {
+        "text": "AUC가 0.120이므로 모델은 매우 좋은 성능을 보인다. (Since AUC is 0.120, the model performs very well.)",
+        "isCorrect": false
+      },
+      {
+        "text": "AUC가 0.5보다 낮으면 무조건 배포해야 한다. (If AUC is below 0.5, the model should always be deployed.)",
+        "isCorrect": false
+      },
+      {
+        "text": "AUC는 분류 모델 평가와 관련이 없다. (AUC is unrelated to classification model evaluation.)",
+        "isCorrect": false
+      },
+      {
+        "text": "AUC는 항상 정확도와 같은 값이다. (AUC is always equal to accuracy.)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "AUC가 0.5보다 훨씬 낮으면 무작위보다 못한 순위화 성능을 의미합니다. 이 경우 모델 점수 방향이 뒤집혔거나 Positive 클래스 설정이 잘못되었는지 확인해야 합니다.",
+    "explanation_eng": "An AUC far below 0.5 indicates worse-than-random ranking performance. The score direction or positive-class definition should be checked."
+  },
+  {
+    "id": "2025_1_m_11",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "ensemble",
+      "bagging",
+      "voting"
+    ],
+    "question": "보기 중 혼자만 다른 성능을 보이는 모델 1개를 고르시오. (Choose the one model that would show different performance from the others.)",
+    "options": [
+      {
+        "text": "VotingClassifier(estimators=[('model1', model1)], voting='hard')",
+        "isCorrect": false
+      },
+      {
+        "text": "VotingClassifier(estimators=[('model1', model1), ('model2', model2)], voting='hard')",
+        "isCorrect": false
+      },
+      {
+        "text": "VotingClassifier(estimators=[('model1', model1), ('model2', model2)], voting='soft')",
+        "isCorrect": false
+      },
+      {
+        "text": "BaggingClassifier(estimator=model1, n_estimators=10, bootstrap=False)",
+        "isCorrect": false
+      },
+      {
+        "text": "BaggingClassifier(estimator=model2, n_estimators=1, bootstrap=False)",
+        "isCorrect": false
+      },
+      {
+        "text": "BaggingClassifier(estimator=model1, n_estimators=2, bootstrap=True)",
+        "isCorrect": true
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "model1과 model2는 같은 DecisionTreeClassifier입니다. Voting이나 bootstrap=False인 Bagging은 동일한 데이터와 동일한 모델을 사용하므로 같은 결과가 나올 수 있습니다. bootstrap=True인 Bagging은 부트스트랩 샘플을 사용하므로 다른 성능을 보일 수 있습니다.",
+    "explanation_eng": "model1 and model2 are identical DecisionTreeClassifiers. Voting or bagging with bootstrap=False can produce the same result because the same model and data are used. Bagging with bootstrap=True uses bootstrap samples and can perform differently."
+  },
+  {
+    "id": "2025_1_m_12",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "f1 score",
+      "classification",
+      "confusion matrix"
+    ],
+    "question": "TP=45, TN=50, FP=0, FN=5일 때 F1 스코어는 얼마인가? (If TP=45, TN=50, FP=0, and FN=5, what is the F1 score?)",
+    "options": [
+      {
+        "text": "0.500",
+        "isCorrect": false
+      },
+      {
+        "text": "0.900",
+        "isCorrect": false
+      },
+      {
+        "text": "0.947",
+        "isCorrect": true
+      },
+      {
+        "text": "0.950",
+        "isCorrect": false
+      },
+      {
+        "text": "1.000",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "Precision=45/(45+0)=1.0, Recall=45/(45+5)=0.9입니다. F1=2PR/(P+R)=2×1.0×0.9/(1.0+0.9)=0.947입니다.",
+    "explanation_eng": "Precision=45/(45+0)=1.0 and Recall=45/(45+5)=0.9. F1=2PR/(P+R)=0.947."
+  },
+  {
+    "id": "2025_1_m_13",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "k-means",
+      "centroid",
+      "one-hot encoding"
+    ],
+    "question": "K-means에서 초기 중심점이 (0,0,0), (1,0,0)일 때, 다음 중심점 2개는 무엇인가? (In K-means, if the initial centroids are (0,0,0) and (1,0,0), what are the next two centroids?)",
+    "options": [
+      {
+        "text": "(0.0, 0.5, 0.25), (1.0, 0.17, 0.33)",
+        "isCorrect": true
+      },
+      {
+        "text": "(0.0, 0.0, 0.0), (1.0, 0.0, 0.0)",
+        "isCorrect": false
+      },
+      {
+        "text": "(0.6, 0.3, 0.3), (1.0, 0.0, 0.0)",
+        "isCorrect": false
+      },
+      {
+        "text": "(0.0, 0.5, 0.5), (1.0, 0.5, 0.5)",
+        "isCorrect": false
+      },
+      {
+        "text": "(0.5, 0.5, 0.5), (1.0, 1.0, 1.0)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "초기 중심점에 가장 가까운 점들로 군집을 나누면 첫 군집의 평균은 (0.0, 0.5, 0.25), 두 번째 군집의 평균은 (1.0, 0.17, 0.33)입니다.",
+    "explanation_eng": "After assigning points to the nearest initial centroids, the mean of the first cluster is (0.0, 0.5, 0.25), and the mean of the second cluster is (1.0, 0.17, 0.33)."
+  },
+  {
+    "id": "2025_1_m_14",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "silhouette score",
+      "clustering"
+    ],
+    "question": "a(0)를 계산해서 s(0)를 구할 때, b(0)=1.5라고 하면 s(0)은 얼마인가? (If b(0)=1.5, what is s(0) after calculating a(0)?)",
+    "options": [
+      {
+        "text": "0.21",
+        "isCorrect": false
+      },
+      {
+        "text": "0.35",
+        "isCorrect": false
+      },
+      {
+        "text": "0.46",
+        "isCorrect": true
+      },
+      {
+        "text": "0.51",
+        "isCorrect": false
+      },
+      {
+        "text": "0.80",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "0번 데이터 [0,1,0]의 같은 군집 내 평균거리 a(0)는 약 0.80입니다. s(0)=(b-a)/max(a,b)=(1.5-0.80)/1.5≈0.46입니다.",
+    "explanation_eng": "For point 0, [0,1,0], the average intra-cluster distance a(0) is about 0.80. Thus, s(0)=(b-a)/max(a,b)=(1.5-0.80)/1.5≈0.46."
+  },
+  {
+    "id": "2025_1_m_15",
+    "type": "mcq",
+    "language": "Applied Data Analysis",
+    "tags": [
+      "random forest",
+      "hyperparameter",
+      "overfitting"
+    ],
+    "question": "다음 RandomForestClassifier 파라미터 중, 학습 데이터에 대한 오버피팅을 방지하고 모델을 일반화하기 위한 목적과 가장 거리가 먼 것은? (Which RandomForestClassifier parameter is least related to preventing overfitting and improving generalization?)",
+    "options": [
+      {
+        "text": "min_samples_split",
+        "isCorrect": false
+      },
+      {
+        "text": "max_depth",
+        "isCorrect": false
+      },
+      {
+        "text": "bootstrap",
+        "isCorrect": false
+      },
+      {
+        "text": "criterion",
+        "isCorrect": true
+      },
+      {
+        "text": "max_features",
+        "isCorrect": false
+      },
+      {
+        "text": "min_samples_leaf",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "criterion은 분할 품질을 평가하는 기준입니다. max_depth, min_samples_split, min_samples_leaf, max_features, bootstrap은 모델 복잡도나 일반화와 더 직접적으로 관련됩니다.",
+    "explanation_eng": "criterion determines the split quality measure. The other parameters are more directly related to model complexity, overfitting control, or generalization."
+  }
+]

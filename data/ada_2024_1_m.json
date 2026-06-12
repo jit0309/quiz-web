@@ -1,0 +1,573 @@
+[
+  {
+    "id": "ml_1",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "covariance",
+      "correlation",
+      "multicollinearity"
+    ],
+    "question": "다음 Height, Weight, Month 데이터에 대한 설명 중 옳은 것을 모두 고르시오. (Choose all correct statements about the given Height, Weight, and Month data.)",
+    "options": [
+      {
+        "text": "Height를 cm에서 mm 단위로 바꾸면 Height와 Weight의 공분산은 커지고 상관계수는 그대로이다. (If Height is converted from cm to mm, the covariance increases while the correlation remains the same.)",
+        "isCorrect": true
+      },
+      {
+        "text": "Height와 Weight의 공분산은 10보다 크다. (The covariance between Height and Weight is greater than 10.)",
+        "isCorrect": true
+      },
+      {
+        "text": "Height와 Weight 사이에는 다중공선성 문제가 존재한다. (There is a multicollinearity problem between Height and Weight.)",
+        "isCorrect": true
+      },
+      {
+        "text": "Height와 Weight의 공분산은 Height와 Weight의 상관계수의 10배이다. (The covariance between Height and Weight is 10 times the correlation coefficient.)",
+        "isCorrect": false
+      },
+      {
+        "text": "Height와 Weight의 상관계수는 1보다 작다. (The correlation coefficient between Height and Weight is less than 1.)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "Height와 Weight는 완전한 선형관계이므로 상관계수는 1입니다. 단위를 cm에서 mm로 바꾸면 공분산은 커지지만 상관계수는 변하지 않습니다. 두 설명변수가 완전 선형관계이므로 다중공선성 문제도 존재합니다.",
+    "explanation_eng": "Height and Weight have a perfect linear relationship, so the correlation coefficient is 1. Changing the unit from cm to mm changes covariance but not correlation. Since the variables are perfectly linearly related, multicollinearity exists."
+  },
+  {
+    "id": "ml_2",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "lasso",
+      "ridge",
+      "elasticnet",
+      "regularization"
+    ],
+    "question": "다음 회귀 규제 모델에 대한 설명 중 틀린 것을 고르시오. (Choose the incorrect statement about regression regularization.)",
+    "options": [
+      {
+        "text": "Ridge 모델은 alpha 값을 조정해서 계수를 0에 가깝게 만들 수 있다. (Ridge regression can shrink coefficients close to zero by adjusting alpha.)",
+        "isCorrect": false
+      },
+      {
+        "text": "ElasticNet 모델은 alpha 값을 조정해서 일부 계수를 0으로 만들 수 있다. (ElasticNet can make some coefficients zero by adjusting alpha.)",
+        "isCorrect": false
+      },
+      {
+        "text": "Lasso 모델은 L2 규제를 사용한다. (Lasso regression uses L2 regularization.)",
+        "isCorrect": true
+      },
+      {
+        "text": "Lasso 모델은 alpha 값을 조정해서 일부 계수를 정확히 0으로 만들 수 있다. (Lasso regression can make some coefficients exactly zero by adjusting alpha.)",
+        "isCorrect": false
+      },
+      {
+        "text": "ElasticNet 모델은 L2 규제를 사용할 수 있다. (ElasticNet can use L2 regularization.)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "Lasso는 L1 규제를 사용합니다. Ridge는 L2 규제를 사용하고, ElasticNet은 L1과 L2를 함께 사용합니다.",
+    "explanation_eng": "Lasso uses L1 regularization. Ridge uses L2 regularization, and ElasticNet combines L1 and L2 regularization."
+  },
+  {
+    "id": "ml_3",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "outlier",
+      "z-score",
+      "standard deviation"
+    ],
+    "question": "박상근 교수가 아웃라이어라고 볼 수 있는 가장 적절한 통계적 근거는 무엇인가? (What is the most appropriate statistical reason that Professor Park Sangkeun can be considered an outlier?)",
+    "options": [
+      {
+        "text": "나이가 평균보다 2표준편차 이상 크기 때문이다. (His age is more than 2 standard deviations above the mean.)",
+        "isCorrect": true
+      },
+      {
+        "text": "키가 평균보다 2표준편차 이상 크기 때문이다. (His height is more than 2 standard deviations above the mean.)",
+        "isCorrect": false
+      },
+      {
+        "text": "신발 사이즈가 평균보다 2표준편차 이상 크기 때문이다. (His shoe size is more than 2 standard deviations above the mean.)",
+        "isCorrect": false
+      },
+      {
+        "text": "세 변수 모두 평균보다 2표준편차 이상 크기 때문이다. (All three variables are more than 2 standard deviations above the mean.)",
+        "isCorrect": false
+      },
+      {
+        "text": "키가 최댓값과 정확히 같기 때문이다. (His height is exactly equal to the maximum value.)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "나이 평균은 25, 표준편차는 8, 박상근 교수의 나이는 43이므로 z-score는 (43-25)/8=2.25입니다.",
+    "explanation_eng": "The mean age is 25 and the standard deviation is 8. Since Professor Park's age is 43, the z-score is (43-25)/8 = 2.25."
+  },
+  {
+    "id": "ml_4",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "mae",
+      "regression"
+    ],
+    "question": "x=[2,2,4,6], y=[6,2,4,10]일 때, 모델1 y=3x+2의 MAE는 얼마인가? (For x=[2,2,4,6] and y=[6,2,4,10], what is the MAE of model 1, y=3x+2?)",
+    "options": [
+      {
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "text": "4",
+        "isCorrect": false
+      },
+      {
+        "text": "5",
+        "isCorrect": false
+      },
+      {
+        "text": "7",
+        "isCorrect": true
+      },
+      {
+        "text": "10",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "모델1의 예측값은 [8, 8, 14, 20]입니다. 실제값 [6, 2, 4, 10]과의 절대오차는 [2, 6, 10, 10]이고 평균은 7입니다.",
+    "explanation_eng": "The predictions are [8, 8, 14, 20]. The absolute errors are [2, 6, 10, 10], so MAE is 7."
+  },
+  {
+    "id": "ml_5",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "mae",
+      "regression"
+    ],
+    "question": "x=[2,2,4,6], y=[6,2,4,10]일 때, 모델2 y=2x+1의 MAE는 얼마인가? (For x=[2,2,4,6] and y=[6,2,4,10], what is the MAE of model 2, y=2x+1?)",
+    "options": [
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "3",
+        "isCorrect": true
+      },
+      {
+        "text": "5",
+        "isCorrect": false
+      },
+      {
+        "text": "7",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "모델2의 예측값은 [5, 5, 9, 13]입니다. 절대오차는 [1, 3, 5, 3]이고 평균은 3입니다.",
+    "explanation_eng": "The predictions are [5, 5, 9, 13]. The absolute errors are [1, 3, 5, 3], so MAE is 3."
+  },
+  {
+    "id": "ml_6",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "r2",
+      "regression"
+    ],
+    "question": "x=[1,2,4,5], y=[1,3,3,5], 회귀식 y=0.8x+0.6일 때 R² 값을 소수점 첫째 자리까지 고르시오. (For x=[1,2,4,5], y=[1,3,3,5], and y=0.8x+0.6, choose the R-squared value rounded to one decimal place.)",
+    "options": [
+      {
+        "text": "0.2",
+        "isCorrect": false
+      },
+      {
+        "text": "0.4",
+        "isCorrect": false
+      },
+      {
+        "text": "0.6",
+        "isCorrect": false
+      },
+      {
+        "text": "0.8",
+        "isCorrect": true
+      },
+      {
+        "text": "1.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "예측값은 [1.4, 2.2, 3.8, 4.6]이고 SSE는 1.6입니다. y 평균은 3, SST는 8이므로 R²=1-1.6/8=0.8입니다.",
+    "explanation_eng": "The predictions are [1.4, 2.2, 3.8, 4.6]. SSE is 1.6 and SST is 8, so R² = 0.8."
+  },
+  {
+    "id": "ml_7",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "multicollinearity",
+      "pca",
+      "one-hot encoding"
+    ],
+    "question": "다중공선성 문제를 해결하기 위한 방법으로 가장 적절하지 않은 것은? (Which method is least appropriate for solving multicollinearity?)",
+    "options": [
+      {
+        "text": "ElasticNet 회귀에서 규제 강도를 조절한다. (Adjusting regularization strength in ElasticNet regression.)",
+        "isCorrect": false
+      },
+      {
+        "text": "주성분분석(PCA)을 수행한다. (Applying principal component analysis.)",
+        "isCorrect": false
+      },
+      {
+        "text": "카테고리형 변수에 원핫인코딩을 수행한다. (Applying one-hot encoding to categorical variables.)",
+        "isCorrect": true
+      },
+      {
+        "text": "상관관계가 높은 변수 중 하나를 제거한다. (Removing one of the highly correlated variables.)",
+        "isCorrect": false
+      },
+      {
+        "text": "상관관계가 높은 변수들을 더하거나 평균내어 하나의 변수로 만든다. (Combining highly correlated variables into one variable by summing or averaging.)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "원핫인코딩은 범주형 변수를 수치형 변수로 바꾸는 방법입니다. 일반적인 다중공선성 해결 방법으로는 변수 제거, 변수 결합, PCA, 규제 회귀 등이 더 적절합니다.",
+    "explanation_eng": "One-hot encoding converts categorical variables into numerical dummy variables. It is not a direct method for solving multicollinearity."
+  },
+  {
+    "id": "ml_8",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "classification",
+      "type1 error",
+      "false positive"
+    ],
+    "question": "정상 문자를 보이스피싱이라고 판단해 삭제한 경우와 가장 관련 있는 개념은? (If a normal text message is classified as voice phishing and deleted, which concept is most relevant?)",
+    "options": [
+      {
+        "text": "Normalization",
+        "isCorrect": false
+      },
+      {
+        "text": "Multicollinearity",
+        "isCorrect": false
+      },
+      {
+        "text": "Type II Error",
+        "isCorrect": false
+      },
+      {
+        "text": "ROC",
+        "isCorrect": false
+      },
+      {
+        "text": "TPR",
+        "isCorrect": false
+      },
+      {
+        "text": "Type I Error",
+        "isCorrect": true
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "실제로는 보이스피싱이 아닌데 보이스피싱이라고 판단한 경우입니다. 이는 False Positive이며 Type I Error에 해당합니다.",
+    "explanation_eng": "This is a false positive case and corresponds to a Type I Error."
+  },
+  {
+    "id": "ml_9",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "precision",
+      "classification"
+    ],
+    "question": "주어진 LogisticRegression 분류 결과에서 Precision 값은? (What is the Precision of the given LogisticRegression classification result?)",
+    "options": [
+      {
+        "text": "0.6",
+        "isCorrect": false
+      },
+      {
+        "text": "0.7",
+        "isCorrect": false
+      },
+      {
+        "text": "0.8",
+        "isCorrect": false
+      },
+      {
+        "text": "0.9",
+        "isCorrect": false
+      },
+      {
+        "text": "1.0",
+        "isCorrect": true
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "임계값 0.5 기준에서 FP가 0이고 TP가 4이므로 Precision=TP/(TP+FP)=4/(4+0)=1.0입니다.",
+    "explanation_eng": "With threshold 0.5, FP is 0 and TP is 4. Therefore, Precision is 1.0."
+  },
+  {
+    "id": "ml_10",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "recall",
+      "classification"
+    ],
+    "question": "주어진 LogisticRegression 분류 결과에서 Recall 값은? (What is the Recall of the given LogisticRegression classification result?)",
+    "options": [
+      {
+        "text": "0.5",
+        "isCorrect": false
+      },
+      {
+        "text": "0.6",
+        "isCorrect": false
+      },
+      {
+        "text": "0.7",
+        "isCorrect": false
+      },
+      {
+        "text": "0.8",
+        "isCorrect": true
+      },
+      {
+        "text": "1.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "TP가 4, FN이 1이므로 Recall=TP/(TP+FN)=4/(4+1)=0.8입니다.",
+    "explanation_eng": "TP is 4 and FN is 1. Therefore, Recall is 0.8."
+  },
+  {
+    "id": "ml_11",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "f1 score",
+      "classification"
+    ],
+    "question": "주어진 LogisticRegression 분류 결과에서 F1 Score를 소수점 첫째 자리까지 고르시오. (Choose the F1 Score of the given LogisticRegression result rounded to one decimal place.)",
+    "options": [
+      {
+        "text": "0.6",
+        "isCorrect": false
+      },
+      {
+        "text": "0.7",
+        "isCorrect": false
+      },
+      {
+        "text": "0.8",
+        "isCorrect": false
+      },
+      {
+        "text": "0.9",
+        "isCorrect": true
+      },
+      {
+        "text": "1.0",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "Precision=1.0, Recall=0.8이므로 F1=2PR/(P+R)=0.888...입니다. 소수점 첫째자리까지 반올림하면 0.9입니다.",
+    "explanation_eng": "Precision is 1.0 and Recall is 0.8. F1 is 0.888..., which rounds to 0.9."
+  },
+  {
+    "id": "ml_12",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "auc",
+      "roc",
+      "classification"
+    ],
+    "question": "주어진 LogisticRegression 분류 결과에서 AUC 값을 소수점 첫째 자리까지 고르시오. (Choose the AUC value of the given LogisticRegression result rounded to one decimal place.)",
+    "options": [
+      {
+        "text": "0.5",
+        "isCorrect": false
+      },
+      {
+        "text": "0.6",
+        "isCorrect": false
+      },
+      {
+        "text": "0.7",
+        "isCorrect": false
+      },
+      {
+        "text": "0.8",
+        "isCorrect": false
+      },
+      {
+        "text": "0.9",
+        "isCorrect": true
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "주어진 예측확률과 실제 라벨 기준 ROC AUC는 0.9입니다.",
+    "explanation_eng": "Based on the given predicted probabilities and true labels, the ROC AUC is 0.9."
+  },
+  {
+    "id": "ml_13",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "random forest",
+      "hyperparameter",
+      "overfitting"
+    ],
+    "question": "RandomForestClassifier의 하이퍼파라미터 중 오버피팅 방지나 일반화와 가장 직접적인 관련이 적은 것은? (Which RandomForestClassifier hyperparameter is least directly related to preventing overfitting or improving generalization?)",
+    "options": [
+      {
+        "text": "max_features",
+        "isCorrect": false
+      },
+      {
+        "text": "criterion",
+        "isCorrect": true
+      },
+      {
+        "text": "bootstrap",
+        "isCorrect": false
+      },
+      {
+        "text": "min_samples_split",
+        "isCorrect": false
+      },
+      {
+        "text": "min_samples_leaf",
+        "isCorrect": false
+      },
+      {
+        "text": "max_depth",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "criterion은 분할 품질을 평가하는 기준입니다. max_depth, min_samples_split, min_samples_leaf, max_features, bootstrap은 모델 복잡도나 일반화와 더 직접적으로 관련됩니다.",
+    "explanation_eng": "criterion determines the split quality measure. The other parameters are more directly related to model complexity and generalization."
+  },
+  {
+    "id": "ml_14",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "ensemble",
+      "bagging",
+      "voting",
+      "logistic regression"
+    ],
+    "question": "7개의 모델 중 나머지 6개와 성능이 다를 것으로 예상되는 모델은? (Among the seven models, which model is expected to have different performance from the other six?)",
+    "options": [
+      {
+        "text": "model1",
+        "isCorrect": false
+      },
+      {
+        "text": "model2",
+        "isCorrect": false
+      },
+      {
+        "text": "model3",
+        "isCorrect": false
+      },
+      {
+        "text": "model4",
+        "isCorrect": false
+      },
+      {
+        "text": "model5",
+        "isCorrect": false
+      },
+      {
+        "text": "model6",
+        "isCorrect": false
+      },
+      {
+        "text": "model7",
+        "isCorrect": true
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "model7은 bootstrap=True인 Bagging 모델이므로 다른 모델들과 다른 결과가 나올 수 있습니다.",
+    "explanation_eng": "Model7 uses bootstrap bagging, so its result can differ from the other models."
+  },
+  {
+    "id": "ml_15",
+    "type": "mcq",
+    "language": "data_analysis",
+    "tags": [
+      "adasyn",
+      "oversampling",
+      "imbalanced data"
+    ],
+    "question": "ADASYN으로 Class 0인 새로운 데이터 포인트를 생성할 때 절대 생성될 수 없는 행 2개는? (When ADASYN generates a new data point for Class 0, which two rows can never be generated?)",
+    "options": [
+      {
+        "text": "1번과 2번 (Rows 1 and 2)",
+        "isCorrect": false
+      },
+      {
+        "text": "2번과 3번 (Rows 2 and 3)",
+        "isCorrect": false
+      },
+      {
+        "text": "4번과 6번 (Rows 4 and 6)",
+        "isCorrect": false
+      },
+      {
+        "text": "5번과 7번 (Rows 5 and 7)",
+        "isCorrect": true
+      },
+      {
+        "text": "3번과 6번 (Rows 3 and 6)",
+        "isCorrect": false
+      },
+      {
+        "text": "1번과 7번 (Rows 1 and 7)",
+        "isCorrect": false
+      }
+    ],
+    "answers": null,
+    "correctAnswerRate": 0,
+    "explanation_kor": "Class 0 데이터를 생성하는 상황에서 Gender가 다른 5번은 생성될 수 없습니다. 또한 Class 0의 가능한 보간 범위를 벗어나는 7번도 생성될 수 없습니다.",
+    "explanation_eng": "When generating Class 0 data, row 5 cannot be generated because its gender value is inconsistent. Row 7 is also outside the possible interpolation range for Class 0."
+  }
+]
