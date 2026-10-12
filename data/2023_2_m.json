@@ -272,7 +272,7 @@
     "tags": [
       "function"
     ],
-    "question": "Please choose the most appropriate output for the code.\n\n    def func(a, *b, **c):\n        return a, b, c\n\n    result = func(1, 2, 3, n=4)\n    print(result)",
+    "question": "Please choose the most appropriate output for the code.\n\ndef func(a, *b, **c):\n    return a, b, c\n\nresult = func(1, 2, 3, n=4)\nprint(result)",
     "options": [
       {
         "text": "(1, (2, 3), {'n': 4})",
@@ -318,7 +318,7 @@
     "question": "Please choose the most appropriate output for the code.\n\ndef func(a):\n    a = a + 10\n    c = 10\n    return a, b, c\n\na, b = 1, 2\nc = func(10)\nprint(a, b, c)",
     "options": [
       {
-        "text": "1 2 None",
+        "text": "1 2 (20, 2, 10)",
         "isCorrect": true
       },
       {
@@ -346,10 +346,10 @@
         "isCorrect": false
       }
     ],
-    "answers": "1 2 None",
+    "answers": "1 2 (20, 2, 10)",
     "correctAnswerRate": null,
-    "explanation_kor": "a = 1, b = 2 로 초기화된다. func(10)을 호출하면 함수 내부에서 a는 20, b는 전역 변수 2, c는 10으로 계산된다. 하지만 반환값은 (20, 2, 10)이고, main의 변수 c에 할당된다. 따라서 print(a, b, c)는 1 2 (20, 2, 10)이 아니라 1 2 None이 된다. ",
-    "explanation_eng": "Initially, a, b = 1, 2. Calling func(10) computes local a=20, b=2, c=10, and returns (20, 2, 10). This return value is assigned to c in the main scope. Since func does not return None explicitly, the variable assignment causes print(a, b, c) to output 1 2 None."
+    "explanation_kor": "a = 1, b = 2로 초기화된다. func(10)을 호출하면 함수 내부에서 a는 20(지역 변수), b는 전역 변수 2를 읽고, c는 10(지역 변수)으로 계산된다. 반환값 (20, 2, 10)은 튜플로 묶여 전역 변수 c에 할당되고, 전역 a와 b는 변하지 않는다. 따라서 print(a, b, c)는 1 2 (20, 2, 10)을 출력한다.",
+    "explanation_eng": "Initially, a, b = 1, 2. Calling func(10) computes a = 20 (local), reads the global b = 2, and c = 10 (local). The return value (20, 2, 10) is packed as a tuple and assigned to the global c; the global a and b are unchanged. Therefore, print(a, b, c) outputs 1 2 (20, 2, 10)."
   },
   {
     "id": "2023_2_m_10",
@@ -379,7 +379,7 @@
         "isCorrect": false
       },
       {
-        "text": "python = 'It’s my life.'",
+        "text": "python = 'It's my life.'",
         "isCorrect": false
       },
       {

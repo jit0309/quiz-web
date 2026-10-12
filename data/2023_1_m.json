@@ -273,7 +273,7 @@
     ],
     "answers": null,
     "correctAnswerRate": 0,
-    "explanation_kor": "func(1, 5, age=20) 호출 시 [args]는 [()]로 Ture이므로 if문이 실행되어 kw['age']+b = 20+5 = 25를 반환합니다.",
+    "explanation_kor": "func(1, 5, age=20) 호출 시 [args]는 [()]로 True이므로 if문이 실행되어 kw['age']+b = 20+5 = 25를 반환합니다.",
     "explanation_eng": "When calling func(1, 5, age=20), [args] is [()] which is truthy, so the if branch executes returning kw['age']+b = 20+5 = 25."
   },
   {
@@ -351,8 +351,8 @@
     ],
     "answers": null,
     "correctAnswerRate": 0,
-    "explanation_kor": "function(len(L))은 function(3)을 호출하고, str(3)='3'이 되어 a*2 = 3*2 = 6을 반환합니다.",
-    "explanation_eng": "function(len(L)) calls function(3), which sets a=str(3)='3', then returns a*2 = 3*2 = 6."
+    "explanation_kor": "function(len, L) 호출 시 매개변수 str에는 내장 함수 len이, a에는 리스트 [1, 2, 3]이 전달된다. 따라서 함수 안의 str(a)는 len([1, 2, 3])과 같아 a = 3이 되고, a*2 = 3*2 = 6을 반환한다.",
+    "explanation_eng": "When calling function(len, L), the parameter str receives the built-in function len and a receives the list [1, 2, 3]. So str(a) inside the function is len([1, 2, 3]), making a = 3, and the function returns a*2 = 3*2 = 6."
   },
   {
     "id": "2023_1_m_10",
