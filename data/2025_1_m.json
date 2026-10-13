@@ -111,8 +111,8 @@
   ],
   "answers": "None",
   "correctAnswerRate": null,
-  "explanation_kor": "a and b는 -1 and 0 → False, a > b는 -1 > 0 → False, b는 0이므로 False. 따라서 else로 가서 a += b만 하고 return이 없으므로 None을 반환한다.",
-  "explanation_eng": "All conditions fail (a and b is False, a > b is False, b is False), so the else executes without a return. The function returns None."
+  "explanation_kor": "a and b는 -1 and 0 → 0(거짓으로 평가), a > b는 -1 > 0 → False, b는 0이므로 거짓. 따라서 else로 가서 a += b만 하고 return이 없으므로 None을 반환한다.",
+  "explanation_eng": "All conditions fail (a and b evaluates to 0, which is falsy; a > b is False; b is 0, which is falsy), so the else executes without a return. The function returns None."
 },
 {
   "id": "2025_1_m_7",

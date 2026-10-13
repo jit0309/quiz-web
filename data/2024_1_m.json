@@ -147,8 +147,8 @@
     ],
     "answers": null,
     "correctAnswerRate": 0,
-    "explanation_kor": "얕은 복사 특성상 집합 객체는 a 와 b가 공유하므로 a의 집합도 {1, 2, 3, 4}로 변경, 정수는 불변 객체 이므로 b[-2]=4는 b에만 영향을 줍니다.",
-    "explanation_eng": "Due to shallow copy characteristics, set object is shared between a and b, so a's set also changes to {1,2,3,4}. Since integers are immutable objects, b[-2]=4 only affects b."
+    "explanation_kor": "얕은 복사 특성상 집합 객체는 a 와 b가 공유하므로 a의 집합도 {1, 2, 3, 4}로 변경, a와 b는 서로 다른 리스트이고, b[-2]=4는 b의 해당 원소만 교체하므로 a에는 영향을 주지 않습니다.",
+    "explanation_eng": "Due to shallow copy characteristics, set object is shared between a and b, so a's set also changes to {1,2,3,4}. Since a and b are different lists, b[-2]=4 only replaces that element in b and does not affect a."
   },
   {
     "id": "2024_1_m_5",

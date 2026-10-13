@@ -78,8 +78,8 @@
     ],
     "answers": null,
     "correctAnswerRate": "",
-    "explanation_kor": "L2[0]은 L1[0]과 같은 리스트를 공유하므로 [1, 2]로 변경됩니다. 또한 L2[-1]은 튜플로 변경할 수 없는 객체이므로 (3,) 그대로 유지됩니다.",
-    "explanation_eng": "L2[0] shares the same list as L1[0], so it is changed to [1, 2]. Also, L2[-1] remains (3,) because tuples are immutable and cannot be changed."
+    "explanation_kor": "L2[0]은 L1[0]과 같은 리스트를 공유하므로 [1, 2]로 변경됩니다. L1과 L2는 서로 다른 리스트이고 L1[-1] = 4는 L1의 마지막 원소만 교체하므로, L2[-1]은 (3,) 그대로 유지됩니다.",
+    "explanation_eng": "L2[0] shares the same list as L1[0], so it is changed to [1, 2]. Also, L1 and L2 are different lists and L1[-1] = 4 only replaces the last element of L1, so L2[-1] remains (3,)."
   },
   {
     "id": "2024_2_m_3",
