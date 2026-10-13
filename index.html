@@ -654,7 +654,10 @@ async function showResult() {
   if (SHEET_URL) {
     await sendToSheet({ googleId: userInfo.id, nickname: finalNick, email: userInfo.email,
                         exam: currentExam.id, score, total, rate: pct,
-                        wrong: history.filter(h => !h.isCorrect).map(h => Number(String(h.q.id).split('_').pop())).sort((a,b) => a-b).join(', '),
+                        wrong: history.filter(h => !h.isCorrect)
+                               .map(h => ({ n: Number(String(h.q.id).split('_').pop()), sel: h.selectedIdx + 1 }))
+                               .sort((a,b) => a.n - b.n)
+                               .map(h => `${h.n}→${h.sel}`).join(', '),
                         time: new Date().toLocaleString('ko-KR') });
     cachedRank = null;
   }
