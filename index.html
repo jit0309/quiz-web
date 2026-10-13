@@ -654,7 +654,7 @@ async function showResult() {
   if (SHEET_URL) {
     await sendToSheet({ googleId: userInfo.id, nickname: finalNick, email: userInfo.email,
                         exam: currentExam.id, score, total, rate: pct,
-                        wrong: history.filter(h => !h.isCorrect).map(h => h.q.id).join(', '),
+                        wrong: history.filter(h => !h.isCorrect).map(h => Number(String(h.q.id).split('_').pop())).sort((a,b) => a-b).join(', '),
                         time: new Date().toLocaleString('ko-KR') });
     cachedRank = null;
   }
