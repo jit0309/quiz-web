@@ -94,7 +94,7 @@
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 <script>
 /* ═══════════════════ CONFIG ═══════════════════ */
-const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyk5CidGKOzuZKlJFIQM0BQxxi3_wkTDur-lL18n_w0EXUTTs3xRZptMOL0baqpumQH1Q/exec';
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbysikxCxqtc_gGQoIqB2T58nYnU7GD8e4iFBkBnjJ_aMWCGSpptLF_R0PtacHQvWrJ9Vw/exec';
 const CLIENT_ID = '337024162605-nqtp5hp2nuqdfnebu4oamnpg2t0vvfg3.apps.googleusercontent.com';
 
 /*LOGIC-START*/
@@ -224,6 +224,11 @@ async function loadRows() {
         ? '관리자 권한이 없는 계정입니다.'
         : data.status === 'unauthorized' ? '로그인이 만료되었거나 확인할 수 없습니다. 다시 로그인하세요.'
         : '데이터를 불러오지 못했습니다: ' + (data.message || data.status);
+      $('loginCard').hidden = false; $('dash').hidden = true;
+      return;
+    }
+    if (!Array.isArray(data.rows)) {
+      $('loginErr').textContent = '서버가 관리자 요청을 인식하지 못했습니다. Apps Script를 새 버전으로 재배포했는지 확인하세요.';
       $('loginCard').hidden = false; $('dash').hidden = true;
       return;
     }
