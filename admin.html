@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>관리자 통계 — 기출 퀴즈</title>
+<style>
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,'Segoe UI','Noto Sans KR',sans-serif; background:#f4f6fb; color:#222; }
+  .wrap { max-width:960px; margin:0 auto; padding:24px 16px 60px; }
+  h1 { font-size:22px; margin:0 0 4px; }
+  .sub { color:#777; font-size:13px; margin-bottom:20px; }
+  .card { background:#fff; border-radius:14px; padding:18px; box-shadow:0 2px 10px rgba(0,0,0,.06); margin-bottom:16px; }
+  .center { text-align:center; padding:40px 18px; }
+  .controls { display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end; }
+  .controls label { display:flex; flex-direction:column; font-size:12px; color:#666; gap:4px; }
+  select, input[type=date] { padding:8px 10px; border:1px solid #ccd; border-radius:8px; font-size:14px; background:#fff; }
+  button { padding:8px 14px; border:none; border-radius:8px; background:#3f51b5; color:#fff; font-size:14px; cursor:pointer; }
+  button.ghost { background:#eceefa; color:#3f51b5; }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; }
+  .stat { background:#f7f8fd; border-radius:12px; padding:14px; }
+  .stat .v { font-size:24px; font-weight:700; }
+  .stat .l { font-size:12px; color:#777; margin-top:2px; }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th, td { padding:10px 8px; text-align:left; border-bottom:1px solid #eee; }
+  th { font-size:12px; color:#777; font-weight:600; }
+  tr.q-row { cursor:pointer; }
+  tr.q-row:hover { background:#f5f7ff; }
+  .bar { height:8px; border-radius:4px; background:#e8eaf6; min-width:80px; overflow:hidden; }
+  .bar > i { display:block; height:100%; background:#e53935; }
+  .tbl-scroll { overflow-x:auto; }
+  .opt { border:2px solid #e8e8e8; border-radius:10px; padding:10px 12px; margin:8px 0; }
+  .opt.correct { border-color:#43a047; background:#f1f8f2; }
+  .opt.top-wrong { border-color:#e53935; background:#fdf1f0; }
+  .opt .meta { font-size:12px; color:#666; margin-top:4px; }
+  pre { background:#1e1e2e; color:#e6e6f0; padding:12px; border-radius:10px; overflow-x:auto; font-size:13px; }
+  .muted { color:#888; font-size:13px; }
+  .err { color:#c62828; }
+  .note { font-size:12px; color:#888; margin-top:10px; line-height:1.5; }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📊 관리자 통계</h1>
+  <div class="sub">전체 학생의 취약 문항 집계 (읽기 전용)</div>
+
+  <!-- 로그인 -->
+  <div class="card center" id="loginCard">
+    <p>관리자 계정으로 로그인하세요.</p>
+    <div id="gBtn" style="display:inline-block"></div>
+    <p class="err" id="loginErr"></p>
+  </div>
+
+  <!-- 대시보드 -->
+  <div id="dash" hidden>
+    <div class="card">
+      <div class="controls">
+        <label>시험
+          <select id="examSel"></select>
+        </label>
+        <label>시작일
+          <input type="date" id="fromDate" />
+        </label>
+        <label>종료일
+          <input type="date" id="toDate" />
+        </label>
+        <button class="ghost" onclick="resetDates()">기간 초기화</button>
+        <button onclick="reload()">새로고침</button>
+        <span class="muted" id="adminWho"></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="stats" id="summary"></div>
+      <div class="note" id="summaryNote"></div>
+    </div>
+
+    <div class="card">
+      <b>문항별 오답률</b> <span class="muted">(높은 순 · 행을 누르면 상세)</span>
+      <div class="tbl-scroll">
+        <table>
+          <thead><tr><th>번호</th><th>문제</th><th>오답 수</th><th>오답률</th><th>가장 많이 고른 오답</th></tr></thead>
+          <tbody id="qBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" id="detail" hidden></div>
+  </div>
+</div>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script>
+/* ═══════════════════ CONFIG ═══════════════════ */
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyk5CidGKOzuZKlJFIQM0BQxxi3_wkTDur-lL18n_w0EXUTTs3xRZptMOL0baqpumQH1Q/exec';
+const CLIENT_ID = '337024162605-nqtp5hp2nuqdfnebu4oamnpg2t0vvfg3.apps.googleusercontent.com';
+
+/*LOGIC-START*/
+/* ═══════════════════ 순수 로직 (테스트 대상) ═══════════════════ */
+
+// 시트의 '시간' 값을 Date로. ISO 문자열 또는 '2026. 10. 8. 오후 1:33:12' 형식.
+function parseTime(v) {
+  if (v == null || v === '') return null;
+  const s = String(v).trim();
+  const m = s.match(/^(\d{4})\.\s*(\d{1,2})\.\s*(\d{1,2})\.\s*(오전|오후)\s*(\d{1,2}):(\d{2})(?::(\d{2}))?/);
+  if (m) {
+    let h = Number(m[5]) % 12;
+    if (m[4] === '오후') h += 12;
+    return new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]), h, Number(m[6]), Number(m[7] || 0));
+  }
+  const d = new Date(s);
+  return isNaN(d) ? null : d;
+}
+
+// '틀린문항' 문자열 → [{n, sel}]. sel은 보기 번호(1~) 또는 null(과도기 형식).
+function parseWrong(v) {
+  if (v == null) return [];
+  return String(v).split(',').map(t => t.trim()).filter(Boolean).map(t => {
+    let m = t.match(/^(\d+)\s*→\s*(\d+)$/);
+    if (m) return { n: Number(m[1]), sel: Number(m[2]) };
+    m = t.match(/(\d+)$/);            // '2023_1_m_7' 또는 '7'
+    if (m) return { n: Number(m[1]), sel: null };
+    return null;
+  }).filter(Boolean);
+}
+
+// 행 하나가 문항 통계에 쓸 수 있는 응시인가.
+// 틀린문항 기록이 있거나, 만점(= 기록이 비는 게 정상)이어야 한다.
+// 점수 < 총문제인데 기록이 비면 기록 도입 전 행이므로 제외.
+function isValidAttempt(row) {
+  if (parseWrong(row.wrong).length > 0) return true;
+  return Number(row.score) === Number(row.total) && Number(row.total) > 0;
+}
+
+function inRange(row, from, to) {
+  const t = parseTime(row.time);
+  if (!t) return !from && !to;
+  if (from && t < from) return false;
+  if (to && t > to) return false;
+  return true;
+}
+
+// 시험 id → 파일 경로, 표시 이름
+function examLabel(id) {
+  const ada = id.startsWith('ada_');
+  const m = id.replace(/^ada_/, '').match(/^(\d{4})_(\d)_([mf])$/);
+  if (!m) return id;
+  return (ada ? '[응용데이터분석] ' : '[Python] ') + `${m[1]}-${m[2]} ${m[3] === 'm' ? '중간고사' : '기말고사'}`;
+}
+
+// 앱(index.html)과 같은 기준으로 유효한 문제만 남긴다.
+function validQuestions(raw) {
+  return raw.filter(q =>
+    q.question != null && Array.isArray(q.options) && q.options.length > 0 && q.options.some(o => o.isCorrect));
+}
+function qNumber(q) { return Number(String(q.id).split('_').pop()); }
+
+// rows: 해당 시험의 기간 필터된 행들, questions: validQuestions 결과
+function aggregate(rows, questions) {
+  const valid = rows.filter(isValidAttempt);
+  const stats = {};
+  questions.forEach(q => {
+    stats[qNumber(q)] = { q, wrong: 0, selections: {}, unknownSel: 0 };
+  });
+  valid.forEach(r => {
+    parseWrong(r.wrong).forEach(w => {
+      const s = stats[w.n];
+      if (!s) return;
+      s.wrong++;
+      if (w.sel == null) s.unknownSel++;
+      else s.selections[w.sel] = (s.selections[w.sel] || 0) + 1;
+    });
+  });
+  const scored = rows.filter(r => Number(r.total) > 0);
+  const avgRate = scored.length
+    ? scored.reduce((a, r) => a + Number(r.score) / Number(r.total), 0) / scored.length : null;
+  const list = Object.values(stats).map(s => {
+    const topSel = Object.entries(s.selections).sort((a, b) => b[1] - a[1])[0];
+    return { n: qNumber(s.q), q: s.q, wrong: s.wrong, rate: valid.length ? s.wrong / valid.length : 0,
+             topWrong: topSel ? { opt: Number(topSel[0]), count: topSel[1] } : null,
+             selections: s.selections, unknownSel: s.unknownSel };
+  }).sort((a, b) => b.rate - a.rate || a.n - b.n);
+  return { attempts: rows.length, validAttempts: valid.length, avgRate, list };
+}
+/*LOGIC-END*/
+
+/* ═══════════════════ 화면 ═══════════════════ */
+let idToken = null;
+let adminEmail = '';
+let allRows = [];
+let questionCache = {};
+let lastAgg = null;
+
+function $(id) { return document.getElementById(id); }
+function esc(t) { return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function pct(x) { return (x * 100).toFixed(1) + '%'; }
+
+window.onload = () => {
+  const wait = setInterval(() => {
+    if (!window.google || !google.accounts) return;
+    clearInterval(wait);
+    google.accounts.id.initialize({ client_id: CLIENT_ID, callback: onCredential });
+    google.accounts.id.renderButton($('gBtn'), { theme: 'outline', size: 'large', text: 'signin_with' });
+  }, 100);
+  $('examSel').onchange = render;
+  $('fromDate').onchange = render;
+  $('toDate').onchange = render;
+};
+
+function onCredential(resp) {
+  idToken = resp.credential;
+  loadRows();
+}
+
+async function loadRows() {
+  $('loginErr').textContent = '';
+  try {
+    const r = await fetch(SHEET_URL, { method: 'POST', body: JSON.stringify({ action: 'adminRows', idToken }) });
+    const data = await r.json();
+    if (data.status !== 'ok') {
+      $('loginErr').textContent = data.status === 'forbidden'
+        ? '관리자 권한이 없는 계정입니다.'
+        : data.status === 'unauthorized' ? '로그인이 만료되었거나 확인할 수 없습니다. 다시 로그인하세요.'
+        : '데이터를 불러오지 못했습니다: ' + (data.message || data.status);
+      $('loginCard').hidden = false; $('dash').hidden = true;
+      return;
+    }
+    allRows = data.rows;
+    adminEmail = data.email || '';
+    $('adminWho').textContent = adminEmail;
+    $('loginCard').hidden = true; $('dash').hidden = false;
+    fillExams();
+    render();
+  } catch (e) {
+    $('loginErr').textContent = '서버에 연결하지 못했습니다.';
+  }
+}
+
+function reload() {
+  // ID 토큰은 약 1시간 후 만료된다. 실패하면 다시 로그인하도록 안내된다.
+  loadRows();
+}
+
+function fillExams() {
+  const ids = [...new Set(allRows.map(r => r.exam).filter(Boolean))].sort().reverse();
+  const prev = $('examSel').value;
+  $('examSel').innerHTML = ids.map(id => `<option value="${esc(id)}">${esc(examLabel(id))}</option>`).join('');
+  if (prev && ids.includes(prev)) $('examSel').value = prev;
+}
+
+function resetDates() { $('fromDate').value = ''; $('toDate').value = ''; render(); }
+
+async function getQuestions(examId) {
+  if (questionCache[examId]) return questionCache[examId];
+  const res = await fetch(`data/${examId}.json`);
+  if (!res.ok) throw new Error('문제 파일을 불러오지 못했습니다: ' + examId);
+  questionCache[examId] = validQuestions(await res.json());
+  return questionCache[examId];
+}
+
+async function render() {
+  const examId = $('examSel').value;
+  $('detail').hidden = true;
+  if (!examId) { $('summary').innerHTML = '<span class="muted">기록이 없습니다.</span>'; $('qBody').innerHTML = ''; return; }
+  const f = $('fromDate').value, t = $('toDate').value;
+  const from = f ? new Date(f + 'T00:00:00') : null;
+  const to   = t ? new Date(t + 'T23:59:59') : null;
+  const rows = allRows.filter(r => r.exam === examId && inRange(r, from, to));
+  let questions;
+  try { questions = await getQuestions(examId); }
+  catch (e) { $('summary').innerHTML = `<span class="err">${esc(e.message)}</span>`; $('qBody').innerHTML = ''; return; }
+
+  const agg = aggregate(rows, questions);
+  lastAgg = agg;
+  $('summary').innerHTML = `
+    <div class="stat"><div class="v">${agg.attempts}</div><div class="l">응시 수</div></div>
+    <div class="stat"><div class="v">${agg.avgRate == null ? '-' : pct(agg.avgRate)}</div><div class="l">평균 정답률</div></div>
+    <div class="stat"><div class="v">${agg.validAttempts}</div><div class="l">문항 통계에 쓰인 응시</div></div>`;
+  const excluded = agg.attempts - agg.validAttempts;
+  $('summaryNote').textContent = excluded > 0
+    ? `${excluded}건은 틀린 문항 기록이 도입되기 전의 응시라 문항별 통계에서 제외했습니다(응시 수·평균에는 포함).` : '';
+
+  $('qBody').innerHTML = agg.list.map(it => {
+    const text = (it.q.question || '').split('\n\n')[0].trim();
+    return `<tr class="q-row" data-n="${it.n}">
+      <td>${it.n}</td>
+      <td>${esc(text.length > 60 ? text.slice(0, 60) + '…' : text)}</td>
+      <td>${it.wrong}</td>
+      <td><div class="bar"><i style="width:${Math.round(it.rate * 100)}%"></i></div><span class="muted">${pct(it.rate)}</span></td>
+      <td>${it.topWrong ? `보기 ${it.topWrong.opt} (${it.topWrong.count}명)` : '-'}</td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="5" class="muted">문항이 없습니다.</td></tr>';
+  document.querySelectorAll('.q-row').forEach(tr => tr.onclick = () => showDetail(Number(tr.dataset.n)));
+}
+
+function showDetail(n) {
+  const it = lastAgg.list.find(x => x.n === n);
+  if (!it) return;
+  const q = it.q;
+  const parts = (q.question || '').split('\n\n');
+  const code = parts.slice(1).join('\n\n').trim();
+  const valid = lastAgg.validAttempts;
+  const correctIdx = q.options.findIndex(o => o.isCorrect) + 1;
+  const correctCount = Math.max(valid - it.wrong, 0);
+  const opts = q.options.map((o, i) => {
+    const no = i + 1;
+    const cnt = o.isCorrect ? correctCount : (it.selections[no] || 0);
+    const cls = o.isCorrect ? 'correct' : (it.topWrong && it.topWrong.opt === no ? 'top-wrong' : '');
+    return `<div class="opt ${cls}"><b>${no}.</b> ${esc(o.text)}
+      <div class="meta">${o.isCorrect ? '정답 · ' : ''}${cnt}명 선택${valid ? ` (${pct(cnt / valid)})` : ''}</div></div>`;
+  }).join('');
+  const d = $('detail');
+  d.hidden = false;
+  d.innerHTML = `
+    <b>${n}번</b> <span class="muted">오답 ${it.wrong}명 / ${valid}명 (${pct(it.rate)})</span>
+    <p>${esc(parts[0].trim())}</p>
+    ${code ? `<pre>${esc(code)}</pre>` : ''}
+    ${q.image ? `<img src="${q.image}" alt="문제 이미지" style="max-width:100%;border-radius:8px" />` : ''}
+    ${opts}
+    ${it.unknownSel ? `<div class="note">${it.unknownSel}건은 선택한 보기 번호 기록이 없어 분포에 포함되지 않았습니다.</div>` : ''}
+    <div class="note">정답은 ${correctIdx}번. 정답 선택 수 = 문항 통계에 쓰인 응시 수 − 오답 수.</div>`;
+  d.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>

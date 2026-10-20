@@ -1,10 +1,12 @@
 # quiz-web — 작업 가이드
 
-경희대 파이썬/응용데이터분석 기출 퀴즈 웹앱. Vercel 정적 배포(`main` 푸시 시 자동 배포). 제품 배경과 요구사항은 [PRD.md](PRD.md).
+경희대 파이썬/응용데이터분석 기출 퀴즈 웹앱. Vercel 정적 배포(`main` 푸시 시 자동 배포). 운영 주소: https://quiz-web-murex.vercel.app/ (관리자: `/admin.html`). 제품 배경과 요구사항은 [PRD.md](PRD.md).
 
 ## 구조
 - `index.html` — 앱 전부(HTML/CSS/JS 인라인). 시험 목록은 `EXAMS`(Python), `EXAMS_ADA`(응용데이터분석) 배열.
 - `data/*.json` — 시험별 문제. 파일명 = 시험 id.
+- `admin.html` — 관리자 통계 페이지(문항별 오답률). 설계는 [PRD_admin.md](PRD_admin.md). Google 로그인 토큰을 Apps Script로 보내 허용 목록 이메일만 집계용 행을 받는다. 순수 로직은 `/*LOGIC-START*/~/*LOGIC-END*/` 구간.
+- `apps-script/admin.gs` — Apps Script 코드의 참고용 사본(실제 코드는 Google 쪽). 수정하면 Apps Script에도 반영·재배포 필요.
 - `script.js` — 초기 버전의 잔재. `index.html`에서 로드하지 않음. 수정 불필요.
 - 빌드/테스트 없음. 로컬 확인은 정적 서버로 `index.html`을 열면 됨(`fetch`가 필요해서 `file://`은 불가).
 
